@@ -1,0 +1,320 @@
+#1
+A: build 2d games with phaser 3 framework. covers scene lifecycle, sprites, physics (arcade/matter), tilemaps, animations, input handling, and game architecture. trigger: "create phaser game", "add phaser scene", "phaser sprite", "phaser physics", "game development with phaser".
+B: build 2d browser games with phaser 4: webgl-first rendering, scenes, filters, lighting, shaders, dynamictexture and rendertexture, tilemaps, spritegpulayer, tilemapgpulayer, and phaser 3 to 4 migration work. trigger: phaser 4, phaser v4, migrate phaser 3 to 4, phaser webgl renderer, phaser filters, phaser render nodes, phaser spritegpulayer, phaser tilemapgpulayer.
+
+#2
+A: workflow for debugging playwright e2e test failures. use when e2e tests are failing in ci, when you need to iterate on test selectors, or when you need to verify test changes work correctly before pushing. provides step-by-step instructions for local verification.
+B: end-to-end workflow for writing, running, and verifying playwright e2e tests through ci. use this skill whenever you are writing new e2e tests, adding tests to the buildkite ci pipeline, troubleshooting ci e2e failures, monitoring buildkite build results, or need to get playwright tests passing in ci. also use when you need faster ci feedback loops by temporarily disabling unrelated pipeline steps. this skill adapts to your environment — it works for both cli agents (with docker and `bk` cli) an
+
+#3
+A: comprehensive code analysis for architecture, performance, security, and quality using pal mcp. use when reviewing codebases, assessing technical decisions, or planning improvements. triggers on analysis requests, architecture reviews, or code quality assessments.
+B: systematic code review covering quality, security, performance, and architecture using pal mcp. use for pull request reviews, code audits, or pre-commit validation. triggers on review requests, pr reviews, or code quality checks.
+
+#4
+A: work safely on eve-specific internals in the eve chat template. use when changing the eve agent, witheve routes, evechannel auth, useeveagent, clientsession/sessionstate, persisted event logs, stream/resume behavior, connection authorization, vercel connect mcp connections, local eve tools, or upstream eve api assumptions.
+B: apply dashboard-grade chat ux patterns in the eve chat template. use when changing next.js cache components/ppr behavior, static shell layout, suspense bootstrap boundaries, theme hydration, auth display hydration, signed-in/signed-out static shell behavior, optimistic messages, streaming row identity, composer/sidebar interactions, thinking/tool rendering, responsive styling, visual polish, or vercel dashboard chat comparisons.
+
+#5
+A: generates project-specific tmux verification cockpits for repos that use an av-style agent verify workflow. reads target project agents.md, setup docs, and scripts; writes .agents/verification/ with soc-style panes and tiered auto-launch. use when setting up av layouts, mission-control verify panes, or regenerating .agents/verification after stack changes.
+B: authors evidence-driven architecture backlog docs (coming-next style): scorecards, mermaid diagrams, blueprint cards sn-*, thrive vision, gantt order. use when creating or updating roadmaps, arch-design/coming-next.md, backlog after prs, or when the user wants blueprint cards, musk 5-step, or optimistic 10-year plans. pairs with ai-optimization, fusion-sage, and higher-order-decision-architect.
+
+#6
+A: cut a new polars-bio release — bump the version, finalize the changelog, run release-readiness checks, open the release pr, and draft a linkedin announcement. use this whenever the user asks to "prepare a release", "cut x.y.z", "bump the version", "do the 0.32.0 release", "release readiness", or anything about shipping a new polars-bio version. polars-bio keeps its version in three places that must stay in lockstep (cargo.toml, pyproject.toml, polars_bio/__init__.py) plus the regenerated cargo.l
+B: validate polars_bio gff/gtf predicate and projection pushdown for correctness and performance against real gencode data, using oxbow as an independent reference reader. use this whenever you touch the pushdown path — the predicate translator (predicate_translator.py), the shared helpers (pushdown.py), the scan call sites (io.py _overlap_source / the gff/gtf select() wrapper, utils.py, pileup_op.py), scan_gtf/scan_gff, or anything about predicate/projection pushdown, filter pushdown, attribute fi
+
+#7
+A: traitmech identifier policy and workflow — metpo-first by default, with a reserved `traitmech:nnnnnn` prefix for synthetic traits that aren't in metpo. covers looking up the right id, minting a fallback when needed, and validating id hygiene across the corpus.
+B: generate a robot-template metpo proposal that lifts traitmech synthetic traits, causal-graph scaffolding, and schema-side controlled vocabularies into metpo classes and predicates. use when a curator-minted `traitmech:nnnnnn` id needs a metpo home, when a causal predicate (`causaledge.predicate_id`) has no upstream iri, or when a traitmech schema enum should become first-class metpo vocabulary.
+
+#8
+A: maintainer-agent reference for implementing, reviewing, or testing music-theory functionality in software: pitch spelling, intervals, scales, modes, keys, chords, roman numerals, rhythm, meter, form, voice leading, notation, and theory-aware midi generation. use when modifying apis, examples, docs, tests, serializers, parsers, or algorithms that encode musical-theory concepts.
+B: maintainer-agent reference for implementing, reviewing, or testing composition and arrangement functionality in music software: phrase planners, chord-progressions, melody and bass generators, accompaniment patterns, form templates, orchestration, texture, style presets, example midi generators, and algorithmic composition workflows. use when adding or changing code that creates, transforms, arranges, or validates musical material.
+
+#9
+A: insert new items into the proper sections. use when the user asks to "insert items", "add items", or provides a list of skills/tools/platforms to add to the skill set.
+B: use when the user asks to "suggest items", "suggest new items for", "what's missing in", or wants candidate items for a subsection of the skill set.
+
+#10
+A: add, update, or remove news items on the gmai lab jekyll website. handles _data/news.yml with bilingual support (en/zh) and category badges. use when posting announcements about papers, awards, events, or new members.
+B: add or update publications on the gmai lab jekyll website. handles _data/publications.yml, teaser images, bibtex, and optional news items. use when adding a new paper, updating metadata, or fixing publication entries.
+
+#11
+A: multi-agent orchestration patterns. use when multiple independent tasks can run with different domain expertise or when comprehensive analysis requires multiple perspectives.
+B: ai operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). use to adapt behavior based on task type.
+
+#12
+A: update an existing docs/plans/<new-feature>/tracker.md during implementation, including root and foundation engine submodule progress, validation, commits, pushes, submodule pointer state, handoff notes, postponements, review findings, and completion state.
+B: create a feature plan and tracker under docs/plans/<new-feature>/ before implementation starts, including root and foundation engine submodule branch tracking, research, validation expectations, and model handoff details.
+
+#13
+A: hard-look review as wasi-http-reviewer: every corpus-licensed concern
+B: review a pending diff as wasi-http-reviewer
+
+#14
+A: shepherd an existing pr through ci and review feedback, then mark ready for review when clean. uses inline-first review handling; pr creation belongs to pr-assistant.
+B: review local staged plus unstaged tracked-file changes before commit. use when the user invokes $pre-commit-review, asks for a pre-commit review, asks to review local changes before commit, or wants a local working-tree review before a pr exists.
+
+#15
+A: guia para integração com apis externas usando refit — type-safe, resilience patterns, http/3 e tratamento de erros. use quando a tarefa envolver apis externas, httpclient, refit, consumir apis ou integração com serviços externos.
+B: guia para segurança — autenticação, autorização, secrets management, rate limiting, cors, security headers e proteção de apis. use quando a tarefa envolver segurança, autenticação, jwt, secrets, proteção ou vulnerabilidades.
+
+#16
+A: build and distribute expo development clients locally or via testflight
+B: deploying expo apps to ios app store, android play store, web hosting, and api routes
+
+#17
+A: execute the next vtrace wave pulse with docs, skills, validation, and commit-ready updates.
+B: start or review vtrace development waves and pulse plans.
+
+#18
+A: interactive root cause analysis enforcer. guides you through the 7-step rca protocol: reproduce, locate, hypothesis, failing test, fix, verify live, document. use when debugging a bug, investigating a failure, or when something unexpected happened. this skill gates each step — it won't let you skip to a fix without stating a hypothesis first. triggers on: 'something is broken', 'debug this', 'why is this failing', 'rca', 'root cause', or /hk-rca.
+B: interactive root cause analysis enforcer. guides you through the 7-step rca protocol: reproduce, locate, hypothesis, failing test, fix, verify live, document. use when debugging a bug, investigating a failure, or when something unexpected happened. this skill gates each step — it won't let you skip to a fix without stating a hypothesis first. triggers on: 'something is broken', 'debug this', 'why is this failing', 'rca', 'root cause', or /dk-rca.
+
+#19
+A: mandatory i18n skill for the seene project. must be invoked before any ui/markup/component work that involves visible text — labels, titles, descriptions, buttons, placeholders, aria-labels, alt text, navigation items, error messages, or any human-readable string. this includes: writing new vue components, editing existing templates, adding props with text values, building pages, modifying layouts. even if the user just says "add a button" or "update the title" — invoke this skill. the project u
+B: mandatory skill for any ui work in this project — markup, layout, components, styling, pages, forms, modals, navigation, or any visual element. trigger on: "добавь кнопку", "сделай форму", "верстка", "layout", "компонент", "страница", "карточка", "модал", "хедер", "футер", "навигация", "стили", "секция", "grid", "flex", "ui", "дизайн", "разметка", anything involving vue templates or tailwind classes. before writing a single line of template code, this skill must run. it will look up what nuxt ui
+
+#20
+A: ทดสอบระบบ frontend. use when writing unit tests, component tests, integration tests, e2e tests, testing react hooks, testing api integration, testing forms, or setting up test infrastructure. covers vitest, react testing library, and playwright.
+B: เชื่อมต่อ api กับ react frontend. use when connecting rest apis, creating service layers, generating typescript types from api specs, setting up axios interceptors, building custom hooks for data fetching, or working with postman collections. covers crud operations, authentication, error handling, and pagination.
+
+#21
+A: validate that assessment findings cover rulebook source technologies and patterns
+B: validate rulebook compliance by mapping rulebook rules to plan tasks
+
+#22
+A: prコメントやセッション発見を分析し、claude.md・skills・agents・memoryに学びを自動反映する振り返りスキル。セッション終了時やprレビュー後に使う。
+B: 複数の独立prをチーム×worktreeで並列作成する。タスク一覧を受け取り、worktree準備→チーム組成→エージェント起動→ci確認→クリーンアップまで一気に実行する。
+
+#23
+A: engineering principles and build discipline. use when writing new features, planning implementations, choosing libraries, or writing tests. auto-triggers on feature work, test creation, and architectural decisions.
+B: pre-deployment validation — checks types, lint, tests, uncommitted changes, and migration status. use before deploying to any environment. auto-triggers when user mentions deploying or pushing to cloud.
+
+#24
+A: conduct a structured candidate interview then draft targeted cv.md and cover.md application documents for a specific role. also handles revision mode after reviewer feedback or user edits. invoke this skill whenever drafting or revising cv/cover letter content — it owns the interview → draft → revise loop. do not write application documents without invoking this skill first. triggers on: draft cv, write cover letter, draft application, tailor cv, start drafting, write my application, revise base
+B: convert cv.md and cover.md to latex files and compile to pdf. invoke this skill whenever the user asks to render, compile, or export the application to pdf. do not write latex by hand — always use this skill. triggers on: render to pdf, compile, export pdf, generate latex, make pdf, create pdf, render application.
+
+#25
+A: build container-based foundry agents with azure ai projects sdk (imagebasedhostedagentdefinition). use when creating hosted agents with custom container images in azure ai foundry.
+B: build hosted agents using azure ai projects sdk with imagebasedhostedagentdefinition. use when creating container-based agents in azure ai foundry.
+
+#26
+A: prマージ後にブランチを整理し、一時ファイルを削除する（resolve-issue phase 5）
+B: 実装計画に基づきコードを変更し、全チェックが通るまでループする（resolve-issue phase 2）
+
+#27
+A: use this skill for laravel wayfinder which auto-generates typed functions for laravel controllers and routes. always use this skill when frontend code needs to call backend routes or controller actions. trigger when: connecting any react/vue/svelte/inertia frontend to laravel controllers, routes, building end-to-end features with both frontend and backend, wiring up forms or links to backend endpoints, fixing route-related typescript errors, importing from @/actions or @/routes, or running wayfi
+B: use this skill for pest php testing in laravel projects only. trigger whenever any test is being written, edited, fixed, or refactored — including fixing tests that broke after a code change, adding assertions, converting phpunit to pest, adding datasets, and tdd workflows. always activate when the user asks how to write something in pest, mentions test files or directories (tests/feature, tests/unit, tests/browser), or needs browser testing, smoke testing multiple pages for js errors, or archit
+
+#28
+A: help users understand, write, and debug goblinscript formulas, or expose new fields to goblinscript from lua. use when the user mentions goblinscript, creature formulas, damage formulas, target filters, ability costs, prerequisite expressions, custom attributes, registergoblinscriptfield, registersymbol, evalgoblinscript, executegoblinscript, or the character inspector panel. also trigger when the user asks "how do i make a formula for...", "how does the damage calculation work", "what symbols c
+B: build, edit, or debug activatedability objects for monsters, heroes, or items. use when asked to "create an ability", "add a strike", "implement a monster ability", "build an activated ability", or work with ability behaviors.
+
+#29
+A: initializes a new convex project from scratch or adds convex to an existing app. use this skill when starting a new project with convex, scaffolding with npm create convex@latest, adding convex to an existing react, next.js, vue, svelte, or other frontend, wiring up convexprovider, configuring environment variables for the deployment url, or running npx convex dev for the first time, even if the user just says "set up convex" or "add a backend."
+B: designs and builds convex components with isolated tables, clear boundaries, and app-facing wrappers. use this skill when creating a new convex component, extracting reusable backend logic into a component, building a third-party integration that owns its own tables, packaging convex functionality for reuse, or when the user mentions definecomponent, app.use, componentapi, ctx.runquery/runmutation across component boundaries, or wants to separate concerns into isolated convex modules.
+
+#30
+A: health-check the literature vault — find cross-source contradictions, orphan pages (a summary with no matching references.bib key, or a .bib key with no summary), broken [[wikilinks]], claims missing locators, metadata-only pages never upgraded, stale entries, and quotes without page numbers. read-only/advisory — reports a categorized findings list with fixes; never edits sources or auto-rewrites the vault.
+B: ingest one raw source (a sources/ pdf or .txt path, or pasted text) into the literature vault — read it, write a vault/summaries/<bibkey>.md annotated page with claims+locators and verbatim quotes, propose a references.bib entry extracted from the document (never fabricated), cross-reference concepts/entities, and update index + log. never modifies sources/; flags uncertain metadata as [value — verify].
+
+#31
+A: build python web apps with flask using application factory pattern, blueprints, and flask-sqlalchemy. prevents 9 documented errors including stream_with_context teardown issues, async/gevent conflicts, and csrf cache problems. use when: creating flask projects, organizing blueprints, or troubleshooting circular imports, context errors, registration, streaming, or authentication.
+B: use this skill whenever building a flask app with a database, defining models, or performing crud operations. trigger immediately when the user mentions flask, sqlalchemy, a database with python, creating a new project, data models, or reading/writing/updating/deleting records. never write flask+sqlalchemy code without reading this skill first.
+
+#32
+A: use when designing small ui feedback moments like button states, toggles, form validation, loading indicators, or notification badges.
+B: ui/ux design intelligence. plan, build, design, implement, review, improve ui/ux code. styles: image-first, editorial design, minimalism, dark mode, responsive. projects: landing page, dashboard, saas, mobile app.
+
+#33
+A: proactively investigates issues across the codebase. traces data flow, identifies root causes, and documents findings with evidence.
+B: comprehensive code quality review using framework best practices and project standards. proactively identifies security, performance, architecture, and quality issues with evidence-based findings and actionable solutions.
+
+#34
+A: runs parallel external agent reviews (codex + gemini) on story/tasks. process-as-arrive, critical verification with debate. returns filtered suggestions.
+B: runs parallel external agent reviews (codex + gemini) on code changes. process-as-arrive, critical verification with debate. returns filtered suggestions.
+
+#35
+A: 世界历史查询。当用户询问历史事件、历史人物、朝代、战争、文明、帝国、 历史年代、古代/近代/现代史、历史背景或"xx是什么时候发生的"时自动激活。
+B: 每日新闻、财经早报、政治新闻、世界杯新闻、科技 ai 新闻、github 热门仓库、 claude code 技巧与 codex 新功能。当用户说“每日新闻 / 新闻早报 / 财经新闻 / 政治新闻 / 世界杯新闻 / 科技 ai 新闻 / claude code 技巧 / codex 新功能”时自动激活。
+
+#36
+A: add moments of joy, personality, and unexpected touches that make interfaces memorable and enjoyable to use. elevates functional to delightful. use when the user asks to add polish, personality, animations, micro-interactions, delight, or make an interface feel fun or memorable.
+B: review a feature and enhance it with purposeful animations, micro-interactions, and motion effects that improve usability and delight. use when the user mentions adding animation, transitions, micro-interactions, motion design, hover effects, or making the ui feel more alive.
+
+#37
+A: 教學導向的 prd 產生器。透過結構化問答協助學生從 0 到 1 產出可落地的 prd，供後續製作 storybook mockup，並作為前後端溝通文件。適用於沒有既有前端/後端程式碼可參照的專案。
+B: 以資深 pm 角色運作，將既有或新建 prd 轉為可直接交棒給前端的畫面實作規格。必須先以問答方式補齊畫面落地缺口（資訊架構、流程、狀態、互動、文案、邊界），再輸出分離文件 prd 與 mockups spec，並附可交給 ui/ux agent 的結構化交棒摘要。use when the user asks to convert prd into frontend-ready ui specs, create/refine mockup specs, storybook stories, ui state matrices, or frontend-backend aligned product docs.
+
+#38
+A: 运行和分析项目质量检查（linting, 类型检查, 测试）。
+B: 编写、运行和优化项目测试用例（vitest）。
+
+#39
+A: review a pr on osis (java 17 / spring boot control-plane adapter that bridges vmware cloud director ose and scality ring via vault, s3, and utapi)
+B: spin up, refresh, tear down, or troubleshoot a vmware cloud director + object storage extension lab on aws ec2 for osis development. the lab brings up vcd + ose on rocky 9 and wires them against externally-running osis/vault/s3 (typically the engineer's local services, exposed via ngrok). use when the user says "spin up vcd lab", "create ose lab", "refresh ose endpoints", "tear down vcd lab", "vcd lab status", "ssh to vcd lab", or describes a problem with the running lab.
+
+#40
+A: monitor system health, detect errors, implement recovery procedures, restart failed processes, maintain audit logs. use for system health checks, error recovery, process monitoring, or when user mentions "system status", "errors", "logs".
+B: manage human-in-the-loop approval workflow for sensitive actions like payments, email sending, social media posts, and file operations. creates structured approval requests, monitors approval status in /approved and /rejected folders, executes approved actions safely, and maintains complete audit logs. use when any action requires approval, user mentions "check approvals", "pending approval", "approve this", "what needs approval", or before executing sensitive operations like payments, emails, o
+
+#41
+A: configure cursor's built-in worktree setup and cleanup for parallel agents. use when the user wants to customize worktree setup (deps, .env), adjust cleanup limits, inspect worktrees, or mentions worktree or parallel agents.
+B: guides users through creating effective agent skills for cursor. use when the user wants to create, write, or author a new skill, or asks about skill structure, best practices, or skill.md format.
+
+#42
+A: preserve ratchet context across claude code compaction.
+B: decide claude vs codex routing using task kind, manual override, and ccusage data.
+
+#43
+A: guides the agent through upgrading a capacitor app from v7 to v8. use when the project is on capacitor 7 and needs the v8 migration path. do not use for other major versions, plugin-only upgrades, or non-capacitor apps.
+B: guides the agent through upgrading a capacitor plugin from v7 to v8. use when the plugin targets capacitor 7 and needs the v8 migration path. do not use for app upgrades, other major versions, or non-capacitor plugins.
+
+#44
+A: finds state inconsistency bugs where an operation mutates one piece of coupled state without updating its dependent counterpart, causing silent data corruption or reverts in subsequent operations. triggers on /state-audit, state inconsistency audit, or coupled state audit.
+B: the inescapable auditor. runs the full feynman auditor (stage 1) and full state inconsistency auditor (stage 2) as primary steps, then fuses their outputs in a feedback loop (stage 3) to find bugs at the intersection that neither alone would catch. language-agnostic. triggers on /nemesis or nemesis audit.
+
+#45
+A: enforce vamsa's design system - professional, minimalistic, and organic. use this skill when building ui in the vamsa app. see tokens.md for design values and patterns.md for component patterns.
+B: write meaningful tests for vamsa using vitest (unit) and playwright (e2e). use this skill when creating or modifying tests. see unit-recipes.md and e2e-recipes.md for domain-specific patterns.
+
+#46
+A: translation agent for ua/en bilingual content. handles ui labels, help text, error messages, docs, and agent/system prompts. finds translatable elements, detects supported languages, translates by context, maintains term consistency. triggers on: "translate", "translation", "i18n", "missing translations", "mirror docs", "sync languages".
+B: convert a website or page with related links into a local collection of markdown files with an index. follows project docs conventions (ua/en bilingual structure). uses webfetch — no external dependencies. triggers on: "web to docs", "website to markdown", "save docs locally", "convert site", "download docs", "fetch docs", "scrape to markdown".
+
+#47
+A: databasemigrasjonsmønstre med flyway og versjonerte sql-skript
+B: sealed class-konfigurasjon for kotlin-applikasjoner med miljøspesifikke innstillinger
+
+#48
+A: understand and fix static web assets pack tests. use for: fixing pack test assertion failures after nupkg content changes, tracing msbuild conditions to expected nupkg content, updating test assertions for new or changed package layouts, understanding conditional pack logic in .targets files.
+B: regenerate static web assets test baselines. use for: fixing "generated manifest should match the expected baseline" errors, updating baseline json files after legitimate build output changes, understanding the baseline comparison system.
+
+#49
+A: 体験品質（動き/触感/視線誘導）を「実装可能な制約」に落とし、アクセシビリティとパフォーマンスを犠牲にせずに表現を実現する。uiの表現・アニメーション・インタラクション設計/実装の相談で使う。
+B: uiを「情報設計（優先度/構造）＋インタラクション（状態遷移）＋ビジュアル（トーン）」として設計し、実装可能な仕様へ落とす。見た目だけでなく、ルール化（コンポーネント/トークン）に寄せる。
+
+#50
+A: plans, creates, and validates bmad modules. use when the user requests to 'ideate module', 'plan a module', 'create module', 'build a module', or 'validate module'.
+B: sets up bmad builder module in a project. use when the user requests to 'install bmb module', 'configure bmad builder', or 'setup bmad builder'.
+
+#51
+A: use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
+B: use when executing implementation plans with independent tasks in the current session
+
+#52
+A: work with github via the gh cli: manage pull requests, issues, releases, repositories, actions workflows, and make raw api calls. use when the user needs to create prs, review issues, trigger workflows, query the github api, or do any github operation from the command line.
+B: release a version in this repository with forgekit. use when you need to bump chart, container, or binary versions, create the release commit, tag the app with <app-name>-v<semver>, and verify the tag-driven github actions release workflows.
+
+#53
+A: use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. this includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx or .potx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates (.potx), layouts, speaker notes, or comments. trigger whenever the u
+B: use this skill whenever the user wants to create, read, edit, or manipulate word documents (.docx files) or word templates (.dotx files). triggers include: any mention of 'word doc', 'word document', '.docx', '.dotx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. also use when extracting or reorganizing content from .docx or .dotx files, inserting or replacing images in documents, performing find-and-replace in word
+
+#54
+A: build harbor release, tag and publish to github releases, install to /applications, and relaunch. use when the user wants to ship a new version to end users so the auto-updater picks it up.
+B: build harbor release locally and install to /applications without publishing. use when the user wants to try the latest build on their own machine but not push it to users.
+
+#55
+A: use when building html email templates with react components, adding a visual email editor to an application using the react email visual editor, rendering emails to html, or sending emails with resend. covers welcome emails, password resets, notifications, order confirmations, newsletters, transactional emails, and the embeddable email editor component.
+B: use when building email features, emails going to spam, high bounce rates, setting up spf/dkim/dmarc authentication, implementing email capture, ensuring compliance (can-spam, gdpr, casl), handling webhooks, retry logic, making emails accessible (alt text, headings, contrast, screen readers), or deciding transactional vs marketing.
+
+#56
+A: cloudwatch logsとgithub prの調査結果を統合して障害レポートを生成する
+B: amazon cloudwatch logs（logs insights）でログを検索・集計し、エラーや障害の兆候を調査する。 cloudwatch、ログ、insights、ロググループ、lambda のログ、api gateway のログ、5xx、タイムアウト、 スタックトレース、障害調査、本番のエラー確認などでは、このスキルに沿って aws cli で調査する。 メトリクスだけでなく、期間を切ったエラー抽出、件数推移、ストリーム偏りまで含めたログ調査に使う。
+
+#57
+A: execute git commit with conventional commit message analysis, intelligent staging, and message generation. use when user asks to commit changes, create a git commit, or mentions "/commit". supports: (1) auto-detecting type and scope from changes, (2) generating conventional commit messages from diff, (3) interactive commit with optional type/scope/description overrides, (4) intelligent file staging for logical grouping
+B: review and merge dependabot pull requests. lists all open dependabot prs, verifies ci status and changes, runs local tests via git worktree, recommends merge, and auto-merges if all checks pass. handles all prs in a single run. triggers on "sjekk pr", "check pr", "dependabot pr", "merge dependabot".
+
+#58
+A: wire alchemy into application code (server, backend, dapp, script) using a standard api key. preferred app-integration path for normal server/backend usage. covers evm json-rpc, token api, nft api, transfers api, prices api, portfolio api, simulation, webhooks, solana rpc, solana das, solana yellowstone grpc, sui grpc, wallets/account kit, and operational topics. requires `$alchemy_api_key`. for live agent work in this session (querying, admin, local automation), use `alchemy-cli` (preferred) or
+B: wire alchemy into application code without an api key, using the x402 or mpp gateway with wallet-based auth (siwe/siws) and per-request payments (usdc via x402, or usdc/credit-card via mpp). specialized app-integration path. use when the user is building application code and no api key is available, or they're an autonomous agent that needs to pay for itself, or they explicitly want x402/mpp. for normal app code with an api key, use `alchemy-api`. for live agent work in this session (querying, a
+
+#59
+A: generate and track compliance matrices for rfp requirements. use when building requirements tracking features, implementing compliance checklists, or ensuring proposal coverage.
+B: generate 1-page pursuit briefs for qualified rfp opportunities. use when creating bid/no-bid decision documents or implementing pursuit brief generation features.
+
+#60
+A: break duel の cpu（challenger / beginner）を改善・強化・修正するための専用ワークフロー。「cpuを強くして」「最強cpuを更新して」「cpuの悪手を直して」「beginnerの難易度を調整して」「fair-genの次世代を作って」「ビーム/評価関数/カウンティングを改善して」のような依頼が来たら必ずこのスキルを使うこと。カード・デッキ・ルール側の変更が主目的なら ai-break-duel-balance-tuning を使う（cpu改善の副作用でゲーム側の修正が必要になった場合もそちらに切り替える）。
+B: ai-break-duel（break duel）のバランス調整を、検証つきで最初から最後まで実行するワークフロー。カード効果・デッキ構成・ルール数値・cpu（aiプロファイル）の強化/弱体化/調整、勝率やゲームバランスの検証、リーグ戦シミュレーション、盛り上がり（試合展開）の分析、バランス変更の採用判断と記録を頼まれたら必ずこのスキルを使うこと。「〜が強すぎる/弱すぎる」「ナーフして」「勝率を調べて」「バランスを見て」「デッキを調整して」「cpuを強くして」のような曖昧な依頼でも、ai-break-duel リポジトリでの作業ならこのスキルの対象。
+
+#61
+A: captures executable contracts and coding conventions into .trellis/spec/ documents. use when learning something valuable from debugging, implementing, or discussion that should be preserved for future sessions.
+B: discovers and injects project-specific coding guidelines from .trellis/spec/ before implementation begins. reads spec indexes, pre-development checklists, and shared thinking guides for the target package. use when starting a new coding task, before writing any code, switching to a different package, or needing to refresh project conventions and standards.
+
+#62
+A: product requirements document creation and feature specification writing. use when writing prds, technical specs, feature documentation, or requirements. triggers on "prd", "product requirements", "feature spec", "technical requirements", "functional spec".
+B: user story, epic, and task creation with acceptance criteria. use when breaking down requirements into user stories, creating epics, writing acceptance criteria, or planning sprints. triggers on "user story", "epic", "acceptance criteria", "sprint planning", "story points".
+
+#63
+A: generate pr title, body, and labels from commits since the base branch, then create the pr on github. handles base branch detection, label selection, and pr creation end-to-end.
+B: create git commits by splitting changes into logical units following project conventions. handles git flow automatically — detects develop branch and checks out a feature branch before committing.
+
+#64
+A: runs and interprets n.e.o. verification commands from the repo root (npm ci, npm run lint as tsc --noemit, npm run build as vite production build) and lists manual auth, task, chat, and protected-ai checks. use after non-trivial changes, before claiming work is done, or when the user asks whether the project is healthy.
+B: reviews or edits server.ts for n.e.o.: supabase jwt verification via service role client, express-rate-limit on /api/ai, gemini model/modality/thinking and media allowlists, json body size limits, and fail-closed validation. use when changing ai routes, auth middleware, env usage, or request parsing on the server.
+
+#65
+A: nuclear-grade 16-agent pre-publish release gate. runs /get-unpublished-changes to detect all changes since last npm release, spawns up to 10 ultrabrain agents for deep per-change analysis, invokes /review-work (5 agents) for holistic review, and 1 oracle for overall release synthesis. use before every npm publish. triggers: 'pre-publish review', 'review before publish', 'release review', 'pre-release review', 'ready to publish?', 'can i publish?', 'pre-publish', 'safe to publish', 'publishing re
+B: read-only github triage for issues and prs. 1 item = 1 background task (category: quick). analyzes all open items and writes evidence-backed reports to /tmp/{datetime}/. every claim requires a github permalink as proof. never takes any action on github - no comments, no merges, no closes, no labels. reports only. triggers: 'triage', 'triage issues', 'triage prs', 'github triage'.
+
+#66
+A: react composition patterns that scale. use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable apis. triggers on tasks involving compound components, render props, context providers, or component architecture. includes react 19 api changes.
+B: react and next.js performance optimization guidelines from vercel engineering. this skill should be used when writing, reviewing, or refactoring react/next.js code to ensure optimal performance patterns. triggers on tasks involving react components, next.js pages, data fetching, bundle optimization, or performance improvements.
+
+#67
+A: discovers and injects project-specific coding guidelines from .trellis/spec/ before implementation begins. reads spec indexes, pre-development checklists, and shared thinking guides for the target package. use when starting a new coding task, before writing any code, switching to a different package, or needing to refresh project conventions and standards.
+B: understand and customize the local trellis architecture inside a user project. use when modifying .trellis plus platform hooks, settings, agents, skills, commands, prompts, workflows, the channel runtime (trellis channel), bundled runtime agents under .trellis/agents/, selectable workflow templates, registry-backed spec refresh, cross-session memory (trellis mem) generated by trellis init, or ai-facing bundled skills (trellis-channel, trellis-session-insight, trellis-spec-bootstrap) and bundled-
+
+#68
+A: improve interface resilience through better error handling, i18n support, text overflow handling, and edge case management. makes interfaces robust and production-ready.
+B: improve unclear ux copy, error messages, microcopy, labels, and instructions. makes interfaces easier to understand and use.
+
+#69
+A: expert javascript/typescript development with node.js, deno, bun, express, nestjs, next.js, pure js animations, dom manipulation, gsap, anime.js, three.js, particles.js, and modern tooling
+B: expert angular development with typescript, rxjs, ngrx, signals, standalone components, vuetify, animation engines (gsap, angular animations), css frameworks (tailwind, bootstrap, bulma), landing pages, and enterprise patterns
+
+#70
+A: this skill should be used when the user asks to "start a playtest", "run a game", "test game rules", "launch multi-agent game simulation", or wants to initialize a game. initializes and runs games with coordinated multi-agent architecture using typescript engine orchestration.
+B: interactive manual playtest for step-by-step game testing. use when the user wants to "manually test a game", "step through a game", "debug game mechanics", "play interactively", or wants direct control over player actions without autonomous agents.
+
+#71
+A: load this skill when writing, reviewing, or editing gherkin .feature files for the appget platform. contains the complete dsl reference: tags (@domain, @target, @rule, @blocking, @view), operator phrases, simple and compound conditions, metadata requirements, outcomes, non-comparable types, field validation rules, and common mistakes. essential for any work on features/*.feature files.
+B: load this skill when writing or reviewing gherkin .feature files, discussing cucumber syntax, or structuring behavior scenarios. covers the complete gherkin specification (feature, scenario, scenario outline, background, rule), step keywords (given/when/then/and/but), data tables, examples, tags, doc strings, comments, and anti-patterns. applies to any gherkin work, not just appget.
+
+#72
+A: use when executing implementation plans with independent tasks in the current session
+B: use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
+
+#73
+A: switch harness workflow mode (full/hotfix/tweak) and development phase (design/build/fix). use when the user wants to change the current working mode or phase.
+B: initialize this project with the harness engineering starter template. detects project language, installs dependencies, and updates claude.md placeholders. use when the user wants to set up or reset the harness configuration.
+
+#74
+A: quick-reference card for all caveman modes, skills, and commands. one-shot display, not a persistent mode. trigger: /caveman-help, "caveman help", "what caveman commands", "how do i use caveman".
+B: decision guide for delegating to caveman-style subagents. tells the main thread when to spawn `cavecrew-investigator` (locate code), `cavecrew-builder` (1-2 file edit), or `cavecrew-reviewer` (diff review) instead of doing the work inline or using vanilla `explore`. subagent output is caveman-compressed so the tool-result injected back into main context is ~60% smaller — main context lasts longer across long sessions. trigger: "delegate to subagent", "use cavecrew", "spawn investigator/builder/r
+
+#75
+A: manages the full git commit lifecycle — branches, pre-commit hooks, change grouping, conventional messages. use when asked to 'commit' or 'save changes'. never commits to main.
+B: initializes and manages pre-commit hooks for monorepos. use when setting up pre-commit hooks, adding linting/formatting to git workflow, or managing .pre-commit-config.yaml.
+
+#76
+A: manage development sessions with spec/plan/build workflow. use when starting new features, defining requirements, planning implementations, or tracking development cycles. provides structured session management with state tracking.
+B: three-layer documentation framework (foundation, system design, implementation) for maintaining structured, navigable documentation. use when reading docs/ to understand the codebase, or when writing/maintaining documentation.
+
+#77
+A: run and report on a sprint — fire its waves to completion, check state, close it out. a sprint is a dependency-ordered batch of github issues planned by the `sprint-plan` skill and tagged `sprint-n`. use when the user says "fire sprint-n", "run sprint-n overnight", "what's the state of sprint-n", "close sprint-n", or "we're on sprint-n". to plan a sprint (decompose + dag), use `sprint-plan` instead — this skill executes a plan that already exists.
+B: plan one sprint as a dependency-ordered wave dag so the fleet can run it to completion unattended (overnight). decomposes a goal into 20-30 right-sized github issues, assigns file ownership, builds the dependency graph, topologically sorts it into parallel waves, renders the dag (mermaid + html) for human review, and on approval creates the issues + writes promise.md. use when the user says "plan a sprint", "plan sprint-n", "let's build the next sprint", or wants to scope a big batch of autonomo
+
+#78
+A: validates ai coding assistant customization files (agents, skills, prompts, instructions) for correct format and structure. works with github copilot, claude code, codex, opencode, and other providers. use when checking if agent files are properly configured, troubleshooting agent issues, or before committing new customization files.
+B: contains the complete specifications for ai coding assistant customization files including agents, skills, prompts, and instructions. works with github copilot, claude code, codex, opencode, and other providers. use this skill when you need to reference the correct file format, required fields, supported attributes, file locations, or vs code settings for any customization file. follows the agent skills open standard (agentskills.io).
+
+#79
+A: composed arcanum spell: repository-harness.
+B: composed arcanum spell: discovery-to-inventory.
+
+#80
+A: this skill should be used when the user wants to "deploy an agent", "deploy my adk agent", "set up ci/cd", "configure secrets", "troubleshoot a deployment", or needs guidance on agent runtime, cloud run, or gke deployment targets. covers deployment workflows, service accounts, rollback, and production infrastructure. part of the google adk (agent development kit) skills suite. do not use for api code patterns (use google-agents-cli-adk-code), evaluation (use google-agents-cli-eval), or project s
+B: this skill should be used when the user wants to "create an agent project", "start a new adk project", "build me a new agent", "add ci/cd to my project", "add deployment", "enhance my project", or "upgrade my project". part of the google adk (agent development kit) skills suite. covers `agents-cli scaffold create`, `scaffold enhance`, and `scaffold upgrade` commands, template options, deployment targets, and the prototype-first workflow. do not use for writing agent code (use google-agents-cli-a
+

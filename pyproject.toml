@@ -1,0 +1,22 @@
+[project]
+name = "gitskills-msr2027"
+version = "0.1.0"
+description = "Conflicting and competing agent skills in the GitSkills dataset (MSR 2027 Mining Challenge)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "duckdb>=1.1",
+    "pandas>=2.2",
+    "numpy>=2.0",
+    "pyarrow>=17",
+    "onnxruntime>=1.18",
+    "tokenizers>=0.19",
+    "huggingface-hub>=0.24",
+]
+
+[dependency-groups]
+dev = ["ruff>=0.6"]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["pilot"]  # pilot scripts are kept exactly as they ran

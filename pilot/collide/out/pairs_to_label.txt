@@ -1,0 +1,1200 @@
+#1
+A: ai agent specialized in backend development, api integration, database management, authentication logic, and server-side functionality for the navkar siddhi web app. handles typescript/javascript backend code, rest apis, data processing, and business logic implementation.
+B: ai agent for quality assurance and testing. handles unit testing, integration testing, bug identification, test case generation, code review for quality issues, error handling verification, and ensuring app stability for the navkar siddhi spiritual web application.
+
+#2
+A: agent skill for v3-performance-engineer - invoke with $agent-v3-performance-engineer
+B: agent skill for performance-optimizer - invoke with $agent-performance-optimizer
+
+#3
+A: designer's eye plan review — interactive, like ceo and eng review. rates each design dimension 0-10, explains what would make it a 10, then fixes the plan to get there. works in plan mode. for live site visual audits, use /design-review. use when asked to "review the design plan" or "design critique". proactively suggest when the user has a plan with ui/ux components that should be reviewed before implementation. (gstack)
+B: designer's eye qa: finds visual inconsistency, spacing issues, hierarchy problems, ai slop patterns, and slow interactions — then fixes them. iteratively fixes issues in source code, committing each fix atomically and re-verifying with before/after screenshots. for plan-mode design review (before implementation), use /plan-design-review. use when asked to "audit the design", "visual qa", "check if it looks good", or "design polish". proactively suggest when the user mentions visual inconsistenci
+
+#4
+A: list messages in the dead letter queue. requires authentication. use for agentuity cloud platform operations
+B: negative acknowledge a message (return to queue for retry). requires authentication. use for agentuity cloud platform operations
+
+#5
+A: guides the agent through upgrading a capacitor app from v5 to v6. use when the project is on capacitor 5 and needs the v6 migration path. do not use for other major versions, plugin-only upgrades, or non-capacitor apps.
+B: guides the agent through upgrading a capacitor plugin from v6 to v7. use when the plugin targets capacitor 6 and needs the v7 migration path. do not use for app upgrades, other major versions, or non-capacitor plugins.
+
+#6
+A: agent skill for performance-optimizer - invoke with $agent-performance-optimizer
+B: agent skill for matrix-optimizer - invoke with $agent-matrix-optimizer
+
+#7
+A: view cercano usage statistics and cloud token savings. shows total requests, tokens processed locally, cloud tokens reported by the host, percentage kept local, and breakdowns by tool, model, and day.
+B: submit cloud token usage data to cercano (opt-in). this sends data, not a report — use cercano_stats to view usage. helps track cloud tokens alongside local inference for accurate local-vs-cloud comparison.
+
+#8
+A: work an expansion-ready account into an angle and a clean hand to sales — the second growth motion the funnel forgets. trigger when account-health flags an expansion-signal, when a healthy account asks for more unprompted, a second team wants access, or the user says "this account is ready to grow", "expansion play", "upsell", or "land and expand".
+B: score a customer's health, start the renewal motion, and flag churn or expansion early. trigger when the user asks "how's this account doing", "health check", "are we at risk of churn", "is this account ready to expand", or before a renewal or qbr.
+
+#9
+A: agent skill for v3-security-architect - invoke with $agent-v3-security-architect
+B: agent skill for v3-integration-architect - invoke with $agent-v3-integration-architect
+
+#10
+A: sync linked issue status for after_specify hook.
+B: sync linked issue status for before_specify hook.
+
+#11
+A: agent skill for performance-monitor - invoke with $agent-performance-monitor
+B: agent skill for v3-performance-engineer - invoke with $agent-v3-performance-engineer
+
+#12
+A: 分析运动数据、识别运动模式、评估健身进展，并提供个性化训练建议。支持与慢性病数据的关联分析。
+B: 分析睡眠数据、识别睡眠模式、评估睡眠质量，并提供个性化睡眠改善建议。支持与其他健康数据的关联分析。
+
+#13
+A: guides the agent through installing, configuring, and using capacitor plugins from six sources — official capacitor plugins, capawesome plugins, capacitor community plugins, capacitor firebase plugins, capacitor mlkit plugins, and revenuecat plugins. covers installation, platform-specific configuration (android and ios), and basic usage examples. do not use for migrating capacitor apps or plugins to a newer version, setting up capacitor live updates, or non-capacitor mobile frameworks.
+B: guides the agent through creating a new capacitor app from scratch. covers project scaffolding with the capacitor cli, configuring the app (appid, appname, webdir), adding native platforms (ios, android), and syncing. includes decision points for ionic framework integration, live updates, and ci/cd setup. do not use for upgrading existing capacitor apps, migrating from other frameworks, or plugin installation.
+
+#14
+A: autopilot orchestrator who runs target bmad workflows unattended, delegates to workers, and answers hitl questions per a policy file. use when the user asks to talk to otto, says "run x on autopilot", or invokes /bmad-bmp-agent-otto.
+B: hand a target bmad workflow to otto for unattended execution. otto plans, delegates to workers, answers hitl questions per a policy file, and pauses cleanly when confidence dips below floor or category is in always_pause. use when the user says "run x on autopilot", "do this unattended", or invokes /bmad-bmp-autopilot.
+
+#15
+A: implementa un feature completo en el frontend. requiere spec con status approved en .github/specs/.
+B: implementa un feature completo en el backend. requiere spec con status approved en .github/specs/.
+
+#16
+A: elite frontend image-direction skill for generating premium, conversion-aware website design references. critical output rule — generate one separate horizontal image for every section. a landing page with 8 sections produces 8 images. never compress multiple sections into one image. enforces composition variety (not always left-text / right-image), background-image freedom, varied ctas, varied hero scales (giant / mid / mini minimalist), narrative concept spine, second-read moments, and a singl
+B: elite website image-to-code skill for codex. for visually important web tasks, it must first generate the design image(s) itself, deeply analyze them, then implement the website to match them as closely as possible. in codex, it must prefer large, readable, section-specific images instead of tiny compressed boards, generate fresh standalone images for sections or detail views instead of cropping old ones, avoid lazy under-generation, avoid cards-inside-cards-inside-cards ui, and keep the hero cl
+
+#17
+A: validate that a story file is implementation-ready. checks for embedded gdd requirements, adr references, engine notes, clear acceptance criteria, and no open design questions. produces ready / needs work / blocked verdict with specific gaps. use when user says 'is this story ready', 'can i start on this story', 'is story x ready to implement'.
+B: read a story file and implement it. loads the full context (story, gdd requirement, adr guidelines, control manifest), routes to the right programmer agent for the system and engine, implements the code and test, and confirms each acceptance criterion. the core implementation skill — run after $story-readiness, before $code-review and $story-done.
+
+#18
+A: 執行全面性的 prd（產品需求文件）審查，從工程可行性、風險管理、範疇清晰度與驗收標準等面向提供具建設性的回饋。
+B: 協助撰寫完整、結構化、可執行的 prd（產品需求文件），確保工程可行性、風險管理、範疇清晰與驗收方式明確。
+
+#19
+A: build hosted agents using azure ai projects sdk with imagebasedhostedagentdefinition. use when creating container-based agents in azure ai foundry.
+B: build container-based foundry agents with azure ai projects sdk (imagebasedhostedagentdefinition). use when creating hosted agents with custom container images in azure ai foundry.
+
+#20
+A: azure monitor opentelemetry exporter for python. use for low-level opentelemetry export to application insights. triggers: "azure-monitor-opentelemetry-exporter", "azuremonitortraceexporter", "azuremonitormetricexporter", "azuremonitorlogexporter".
+B: azure monitor opentelemetry distro for python. use for one-line application insights setup with auto-instrumentation. triggers: "azure-monitor-opentelemetry", "configure_azure_monitor", "application insights", "opentelemetry distro", "auto-instrumentation".
+
+#21
+A: apple human interface guidelines interaction and ux patterns.
+B: apple human interface guidelines design foundations.
+
+#22
+A: error handling skilli ai_usage_monitor içindeki `core/ai_usage_monitor/**/*.py`, `tests/test_*provider*.py` alanlarında tetiklenir. kullanıcı error-handling, mimari, provider, desktop, config, identity, contract, testing, performance veya benzer bakım işi istediğinde otomatik uygulanmalıdır. bu skill codex merkezli repo içi çalışma düzenini zorlar; kurallar izlenmezse kde ve gnome yüzeyleri arasında contract drift, stale usage, secret sızıntısı veya health gate kırığı oluşur. bu skill yalnız ai_
+B: testing strategy skilli ai_usage_monitor içindeki `tests/`, `makefile`, `.github/workflows/`, `tasks/todo.md` alanlarında tetiklenir. kullanıcı testing-strategy, mimari, provider, desktop, config, identity, contract, testing, performance veya benzer bakım işi istediğinde otomatik uygulanmalıdır. bu skill codex merkezli repo içi çalışma düzenini zorlar; kurallar izlenmezse kde ve gnome yüzeyleri arasında contract drift, stale usage, secret sızıntısı veya health gate kırığı oluşur. bu skill yalnız
+
+#23
+A: generate jira epic and task definitions from context using templates. creates markdown artifacts under .codi/jira/issues/ with unique identifiers.
+B: generate jira task definitions from context using templates. creates markdown artifacts under .codi/jira/issues/ with unique identifiers.
+
+#24
+A: example skill demonstrating the full skill directory structure with scripts, references, assets, and examples. use when learning how to structure codex skills.
+B: create high-quality skills: scoped, procedural, and durable. prefer updates over duplicates. use when working with skill.md files, authoring new skills, improving existing skills, or understanding skill structure and best practices.
+
+#25
+A: workflow discipline for developing enma (.em) and angelscript (.as) scripts on perception.cx. derived from karpathy principles — think before coding, simplicity first, surgical changes, goal-driven execution — rewritten for cheat development realities: stale offsets, silent failed reads, detection surface. always active when writing or editing pcx scripts.
+B: behavioral and syntactic rules for writing .em (enma) scripts on perception.cx. prevents angelscript-reflex errors in the enma api surface — method names, parameter shapes, type system, and lifecycle differ from as. always active when editing .em files.
+
+#26
+A: add or update publications on the gmai lab jekyll website. handles _data/publications.yml, teaser images, bibtex, and optional news items. use when adding a new paper, updating metadata, or fixing publication entries.
+B: add, update, or remove news items on the gmai lab jekyll website. handles _data/news.yml with bilingual support (en/zh) and category badges. use when posting announcements about papers, awards, events, or new members.
+
+#27
+A: 经由 crossframe-suite 调度使用，不独立响应。把材料整理成可复用案例库的中文案例沉淀 skill。
+B: 经由 crossframe-suite 调度使用，不独立响应。命题辩论与论证检验专项 skill。
+
+#28
+A: delete the assets at the given project paths. refreshes the assetdatabase at the end. use 'assets-find' to locate the assets first.
+B: move or rename assets at the given project paths. refreshes the assetdatabase at the end. use 'assets-find' to locate the assets first.
+
+#29
+A: 围绕数学建模问题检索和整理相似问题、经典模型、算法路线、可引用文献与适用边界。用于选择优化、预测、评价、仿真、图论、微分方程或机器学习方法前的依据梳理。
+B: 用模型族路由规范冻结数学模型的变量、参数、假设、目标函数、约束、评价指标、算法流程和理论说明。用于从选定路线进入可编码模型前，覆盖优化、预测、评价、仿真、图论、微分方程和机器学习建模。
+
+#30
+A: docs/status/current-status.md 에 오늘 날짜 진행 기록을 추가. phase 섹션 구조/이모지 관례 보존. 400줄 초과 시 status-compress 자동 선행.
+B: docs/status/current-status.md 400줄 초과 시 오래된 일자별 섹션을 이력 테이블 1행으로 압축. 최근 2일(또는 헤더 명시 "오늘") 섹션과 레퍼런스 섹션은 원본 유지.
+
+#31
+A: connect claude to external apps like gmail, slack, github. use this skill when the user wants to send emails, create issues, post messages, or take actions in external services.
+B: connect claude to any app. send emails, create issues, post messages, update databases - take real actions across gmail, slack, github, notion, and 1000+ services.
+
+#32
+A: roblox virtual game studio — technical director. read studio/context.md first. active in phases 02, 05, 06+.
+B: roblox virtual game studio — junior contributor. read studio/context.md first. active in phases 08, 12 (if activated).
+
+#33
+A: conducts external reconnaissance using open source intelligence (osint) techniques to map an organization's external attack surface without directly interacting with target systems. the tester gathers information from public sources including dns records, certificate transparency logs, search engines, social media, code repositories, and data breach databases to build a comprehensive target profile. activates for requests involving osint reconnaissance, external footprinting, attack surface mapp
+B: collects and synthesizes open-source intelligence (osint) about threat actors, malicious infrastructure, and attack campaigns using publicly available data sources, passive reconnaissance tools, and dark web monitoring. use when investigating external threat actor infrastructure, performing pre-engagement reconnaissance for authorized red team assessments, or enriching cti reports with publicly available adversary context. activates for requests involving maltego, shodan, osint framework, spider
+
+#34
+A: review a feature/component documentation to check that it adheres to repo standards.
+B: review functional area and component documentation to check that it adheres to repo standards.
+
+#35
+A: refresh the installed @tr-rtl/cli runtime surface with taro.
+B: initialize the installed @tr-rtl/cli runtime surface with taro.
+
+#36
+A: create a feature plan and tracker under docs/plans/<new-feature>/ before implementation starts, including root and foundation engine submodule branch tracking, research, validation expectations, and model handoff details.
+B: update an existing docs/plans/<new-feature>/tracker.md during implementation, including root and foundation engine submodule progress, validation, commits, pushes, submodule pointer state, handoff notes, postponements, review findings, and completion state.
+
+#37
+A: spec-kit workflow command: speckit-spec-validate-analytics
+B: spec-kit workflow command: speckit-spec-validate-validate
+
+#38
+A: use this skill whenever the user wants to create, read, edit, or manipulate word documents (.docx files). triggers include: any mention of 'word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in word files, working with tracked changes or comments, 
+B: this skill should be used when the user wants to process word document templates, extract placeholders, or generate word documents based on templates.
+
+#39
+A: generate 3d models, textures, images, rig characters, animate them, and prepare for 3d printing using the meshy ai api. handles api key detection, task creation, polling, downloading, and full 3d print pipeline with slicer integration. use when the user asks to create 3d models, convert text/images to 3d, texture models, rig or animate characters, 3d print a model, or interact with the meshy api.
+B: generate 3d models, textures, images, rig characters, and animate them using the meshy ai api. handles api key detection, setup, and all generation workflows via direct http calls. use when the user asks to create 3d models, convert text/images to 3d, texture models, rig or animate characters, or interact with the meshy api.
+
+#40
+A: generates operations-focused guidance for google cloud workloads based on the design principles and recommendations in the operational excellence pillar of the google cloud well-architected framework (waf). use this skill to evaluate a workload, identify operational requirements, and provide actionable recommendations for deployment, monitoring, and incident management.
+B: generates sustainability-focused guidance for google cloud workloads based on the design principles and recommendations in the google cloud well-architected framework (waf). use this skill to evaluate a workload, identify environmental impact requirements, and provide actionable recommendations to build, deploy, and manage the workload sustainably in google cloud.
+
+#41
+A: when the user wants help with pricing decisions, packaging, or monetization strategy. also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'van westendorp,' 'willingness to pay,' 'monetization,' 'how much should i charge,' 'my pricing is wrong,' 'pricing page,' 'annual vs monthly,' 'per seat pricing,' or 'should i offer a free plan.' use this whenever someone is figuring out what to charge or how to structure their p
+B: when the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. also use when the user mentions "paywall," "upgrade screen," "upgrade modal," "upsell," "feature gate," "convert free to paid," "freemium conversion," "trial expiration screen," "limit reached screen," "plan upgrade prompt," "in-app pricing," "free users won't upgrade," "trial to paid conversion," or "how do i get users to pay." use this for any in-product moment where you're asking users
+
+#42
+A: manage significant changes when sprint implementation is off track. use when the user says "correct course" or "we need a course correction"
+B: manage significant changes during sprint execution. use when the user says "correct course" or "propose sprint change"
+
+#43
+A: council 模式的项目 roadmap 起草者。只产出项目级垂直切片草案，写入 .loop/council.md 的 draft 部分，不写代码。
+B: council 模式的 roadmap 仲裁者。综合 draft 与 challenge，写最终 .loop/council.md 裁决和 .loop/roadmap.md。
+
+#44
+A: use when the user needs high-level aws platform decision support or tradeoff framing before implementation, and the next step is not yet structure, governance, operations, or code delivery.
+B: use when the user needs to design, implement, refactor, or review aws lambda and adjacent serverless code such as api gateway-backed handlers, sqs-triggered processors, event-source-specific retry behavior, package-size or cold-start tradeoffs, and aws-specific runtime configuration after the broader aws platform decision is already made.
+
+#45
+A: generate comprehensive documentation for content authors taking over an aem edge delivery services project. analyzes the project structure and produces a complete authoring guide with blocks, templates, configurations, and publishing workflows.
+B: generate project handover documentation for aem edge delivery services projects. creates comprehensive guides for content authors, developers, and administrators. use for "handover docs", "project documentation", "generate handover", "create guides".
+
+#46
+A: use when the user asks to bump/raise only the build number of cuemol2 (e.g. "build だけ上げて", "build no を上げて", "bump the build number", "increment build"). runs build_scripts/bump_version_build.sh and reports the version change. do not use when the user also wants the revision/patch bumped — use bump-rev-build instead.
+B: use when the user asks to bump/raise both the revision (patch) and build number of cuemol2 (e.g. "revision/build を上げて", "rev と build を上げて", "bump revision and build", "patch + build を上げて"). runs build_scripts/bump_version_rev.sh then build_scripts/bump_version_build.sh and reports the version change. for build-only, use bump-build instead.
+
+#47
+A: generate comprehensive technical documentation for developers taking over an aem edge delivery services project. analyzes codebase structure, custom implementations, design tokens, and produces a complete developer guide.
+B: generate comprehensive documentation for content authors taking over an aem edge delivery services project. analyzes the project structure and produces a complete authoring guide with blocks, templates, configurations, and publishing workflows.
+
+#48
+A: periodic local self-audit (cadence: every 25 goals). assembles a portfolio-direction briefing (self snapshot, aspiration portfolio, evolution signals, partner activity), writes it to agents/{agent}/temp/ (a staging file drained to the knowledge tree), and posts a one-line summary to the coordination board. no email push, no user-approval gate — the user reviews changes via git log and tracked signals at their own pace. use whenever the user wants to force a portfolio review on demand (/fresh-eye
+B: fires whenever the aspirations-precheck cadence hits 75 completed goals — an autonomous structured 7-lane self-audit that converts the user's proven-high-yield diagnostic question into a routine. sweeps memory hygiene (including insight curation from agents/{agent}/insights.jsonl — distills unprocessed entries into tree/reasoning-bank/guardrails/experience then bulk-marks processed), out-of-cycle completions, unblocks, forward backlog, /verify-learning gaps, meta tuning, and the felt-sense quest
+
+#49
+A: 彩票預測方法完整指南。包含已驗證策略、edge方法論、統一預測入口。當需要了解或實作預測方法、選擇最佳策略、或進行方法對比時使用。
+B: 回測框架使用指南。確保無數據洩漏、正確的滾動式驗證、edge vs random 方法論。當進行回測、驗證策略、或評估方法效果時使用。
+
+#50
+A: 実装計画に基づきコードを変更し、全チェックが通るまでループする（resolve-issue phase 2）
+B: prマージ後にブランチを整理し、一時ファイルを削除する（resolve-issue phase 5）
+
+#51
+A: comprehensive code analysis for architecture, performance, security, and quality using pal mcp. use when reviewing codebases, assessing technical decisions, or planning improvements. triggers on analysis requests, architecture reviews, or code quality assessments.
+B: systematic code review covering quality, security, performance, and architecture using pal mcp. use for pull request reviews, code audits, or pre-commit validation. triggers on review requests, pr reviews, or code quality checks.
+
+#52
+A: plan ux patterns and design specifications. use when the user says "lets create ux design" or "create ux specifications" or "help me plan the ux"
+B: plan ux patterns and design specifications for game ui/hud elements. use when the user says "lets create ux design" or "create ux specifications" or "help me plan the game ux"
+
+#53
+A: 이슈 설명을 받아서 팀의 브랜치 네이밍 컨벤션에 맞춰 브랜치명을 자동으로 생성합니다.
+B: 현재 브랜치의 작업 내용을 읽고 브랜치명에서 이슈번호를 파악하여 자동으로 커밋 메시지를 작성합니다.
+
+#54
+A: crear commits git atómicos con mensajes convencionales en español. sin emojis. analiza el diff y genera el mensaje correcto. invocar cuando el usuario pide hacer un commit, menciona "/commit", o cuando se termina una tarea de desarrollo.
+B: generar mensajes de commit bajo la especificación conventional commits, en español, sin emojis, con los tipos y alcances definidos para globalconnect. invocar cuando se necesite construir o validar un mensaje de commit.
+
+#55
+A: expert knowledge for microsoft foundry classic (aka azure ai foundry classic) development including troubleshooting, best practices, decision making, architecture & design patterns, limits & quotas, security, configuration, integrations & coding patterns, and deployment. use when building foundry agents with rag, tools, evaluators, azure openai, vnet/private link, or ci/cd deployments, and other microsoft foundry classic related development tasks. not for microsoft foundry (use microsoft-foundry
+B: expert knowledge for microsoft foundry (aka azure ai foundry) development including troubleshooting, best practices, decision making, architecture & design patterns, limits & quotas, security, configuration, integrations & coding patterns, and deployment. use when building foundry agents with azure openai, vector search/rag, sora video, realtime audio, or mcp/langchain apis, and other microsoft foundry related development tasks. not for microsoft foundry classic (use microsoft-foundry-classic), 
+
+#56
+A: azure identity sdk for python authentication. use for defaultazurecredential, managed identity, service principals, and token caching. triggers: "azure-identity", "defaultazurecredential", "authentication", "managed identity", "service principal", "credential".
+B: azure identity sdk for .net. authentication library for azure sdk clients using microsoft entra id. use for defaultazurecredential, managed identity, service principals, and developer credentials. triggers: "azure identity", "defaultazurecredential", "managedidentitycredential", "clientsecretcredential", "authentication .net", "azure auth", "credential chain".
+
+#57
+A: always use this when the user mentions azure maps search dotnet, asks to build, debug, review, document, automate, test, configure, migrate, or make decisions in this domain, or the task clearly depends on azure maps search dotnet; scope: azure maps sdk for .net. apply the bundled workflow, references, scripts, senior master standard, and codex strict review gate before final output.
+B: always use this when the user mentions azure ai projects dotnet, asks to build, debug, review, document, automate, test, configure, migrate, or make decisions in this domain, or the task clearly depends on azure ai projects dotnet; scope: azure ai projects sdk for .net. apply the bundled workflow, references, scripts, senior master standard, and codex strict review gate before final output.
+
+#58
+A: use for slack-thread bdr outreach composer rewrite requests when a human mentions @bdr agent or asks for an immediate rewrite of a generated lead email body. handles source-safe rewriting, preview posting, and safe hubspot writeback for the tied record.
+B: create and persist the bdr outreach composer lead brief plus three ranked full cold-email body drafts while using the current bdr_agent.stages.outreach_composer runtime and lead_brief compatibility contract.
+
+#59
+A: run pipeline stage 1 (discovery) for a project. explores the target codebase to understand current state before designing changes.
+B: run pipeline stage 2 (architecture) for a project. designs data model, api endpoints, migrations, and security scoping based on pipeline configuration in the conventions file.
+
+#60
+A: break down implementation plans into small, manageable github issues. use when you have a plan and want to create github issues instead of implementing immediately. outputs a structured breakdown with epic, sub-issues, and dependencies for review.
+B: create and manage github issues with advanced features: issue types, dependencies, and sub-issues. use this skill after planning issues with zoonk-issue-planning.
+
+#61
+A: azure event grid sdk for .net. client library for publishing and consuming events with azure event grid. use for event-driven architectures, pub/sub messaging, cloudevents, and eventgridevents. triggers: "event grid", "eventgridpublisherclient", "cloudevent", "eventgridevent", "publish events .net", "event-driven", "pub/sub".
+B: build event-driven applications with azure event grid sdk for java. use when publishing events, implementing pub/sub patterns, or integrating with azure services via events.
+
+#62
+A: create role markdown files for an ai prompt library. a role defines what an agent does — its expertise, responsibilities, and scope. use this skill whenever someone asks to create a new role, add an agent role, needs "a role for x", wants to define what an agent specializes in, or is building agent configurations that need job-function definitions. triggers on: "create a role", "i need a role for", "add a new role", "define agent expertise", or any request for a short reusable prompt that descri
+B: create persona markdown files for an ai prompt library. a persona defines how an agent behaves — its tone, communication style, and personality traits. use this skill whenever someone asks to create a new persona, define agent personality, set communication style, or requests something like "make it act like y" or "i want an agent that talks like z." triggers on: "create a persona", "add a persona", "define personality", "communication style", "tone of voice", or any request about how an agent s
+
+#63
+A: build container-based foundry agents using azure ai projects sdk with imagebasedhostedagentdefinition. use when creating hosted agents that run custom code in azure ai foundry with your own container images. triggers: "imagebasedhostedagentdefinition", "hosted agent", "container agent", "foundry agent", "create_version", "protocolversionrecord", "agentprotocol.responses", "custom agent image".
+B: build hosted agents using azure ai projects sdk with imagebasedhostedagentdefinition. use when creating container-based agents that run custom code in azure ai foundry. triggers: "imagebasedhostedagentdefinition", "hosted agent", "container agent", "create_version", "protocolversionrecord", "agentprotocol.responses".
+
+#64
+A: technical documentation specialist and knowledge curator. use when the user asks to talk to paige or requests the tech writer.
+B: technical documentation specialist and knowledge curator for game projects. use when the user asks to talk to paige or requests the technical writer.
+
+#65
+A: xflickr skill — see canonical body in ai/skills/react-inertia-frontend/skill.md
+B: xflickr skill — see canonical body in ai/skills/multi-llm-plan-review/skill.md
+
+#66
+A: this skill should be used when the user asks to "run tests", "create tests", "fix failing test", "add test coverage", "fix slow tests", or "commit test changes".
+B: this skill should be used when the user asks to "commit code", "review code", "fix lint/type error", "improve performance", "compare code", "shrink code", "generate spec from code", "investigate code", or "create handoff prompt".
+
+#67
+A: use @x402-avm/core and @x402-avm/avm typescript packages directly for custom x402 payment integrations. use when building custom clients, resource servers, or facilitators with the x402 protocol on algorand, implementing payment policies, creating avm signer interfaces, handling transaction groups, or integrating fee abstraction. strong triggers include "use x402 core package", "create x402 client", "implement facilitator signer", "x402 payment verification", "fee abstraction on algorand", "regi
+B: use the x402-avm python package core and avm mechanism directly for custom integrations. use when working with x402 core components (x402client, x402resourceserver, x402facilitator), implementing avm signer protocols, using constants (algorand_testnet_caip2, usdc asa ids), calling utility functions (address validation, amount conversion, transaction encoding), building custom payment flows, creating transaction groups, or understanding fee abstraction. strong triggers include "use x402 python sd
+
+#68
+A: 仕様書をレビューする。「仕様レビュー」「/step04-review {feature名}」で発動。
+B: 設計書をレビューする。「設計レビュー」「/step03-review {feature名}」で発動。
+
+#69
+A: 既存の github issue ツリーを棚卸し・更新するスキル。「ツリーを棚卸しして」「イシューツリーを更新して」「トラッキング issue を整理して」で使用。 ルートのトラッキング issue 番号を受け取り、sub_issues api でツリー全体を再帰取得 → closed 親下の残置 open issue 付け替え・孤児の再配置・新 phase 親の新設・phase ラベル同期 → ルート issue 本文の phase 別表・棚卸しセクションを再生成して更新する。 ツリー新規作成は create-issue-tree、実装消化は implement-issue-tree を参照。
+B: phase 分割された github issue ツリーを新規作成するスキル。「イシューツリー作って」「タスクを phase 別に issue 化」「issue ツリーを起票して」で使用。 要件・タスク一覧を受け取り、タスク分解（4h 粒度）→ phase 分割 → ルート（トラッキング）issue → phase 親 issue → 子 issue の階層を sub_issues api で紐付け。 phase ラベル付与・ルート issue 本文の phase 別表生成まで自動化。任意の phase 指定で部分起票にも対応。 ツリーの棚卸し・更新は update-issue-tree、実装消化は implement-issue-tree を参照。
+
+#70
+A: define a brand's verbal identity — tone, voice, writing style, vocabulary, and messaging rules. use when the user says "brand voice", "tone of voice", "how should we write", "writing guidelines", "copy style guide", "brand language", "verbal identity", "how should the brand sound", "tone guide", "our copy doesn't sound right", "copywriter guidelines", "voice and tone", or when onboarding a copywriter or content team. also use when the user has a brand strategy and wants to define how the brand c
+B: build a brand's messaging hierarchy — taglines, value propositions, key messages, and proof points for each audience. use when the user says "brand messaging", "messaging framework", "value proposition", "tagline", "brand tagline", "key messages", "messaging hierarchy", "what should we say about our brand", "brand copy foundation", "messaging architecture", "elevator pitch", "one-liner", "brand statement", or needs consistent language across all communications. also use when messaging feels inco
+
+#71
+A: master of defensive bash scripting for production automation, ci/cd pipelines, and system utilities. expert in safe, portable, and testable shell scripts.
+B: master defensive bash programming techniques for production-grade scripts. use when writing robust shell scripts, ci/cd pipelines, or system utilities requiring fault tolerance and safety.
+
+#72
+A: パイプラインの観測データ（実行時間・トークン消費量・手戻り・エラー・サブタスク）を集計し、報告書用のサマリーを出力する。
+B: パイプライン開始時の初動手順（モード判定・バックアップ・初期化・命令記録・チェックポイント復旧）を実行する
+
+#73
+A: internal downstream skill for ctf-sandbox-orchestrator. ctf-sandbox workflow for custom binary or text protocol recovery, handshake reconstruction, framing, sequence control, checksums, stateful replay, and accepted-session reproduction. use when the user asks to decode an unknown protocol, recover custom framing, build a replay harness, satisfy sequence or checksum rules, replay a captured session, or prove the smallest message order that reaches an accepted branch. use only after `$ctf-sandbox
+B: internal downstream skill for ctf-sandbox-orchestrator. ctf-sandbox workflow for crypto, encoding, steganography, apk, ipa, and mobile trust-boundary challenges. use when the user asks to decode a blob, recover a transform chain or key, inspect hidden media payloads, hook an apk or ipa signer, inspect app storage, or replay mobile request-signing logic. use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.
+
+#74
+A: guides the agent through upgrading a capacitor plugin from v7 to v8. use when the plugin targets capacitor 7 and needs the v8 migration path. do not use for app upgrades, other major versions, or non-capacitor plugins.
+B: guides the agent through upgrading a capacitor app from v7 to v8. use when the project is on capacitor 7 and needs the v8 migration path. do not use for other major versions, plugin-only upgrades, or non-capacitor apps.
+
+#75
+A: detect ntlm relay attacks by analyzing windows event 4624 logon type 3 with ntlmssp authentication, identifying ip-to-hostname mismatches, responder traffic signatures, smb signing status, and suspicious authentication patterns across the domain.
+B: detect ntlm relay attacks through windows security event correlation by analyzing event 4624 logontype 3 for ip-to-hostname mismatches, identifying responder/llmnr poisoning artifacts, auditing smb and ldap signing enforcement across the domain, and detecting ntlm downgrade attacks from ntlmv2 to ntlmv1 using event log analysis.
+
+#76
+A: 编写、运行和优化项目测试用例（vitest）。
+B: 运行和分析项目质量检查（linting, 类型检查, 测试）。
+
+#77
+A: 帮助用户梳理周报，按照完整逻辑展示工作价值和边界。当用户说"写周报"、"周报"、"梳理周报"、"整理工作"时触发。
+B: 帮助用户通过讨论完成课程大纲和课件。当用户说"备课"、"做课件"、"准备课程"时触发。
+
+#78
+A: guides the agent through upgrading a capacitor app from v5 to v6. use when the project is on capacitor 5 and needs the v6 migration path. do not use for other major versions, plugin-only upgrades, or non-capacitor apps.
+B: guides the agent through upgrading a capacitor plugin from v5 to v6. use when the plugin targets capacitor 5 and needs the v6 migration path. do not use for app upgrades, other major versions, or non-capacitor plugins.
+
+#79
+A: verify, customize, or opt out of moflo's automatic durable-learning sharing across git worktrees / conductor workspaces on one machine. as of the worktree-auto-sharing change this is on by default — learnings converge across a repo's worktrees with no setup. use when the user asks "is memory shared across my worktrees?", "where are my worktree learnings stored?", "turn off worktree memory sharing", "share learnings across my separate clones", or "point my worktrees at a custom store". for a team
+B: guided setup for sharing moflo's durable learnings through a git-tracked jsonl artifact — for a whole team on one repo, or for one person across several machines (a team of one). use when the user says "share learnings with my team", "commit our moflo memory", "sync memory across my laptop and desktop", "set up memory.team_artifact", or "auto-export learnings on every pr". installs a pre-commit hook so the artifact rides along in every commit. for many worktrees on one machine, use /memory-workt
+
+#80
+A: hunt for supply chain compromise indicators including trojanized software updates, compromised dependencies, unauthorized code modifications, and tampered build artifacts.
+B: investigate supply chain attack artifacts including trojanized software updates, compromised build pipelines, and sideloaded dependencies to identify intrusion vectors and scope of compromise.
+
+#81
+A: always use this when the request matches varlock: secure-by-default environment variable management for claude code sessions.
+B: always use this when the request matches varlock claude skill: secure environment variable management ensuring secrets are never exposed in claude sessions, terminals, logs, or git commits
+
+#82
+A: optimize for search engine visibility and ranking. use when asked to "improve seo", "optimize for search", "fix meta tags", "add structured data", "sitemap optimization", or "search engine optimization".
+B: optimize web performance for faster loading and better user experience. use when asked to "speed up my site", "optimize performance", "reduce load time", "fix slow loading", "improve page speed", or "performance audit".
+
+#83
+A: guides the agent through general capacitor app development topics. covers core concepts (native bridge, plugins, web layer), capacitor cli usage, app configuration (capacitor.config.ts, splash screens, app icons, deep links), platform management (android, ios, electron, pwa), edge-to-edge and safe area handling on android, live reload setup, storage solutions, file handling, security best practices, ci/cd references, ios package managers (spm, cocoapods), and troubleshooting for android and ios.
+B: guides the agent through installing, configuring, and using capacitor plugins from six sources — official capacitor plugins, capawesome plugins, capacitor community plugins, capacitor firebase plugins, capacitor mlkit plugins, and revenuecat plugins. covers installation, platform-specific configuration (android and ios), and basic usage examples. do not use for migrating capacitor apps or plugins to a newer version, setting up capacitor live updates, or non-capacitor mobile frameworks.
+
+#84
+A: comprehensive guide for firestore enterprise native including provisioning, data model, security rules, and sdk usage. use this skill when the user needs help setting up firestore enterprise with the native mode, writing security rules, or using the firestore sdk in their application.
+B: comprehensive guide for firestore standard edition, including provisioning, security rules, and sdk usage. use this skill when the user needs help setting up firestore, writing security rules, or using the firestore sdk in their application.
+
+#85
+A: comprehensive pdf manipulation toolkit for extracting text and tables, creating new pdfs, merging/splitting documents, and handling forms. when claude needs to fill in a pdf form or programmatically process, generate, or analyze pdf documents at scale.
+B: extract text and tables from pdf files, fill forms, merge documents. use when working with pdf files or when the user mentions pdfs, forms, or document extraction.
+
+#86
+A: sync linked issue status for before_specify hook.
+B: sync linked issue status for after_specify hook.
+
+#87
+A: always use this when the request matches fp pragmatic: a practical, jargon-free guide to functional programming - the 80/20 approach that gets results without the academic overhead
+B: always use this when the request matches fp ts pragmatic: a practical, jargon-free guide to fp-ts functional programming - the 80/20 approach that gets results without the academic overhead.
+
+#88
+A: apply production-grade symfony architecture and execution workflows with controlled scope and clear checkpoints. use for writing plans tasks.
+B: apply production-grade symfony architecture and execution workflows with controlled scope and clear checkpoints. use for using symfony superpowers tasks.
+
+#89
+A: azure key vault sdk for python. use for secrets, keys, and certificates management with secure storage.
+B: azure key vault keys sdk for .net. client library for managing cryptographic keys in azure key vault and managed hsm. use for key creation, rotation, encryption, decryption, signing, and verification.
+
+#90
+A: azure blob storage sdk for python. use for uploading, downloading, listing blobs, managing containers, and blob lifecycle.
+B: azure blob storage javascript/typescript sdk (@azure/storage-blob) for blob operations. use for uploading, downloading, listing, and managing blobs and containers.
+
+#91
+A: route tokens: [t]
+B: route tokens: [d]
+
+#92
+A: 分析运动数据、识别运动模式、评估健身进展，并提供个性化训练建议。支持与慢性病数据的关联分析。
+B: 分析睡眠数据、识别睡眠模式、评估睡眠质量，并提供个性化睡眠改善建议。支持与其他健康数据的关联分析。
+
+#93
+A: create and run a variant of a backtesting or optimiser notebook.
+B: create a variant of a backtesting or optimiser notebook.
+
+#94
+A: refreshes the assetdatabase. use it if any file was added or updated in the project outside of unity api. use it if need to force scripts recompilation when '.cs' file changed.
+B: delete the script file(s). does assetdatabase.refresh() and waits for unity compilation to complete before reporting results. use 'script-read' tool to read existing script files first.
+
+#95
+A: 论文写作 prompt: 去 ai 味（word 中文）. 来自 awesome-ai-research-writing. 当需要进行「去 ai 味（word 中文）」相关的论文写作/翻译/润色任务时使用。
+B: 论文写作 prompt: 模型选择. 来自 awesome-ai-research-writing. 当需要进行「模型选择」相关的论文写作/翻译/润色任务时使用。
+
+#96
+A: run the end-to-end flow for a visualizer change. use when a product-facing runtime or preset update spans implementation, docs sync, validation, and pr-ready completion.
+B: modify the visualizer's preset workflows. use when changing bundled presets, preset catalog behavior, live editing, import/export, compatibility/parity, or preset metadata and fixtures.
+
+#97
+A: internal downstream skill for ctf-sandbox-orchestrator. ctf-sandbox workflow for file uploads, imports, previews, archive extraction, format conversion, parser invocation, and deserialization chains. use when the user asks to inspect an upload or import path, trace archive extraction, preview or converter behavior, explain how a file reaches a parser or deserializer, or connect one uploaded artifact to the decisive backend effect. use only after `$ctf-sandbox-orchestrator` has already establishe
+B: internal downstream skill for ctf-sandbox-orchestrator. ctf-sandbox workflow for dpapi masterkeys, vault blobs, browser credential stores, protected secrets, domain backup keys, and secret-to-acceptance replay chains. use when the user asks to inspect dpapi blobs or masterkeys, recover browser or vault credentials, trace dpapi context or backup-key use, or explain how protected windows secrets become accepted access or privilege. use only after `$ctf-sandbox-orchestrator` has already established
+
+#98
+A: 分析运动数据、识别运动模式、评估健身进展，并提供个性化训练建议。支持与慢性病数据的关联分析。
+B: 分析睡眠数据、识别睡眠模式、评估睡眠质量，并提供个性化睡眠改善建议。支持与其他健康数据的关联分析。
+
+#99
+A: xflickr skill — see canonical body in ai/skills/review-and-risk-assessment/skill.md
+B: xflickr skill — see canonical body in ai/skills/architecture-and-design-principles/skill.md
+
+#100
+A: how to write great agent instructions for an agent-native app or template: agents.md, skills, and tool/action descriptions. use when authoring or reviewing agents.md, writing a skill.md, wording action descriptions, or deciding what belongs in instructions vs skills vs memory.
+B: how to create new skills for an agent-native app. use when adding a new skill, documenting a pattern the agent should follow, or creating reusable guidance for the agent.
+
+#101
+A: workflow for creating and submitting feature requests to github
+B: workflow for creating and submitting bug reports to github
+
+#102
+A: kicad schematic, pcb, gerber, and pdf schematic analysis. load the canonical circuit weaver skill from `skills/kicad/skill.md`.
+B: general electrical engineering support for hardware design and review. load the canonical circuit weaver skill from `skills/ee/skill.md`.
+
+#103
+A: three.js geometry creation - built-in shapes, buffergeometry, custom geometry, instancing. use when creating 3d shapes, working with vertices, building custom meshes, or optimizing with instanced rendering.
+B: three.js scene setup, cameras, renderer, object3d hierarchy, coordinate systems. use when setting up 3d scenes, creating cameras, configuring renderers, managing object hierarchies, or working with transforms.
+
+#104
+A: 论文写作 prompt: 去 ai 味（word 中文）. 来自 awesome-ai-research-writing. 当需要进行「去 ai 味（word 中文）」相关的论文写作/翻译/润色任务时使用。
+B: 论文写作 prompt: 论文架构图. 来自 awesome-ai-research-writing. 当需要进行「论文架构图」相关的论文写作/翻译/润色任务时使用。
+
+#105
+A: expert knowledge for azure managed applications development including limits & quotas, security, configuration, and deployment. use when designing createuidefinition uis, jit access, managed identities, key vault/cmk, storageaccountselector, or bicep-based catalog deployments, and other azure managed applications related development tasks. not for azure lighthouse (use azure-lighthouse), azure partner solutions (use azure-partner-solutions), azure resource manager (use azure-resource-manager), a
+B: expert knowledge for azure blueprints development including troubleshooting, architecture & design patterns, security, configuration, and integrations & coding patterns. use when defining azure blueprints, mapping built-in compliance sets, automating via cli/powershell/rest, or fixing assignment errors, and other azure blueprints related development tasks. not for azure policy (use azure-policy), azure resource manager (use azure-resource-manager), azure managed applications (use azure-managed-a
+
+#106
+A: 當在 .isa.feature 這類 isa gherkin 測試中驗證「資料庫中應存在某實體資料」，務必參考此規範。
+B: 當在 .isa.feature 這類 isa gherkin 測試中驗證操作成功或失敗時，參考此規範。
+
+#107
+A: comprehensive guide for firestore standard edition, including provisioning, security rules, and sdk usage. use this skill when the user needs help setting up firestore, writing security rules, or using the firestore sdk in their application.
+B: comprehensive guide for firestore enterprise native including provisioning, data model, security rules, and sdk usage. use this skill when the user needs help setting up firestore enterprise with the native mode, writing security rules, or using the firestore sdk in their application.
+
+#108
+A: azure ai voice live sdk for .net. build real-time voice ai applications with bidirectional websocket communication.
+B: azure ai voice live sdk for javascript/typescript. build real-time voice ai applications with bidirectional websocket communication.
+
+#109
+A: search engine optimization specialist for content strategy, technical seo, keyword research, and ranking improvements. use when optimizing website content, improving search rankings, conducting keyword analysis, or implementing seo best practices. expert in on-page seo, meta tags, schema markup, and core web vitals.
+B: optimize for search engine visibility and ranking. use when asked to "improve seo", "optimize for search", "fix meta tags", "add structured data", "sitemap optimization", or "search engine optimization".
+
+#110
+A: use when creating a new opencli adapter from scratch, adding support for a new website or platform, or exploring a site's api endpoints via browser devtools. covers api discovery workflow, authentication strategy selection, yaml/ts adapter writing, and testing.
+B: use when running opencli commands to interact with websites (bilibili, twitter, reddit, xiaohongshu, etc.), desktop apps (cursor, notion), or public apis (hackernews, arxiv). covers installation, command reference, and output formats for 79+ adapters.
+
+#111
+A: this skill should be used when the user wants to "run an evaluation", "evaluate my adk agent", "write an eval dataset", "analyze eval failures", "compare eval results", "optimize agent", or needs guidance on the agent platform eval methodology and the quality flywheel. covers eval metrics, dataset schema, llm-as-judge scoring, and common failure causes. do not use for api code patterns (use google-agents-cli-adk-code), deployment (use google-agents-cli-deploy), or project scaffolding (use google
+B: this skill should be used when the user wants to "deploy an agent", "deploy my adk agent", "set up ci/cd", "configure secrets", "troubleshoot a deployment", or needs guidance on agent runtime, cloud run, or gke deployment targets. covers deployment workflows, service accounts, rollback, and production infrastructure. part of the google adk (agent development kit) skills suite. do not use for api code patterns (use google-agents-cli-adk-code), evaluation (use google-agents-cli-eval), or project s
+
+#112
+A: produces audience, trend, and channel research for notes9 marketing decisions. use when researching reddit communities, linkedin audience segments, pain points, and message opportunities.
+B: generates channel-specific marketing copy for notes9 campaigns. use when creating reddit and linkedin posts, hook variants, cta variants, and message tests from approved research and strategy inputs.
+
+#113
+A: develop lakeflow spark declarative pipelines (formerly delta live tables) on databricks. use when building batch or streaming data pipelines with python or sql. invoke before starting implementation.
+B: creates, configures, and updates databricks lakeflow spark declarative pipelines (sdp/ldp) using serverless compute. handles data ingestion with streaming tables, materialized views, cdc, scd type 2, and auto loader ingestion patterns. use when building data pipelines, working with delta live tables, ingesting streaming data, implementing change data capture, or when the user mentions sdp, ldp, dlt, lakeflow pipelines, streaming tables, or bronze/silver/gold medallion architectures.
+
+#114
+A: [command entry-point - invokes shared `specify-feature` skill] direct command-bar dispatch only; do not select for general queries.
+B: [command entry-point - invokes shared `environment-setup` skill] direct command-bar dispatch only; do not select for general queries.
+
+#115
+A: 针对 modular rag mcp server 项目的老师式复习 agent。按章节带领用户系统复习项目知识点，每道题互动问答、给出参考答案，复习结束后记录掌握进度，每次开始时回顾上次进度并建议继续或复习。use when user says '复习项目', '帮我复习', '带我复习', '开始复习', '项目复习', 'review project', 'study review', '学习复习', '复盘', or wants to systematically review and study the project.
+B: 基于 modular rag mcp server 项目生成定制化简历项目经历。结合项目技术亮点与用户业务场景，按简历编写原则输出高质量项目描述（中英文）。use when user says '写简历', 'resume', '简历', 'write resume', '项目经历', 'project experience', '简历项目', or asks to generate resume content based on this project.
+
+#116
+A: deprecated — consolidated into bmad-prd create intent - this skill will be removed in v7 in favor of `bmad-prd`.
+B: deprecated — consolidated into bmad-prd update intent - this skill will be removed in v7 in favor of `bmad-prd`.
+
+#117
+A: use when submitting a semoss app into the review/repository pipeline with the ai-repo cli — logging in, registering an app (create-app), publishing a zipped version (publish), and checking workflow status (status, versions). covers the command set, publish gotchas (build first, what gets zipped, what's excluded), and where credentials are stored. assumes the ai-repo binary is already installed. do not use for iterating against a live instance (that's scripts/claude/semoss_asset_sync.py — see sem
+B: use when publishing, uploading, or updating a semoss app — choosing among the three deploy tiers (manual ui zip, the semoss_asset_sync.py iterate flow, or the ai-repo submit pipeline), switching between named environments (local/preprod/prod), writing client/.env.local before a build, or handling ssl/proxy errors during upload. do not use for the ai-repo cli command reference specifically (see semoss-ai-repo) or for editing tool manifests (see semoss-mcp-manifest).
+
+#118
+A: grades the quality of the extracted story document with additional details based on the user story quality rubric
+B: grades the quality of the design document for a given story with additional details based on the design quality rubric
+
+#119
+A: always use this when the request matches langchain architecture: master the langchain framework for building sophisticated llm applications with agents, chains, memory, and tool integration.
+B: always use this when the request matches llm application dev langchain agent: you are an expert langchain agent developer specializing in production-grade ai systems using langchain 0.1+ and langgraph.
+
+#120
+A: 포스트 품질을 검증합니다
+B: 새 블로그 포스트를 생성합니다
+
+#121
+A: automate veo tasks via rube mcp (composio). always search tools first for current schemas.
+B: automate parsera tasks via rube mcp (composio). always search tools first for current schemas.
+
+#122
+A: berth harness workflow 0.1-continue 继续已有任务. 读取并执行 .agents/workflow/0.1-continue.md, 任务=$arguments
+B: berth harness workflow 5.0-archive 归档. 读取并执行 .agents/workflow/5.0-archive.md, 任务=$arguments
+
+#123
+A: 문서 콘텐츠 작성 컨벤션. 문서를 새로 작성하거나 수정할 때, 기존 문서의 스타일 컨벤션 확인 요청 시, 본문 내용을 직접 작성할 때 사용한다.
+B: 기술 블로그 글의 가독성과 품질을 리뷰한다. 글 피드백 요청, 리뷰 요청, 가독성 점검 요청 시 사용한다. '이 글 피드백해줘', '리뷰해줘', '낯선 사람이 읽으면 어떨까' 등의 요청에도 반응한다.
+
+#124
+A: azure ai search sdk for .net (azure.search.documents). use for building search applications with full-text, vector, semantic, and hybrid search.
+B: build search applications using azure ai search sdk for javascript (@azure/search-documents). use when creating/managing indexes, implementing vector/hybrid search, semantic ranking, or building ag...
+
+#125
+A: 출처 명시와 의사 결정 중심의 요약을 바탕으로 시장 조사, 경쟁사 분석, 투자자 실사 및 업계 정보를 수행합니다. 사용자가 시장 규모 산정, 경쟁사 비교, 펀드 조사, 기술 스캔 또는 비즈니스 결정에 도움이 되는 조사가 필요할 때 사용하세요.
+B: 피치 데크, 원페이저, 투자자 메모, 액셀러레이터 지원서, 재무 모델 및 펀드레이징 자료를 생성하고 업데이트합니다. 사용자가 투자자용 문서, 예측, 자금 사용 계획표, 마일스톤 계획 또는 여러 펀드레이징 자산 간에 내부적으로 일관성을 유지해야 하는 자료가 필요할 때 사용하세요.
+
+#126
+A: design graphic assets with efecto — presentations, pitch decks, event posters, email headers, blog images, open graph cards, business cards, resumes, menus, infographics, invitations, newsletters, and documents. use when asked to "design a poster", "create a pitch deck", "make a presentation", "design a business card", or any graphic design task. requires efecto mcp server.
+B: design web pages and app uis with efecto — create sessions, build layouts with jsx and tailwind css, manage artboards, and push real-time design changes via mcp tools. use when asked to "design a page", "build a landing page", "create a website", "design a dashboard", "make a ui", or any visual design task. requires efecto mcp server.
+
+#127
+A: load this skill when writing, reviewing, or editing gherkin .feature files for the appget platform. contains the complete dsl reference: tags (@domain, @target, @rule, @blocking, @view), operator phrases, simple and compound conditions, metadata requirements, outcomes, non-comparable types, field validation rules, and common mistakes. essential for any work on features/*.feature files.
+B: load this skill when writing or reviewing gherkin .feature files, discussing cucumber syntax, or structuring behavior scenarios. covers the complete gherkin specification (feature, scenario, scenario outline, background, rule), step keywords (given/when/then/and/but), data tables, examples, tags, doc strings, comments, and anti-patterns. applies to any gherkin work, not just appget.
+
+#128
+A: expert assistant for building mcp-based declarative agents for microsoft 365 copilot with model context protocol integration use when: the task directly matches mcp m365 agent expert responsibilities within plugin mcp-m365-copilot. do not use when: a more specific framework or task-focused skill is clearly a better match.
+B: expert assistant for building mcp-based declarative agents for microsoft 365 copilot with model context protocol integration use when: the task directly matches mcp m365 agent expert responsibilities within plugin awesome-copilot-root. do not use when: a more specific framework or task-focused skill is clearly a better match.
+
+#129
+A: generates planning/stages/learn-guide.md for the student's specific project. reads only project-brief.md and prd-index.md (~1.3k tokens). safe for local models. triggered by capstone-stage-gen or when student says 'regenerate my learn guide'.
+B: generates planning/stages/explore-guide.md for the student's specific project. reads only project-brief.md and prd-index.md (~1.3k tokens). safe for local models. triggered by capstone-stage-gen or when student says 'regenerate my explore guide'.
+
+#130
+A: ai-powered skill recommendation engine for dotnet-harness. analyzes project context and recommends relevant skills based on detected frameworks, packages, and patterns. triggers on: recommend skill, suggest skills, what skill should i use, skill suggestion, project analysis recommendation.
+B: ai-powered skill recommendation engine for dotnet-agent-harness. analyzes project context and recommends relevant skills based on detected frameworks, packages, and patterns. triggers on: recommend skill, suggest skills, what skill should i use, skill suggestion, project analysis recommendation.
+
+#131
+A: unit + property tests verified by mutation testing with ai self-improvement loop
+B: quick unit + property-based test run with ai auto-fix loop
+
+#132
+A: continue working on an openspec change by creating the next artifact. use when the user wants to progress their change, create the next artifact, or continue their workflow.
+B: start a new openspec change using the experimental artifact workflow. use when the user wants to create a new feature, fix, or modification with a structured step-by-step approach.
+
+#133
+A: build container-based foundry agents with azure ai projects sdk (imagebasedhostedagentdefinition). use when creating hosted agents with custom container images in azure ai foundry.
+B: build hosted agents using azure ai projects sdk with imagebasedhostedagentdefinition. use when creating container-based agents in azure ai foundry.
+
+#134
+A: break duel の cpu（challenger / beginner）を改善・強化・修正するための専用ワークフロー。「cpuを強くして」「最強cpuを更新して」「cpuの悪手を直して」「beginnerの難易度を調整して」「fair-genの次世代を作って」「ビーム/評価関数/カウンティングを改善して」のような依頼が来たら必ずこのスキルを使うこと。カード・デッキ・ルール側の変更が主目的なら ai-break-duel-balance-tuning を使う（cpu改善の副作用でゲーム側の修正が必要になった場合もそちらに切り替える）。
+B: ai-break-duel（break duel）のバランス調整を、検証つきで最初から最後まで実行するワークフロー。カード効果・デッキ構成・ルール数値・cpu（aiプロファイル）の強化/弱体化/調整、勝率やゲームバランスの検証、リーグ戦シミュレーション、盛り上がり（試合展開）の分析、バランス変更の採用判断と記録を頼まれたら必ずこのスキルを使うこと。「〜が強すぎる/弱すぎる」「ナーフして」「勝率を調べて」「バランスを見て」「デッキを調整して」「cpuを強くして」のような曖昧な依頼でも、ai-break-duel リポジトリでの作業ならこのスキルの対象。
+
+#135
+A: guide for creating effective claude code skills with proper yaml frontmatter, directory structure, and best practices. use when creating new skills, updating existing skills, or learning about skill development.
+B: use when creating new claude code skills. covers skill structure, yaml frontmatter, content organization, and testing skills with pressure scenarios.
+
+#136
+A: plan one sprint as a dependency-ordered wave dag so the fleet can run it to completion unattended (overnight). decomposes a goal into 20-30 right-sized github issues, assigns file ownership, builds the dependency graph, topologically sorts it into parallel waves, renders the dag (mermaid + html) for human review, and on approval creates the issues + writes promise.md. use when the user says "plan a sprint", "plan sprint-n", "let's build the next sprint", or wants to scope a big batch of autonomo
+B: run and report on a sprint — fire its waves to completion, check state, close it out. a sprint is a dependency-ordered batch of github issues planned by the `sprint-plan` skill and tagged `sprint-n`. use when the user says "fire sprint-n", "run sprint-n overnight", "what's the state of sprint-n", "close sprint-n", or "we're on sprint-n". to plan a sprint (decompose + dag), use `sprint-plan` instead — this skill executes a plan that already exists.
+
+#137
+A: suite of tools for creating elaborate, multi-component claude.ai html artifacts using modern frontend web technologies (react, tailwind css, shadcn/ui). use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file html/jsx artifacts.
+B: suite of tools for creating elaborate, multi-component html artifacts using modern frontend web technologies (react, tailwind css, shadcn/ui). use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file html/jsx artifacts.
+
+#138
+A: guides the agent through upgrading a capacitor plugin from v7 to v8. use when the plugin targets capacitor 7 and needs the v8 migration path. do not use for app upgrades, other major versions, or non-capacitor plugins.
+B: guides the agent through upgrading a capacitor app from v7 to v8. use when the project is on capacitor 7 and needs the v8 migration path. do not use for other major versions, plugin-only upgrades, or non-capacitor apps.
+
+#139
+A: use when working with browser/frontend functionality in stacks — the useauth composable (login, register, logout, token management), stripe billing utilities (loadcardelement, confirmpayment), the api fetch client, browser model loading, or auto-imported browser utilities. covers @stacksjs/browser.
+B: use when implementing authentication, authorization, passkeys, totp/2fa, rbac, gates, policies, session auth, token management, email verification, password resets, or rate limiting in a stacks application. covers the @stacksjs/auth package, config/auth.ts, app/gates.ts, and app/middleware/.
+
+#140
+A: 分析职业健康数据、识别工作相关健康风险、评估职业健康状况、提供个性化职业健康建议。支持与睡眠、运动、心理健康等其他健康数据的关联分析。
+B: 分析健康目标数据、识别目标模式、评估目标进度,并提供个性化目标管理建议。支持与营养、运动、睡眠等健康数据的关联分析。
+
+#141
+A: complete kuaishou (快手) creator platform crawler. combines session management, pagination handling, data deduplication, and anti-blocking. use when extracting task lists, statistics, or performance data from daren.kuaishou.com.
+B: scrape kuaishou (快手) creator platform data using mcp playwright. handles distribution plan list, task details, and statistics extraction. use when user wants to crawl data from daren.kuaishou.com including task lists, performance metrics, earnings data, or automate task publishing.
+
+#142
+A: chatgpt use cases and prompts for managers | part of naiba-openai-work-assistant
+B: chatgpt use cases and prompts for it teams | part of naiba-openai-work-assistant
+
+#143
+A: runs parallel external agent reviews (codex + gemini) on story/tasks. process-as-arrive, critical verification with debate. returns filtered suggestions.
+B: runs parallel external agent reviews (codex + gemini) on code changes. process-as-arrive, critical verification with debate. returns filtered suggestions.
+
+#144
+A: manages next.js test implementation progress tracking. use when checking progress, finding next test targets, or reviewing completion status by tier priority.
+B: orchestrates the complete next.js test implementation workflow. use to guide through test creation steps, check dependencies, and determine the next action for any target.
+
+#145
+A: integrate the 1shot embedded wallet (ows host layer) with @1shotapi/ows-provider. use when embedding wallet.1shotapi.com, wiring owsproxy, eip-1193, credentials, or custom rpc such as setstyle for theming the 1shot branding layer.
+B: build an open wallet standard (ows) branding layer with @1shotapi/ows-wallet-utils, ows-signer-utils, ows-types, and optional ows-oid4. use when scaffolding a branding wallet, wiring owswallet/owssigner, rpchelper/signhelper/credentialshelper, passkey unlock, custom host rpc, signing consent, recovery overlay, credentials, or display shell in a separate repo.
+
+#146
+A: internal downstream skill for ctf-sandbox-orchestrator. ctf-sandbox workflow for reverse engineering, malware, dfir, firmware, pwnable, and native exploit challenges. use when the user asks to reverse a binary, unpack a sample, inspect a memory dump or pcap, recover malware behavior, debug a crash, or build or verify an exploit chain under sandbox assumptions. use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.
+B: internal downstream skill for ctf-sandbox-orchestrator. ctf-sandbox workflow for enterprise mail abuse, oauth consent, inbox or forwarding rules, transport rules, shared mailbox access, phishing chains, and token-to-mailbox side effects. use when the user asks to trace mailbox rules, oauth consent grants, forwarding or delegate abuse, shared mailbox access, message-trace evidence, or explain how mail artifacts turn into persistence, exfiltration, or privilege. use only after `$ctf-sandbox-orches
+
+#147
+A: use when crossframe suite routes explicit chinese notes for books, theories, articles, excerpts, bidirectional reading, absorption, or conflict mapping.
+B: use when crossframe suite routes explicit chinese reader replies, editor responses, consultation-style short answers, or boundary-aware structural advice.
+
+#148
+A: create and validate infrastructure layer files following aes rules: 3-block structure, one class per file, port contracts, zero business logic.
+B: create and validate infrastructure layer files following aes rules: 3-block structure, one struct per file, port contracts, zero business logic.
+
+#149
+A: asp.net core 整合測試的專門技能。當需要測試 web api 端點、http 請求/回應、中介軟體、依賴注入時使用。涵蓋 webapplicationfactory、testserver、httpclient 測試、記憶體資料庫配置等。 make sure to use this skill whenever the user mentions asp.net core integration testing, webapplicationfactory, testserver, http endpoint testing, or middleware testing, even if they don't explicitly ask for integration testing guidance. keywords: integration testing, 整合測試, web api testing, webapplicationfactory, testserver, httpclient testing, controller testing, endpoint
+B: asp.net core webapi 整合測試完整指南。當需要對 webapi 端點進行整合測試或驗證 problemdetails 錯誤格式時使用。涵蓋 webapplicationfactory、iexceptionhandler、testcontainers 多容器編排、flurl url 建構與 awesomeassertions http 驗證。 make sure to use this skill whenever the user mentions webapi integration testing, problemdetails, iexceptionhandler, flurl, respawn, or multi-container test orchestration, even if they don't explicitly ask for webapi testing guidance. keywords: webapi integration testing, webapplicationfactory, asp.net core integrati
+
+#150
+A: contains the complete specifications for ai coding assistant customization files including agents, skills, prompts, and instructions. works with github copilot, claude code, codex, opencode, and other providers. use this skill when you need to reference the correct file format, required fields, supported attributes, file locations, or vs code settings for any customization file. follows the agent skills open standard (agentskills.io).
+B: validates ai coding assistant customization files (agents, skills, prompts, instructions) for correct format and structure. works with github copilot, claude code, codex, opencode, and other providers. use when checking if agent files are properly configured, troubleshooting agent issues, or before committing new customization files.
+
+#151
+A: azure ai voicelive sdk for java. real-time bidirectional voice conversations with ai assistants using websocket. triggers: "voiceliveclient java", "voice assistant java", "real-time voice java", "audio streaming java", "voice activity detection java".
+B: azure ai voice live sdk for javascript/typescript. build real-time voice ai applications with bidirectional websocket communication. use for voice assistants, conversational ai, real-time speech-to-speech, and voice-enabled chatbots in node.js or browser environments. triggers: "voice live", "real-time voice", "voiceliveclient", "voicelivesession", "voice assistant typescript", "bidirectional audio", "speech-to-speech javascript".
+
+#152
+A: azure service bus sdk for python messaging. use for queues, topics, subscriptions, and enterprise messaging patterns.
+B: azure web pubsub service sdk for python. use for real-time messaging, websocket connections, and pub/sub patterns.
+
+#153
+A: open-source ai observability platform for llm tracing, evaluation, and monitoring. use when debugging llm applications with detailed traces, running evaluations on datasets, or monitoring production ai systems with real-time insights.
+B: llm observability platform for tracing, evaluation, and monitoring. use when debugging llm applications, evaluating model outputs against datasets, monitoring production systems, or building systematic testing pipelines for ai applications.
+
+#154
+A: implement zero trust network access using zscaler private access (zpa) to replace traditional vpn with identity-based, context-aware access to private applications through the zscaler zero trust exchange.
+B: configuring zscaler private access (zpa) to replace traditional vpn with zero trust network access by deploying app connectors, defining application segments, configuring access policies based on user identity and device posture, and integrating with idps.
+
+#155
+A: 当需要一次性生成 week_01..week_16 的章包目录与模板（不写正文内容）时，批量调用 new_week 脚手架。
+B: 初始化一个 week_xx 章包目录与模板，并更新 toc/current_week。
+
+#156
+A: イシュー着手時に使用。worktreeで分離された開発環境を構築し、issue本文にメタ情報を追記する
+B: イシュー完了時に使用。prマージ・worktree削除・ブランチ安全削除を一括実行
+
+#157
+A: azure monitor opentelemetry exporter for python. use for low-level opentelemetry export to application insights. triggers: "azure-monitor-opentelemetry-exporter", "azuremonitortraceexporter", "azuremonitormetricexporter", "azuremonitorlogexporter".
+B: azure monitor ingestion sdk for python. use for sending custom logs to log analytics workspace via logs ingestion api. triggers: "azure-monitor-ingestion", "logsingestionclient", "custom logs", "dcr", "data collection rule", "log analytics".
+
+#158
+A: skill manifest management for dotnet-agent-harness. tracks skill dependencies, conflicts, version compatibility, and provides validation and resolution tools. triggers on: skill manifest, dependency resolution, skill compatibility, version conflicts, build manifest, validate dependencies.
+B: skill manifest management for dotnet-harness. tracks skill dependencies, conflicts, version compatibility, and provides validation and resolution tools. triggers on: skill manifest, dependency resolution, skill compatibility, version conflicts, build manifest, validate dependencies.
+
+#159
+A: run a .net project or solution's test suite via the .net cli (`dotnet test`), optionally scoped to specific test classes, methods, namespaces, or trait/category filters, and optionally targeted at a specific project (`.csproj`) or solution (`.sln`) file. invoke as `/iru-dotnet-test` to run the full suite (auto-detecting the solution/project in the working directory), or `/iru-dotnet-test <selector>` where `<selector>` names a class (`footests`), a class+method (`footests.testsomething`), a wildc
+B: run a .net project or solution's test suite via the .net cli (`dotnet test`), optionally scoped to specific test classes, methods, namespaces, or trait/category filters, and optionally targeted at a specific project (`.csproj`) or solution (`.sln`) file. invoke as `/dotnet-test` to run the full suite (auto-detecting the solution/project in the working directory), or `/dotnet-test <selector>` where `<selector>` names a class (`footests`), a class+method (`footests.testsomething`), a wildcard/name
+
+#160
+A: implement clerk authentication for native swift and ios apps using clerkkit and clerkkitui source-guided patterns. use for prebuilt authview or custom native flows. do not use for expo or react native projects.
+B: implement clerk authentication for expo and react native apps using @clerk/expo source-guided patterns. use for prebuilt authview/userbutton or custom hook-driven auth flows. do not use for native ios/swift, native android/kotlin, or web framework projects.
+
+#161
+A: automate outlook calendar tasks via rube mcp (composio): create events, manage attendees, find meeting times, and handle invitations. always search tools first for current schemas.
+B: automate cal.com tasks via rube mcp (composio): manage bookings, check availability, configure webhooks, and handle teams. always search tools first for current schemas.
+
+#162
+A: create and structure claude code agent skills. use when the user wants to create a new skill, write an agent skill, make a claude skill, or asks about skill.md files.
+B: advise on choosing between skills, commands, subagents, and hooks for claude code. analyze user requirements and recommend the appropriate artifact type with justification. use when user asks "should i use a skill or command", "what artifact type", "skill vs command", or describes a workflow needing automation.
+
+#163
+A: generate a single-line commit message, commit changes, and push to the remote. supports two modes — stage all changes or commit only staged files.
+B: stage all current changes, generate a commit message, commit, and push to the remote. use when asked to commit and push everything.
+
+#164
+A: 要件定義書をレビューする。「要件レビュー」「/step02-review {feature名}」で発動。
+B: 計画書をレビューする。「計画レビュー」「/step01-review {feature名}」で発動。
+
+#165
+A: strip ai tells from code comments, docstrings, commit messages, and pr descriptions — redundant comments that restate code, multi-line narrative comments, ceremonial docstrings, change-narration ("new:", "was previously"), and the "this pr does the following:" template. also flags claude's over-used code-architecture vocabulary (seam, cutover, surface, canonical, load-bearing, "want me to (a/b)?"). use when cleaning up comments/docstrings on a diff or file, tightening generated commit/pr text, o
+B: rewrite prose to remove ai-writing tells — em-dashes, "not x, but y" antithesis, overused vocabulary (delve, seamless, robust...), rule-of-three, hedging, sycophancy, vague abstraction over concrete detail, and uniform sentence rhythm. use when asked to humanize, de-slop, or "de-ai" writing, make text sound less like an llm, or edit an essay/doc/blog post/email/pr narrative for ai tells. not for code comments, docstrings, or commit messages — use deslop-code for those.
+
+#166
+A: this skill should be used when the user asks to "pentest ssh services", "enumerate ssh configurations", "brute force ssh credentials", "exploit ssh vulnerabilities", "perform ssh tunneling", or "audit ssh security". it provides comprehensive ssh penetration testing methodologies and techniques.
+B: this skill should be used when the user asks to "plan a penetration test", "create a security assessment checklist", "prepare for penetration testing", "define pentest scope", "follow security testing best practices", or needs a structured methodology for penetration testing engagements.
+
+#167
+A: guide for adding a new skill to an existing plugin. use when creating or adding skills to plugins in this marketplace.
+B: this skill should be used when the user asks to "create a skill", "write a skill", "edit a skill", "update a skill", "improve skill description", "add skill to plugin", "organize skill content", "create skill.md", "skill frontmatter", "skill structure", "progressive disclosure", or needs guidance on skill development, validation, or best practices for claude code plugins and personal skills.
+
+#168
+A: very quick process to create implementation-ready quick specs for small changes or features. use when the user says "create a quick spec" or "generate a quick tech spec"
+B: implement a quick tech spec for small changes or features. use when the user provides a quick tech spec and says "implement this quick spec" or "proceed with implementation of [quick tech spec]"
+
+#169
+A: react renderer for json-render that turns json specs into react components. use when working with @json-render/react, building react uis from json, creating component catalogs, or rendering ai-generated specs.
+B: react native renderer for json-render that turns json specs into native mobile uis. use when working with @json-render/react-native, building react native uis from json, creating mobile component catalogs, or rendering ai-generated specs on mobile.
+
+#170
+A: roblox virtual game studio — game designer. read studio/context.md first. active in phases 01, 03, 07+.
+B: roblox virtual game studio — technical director. read studio/context.md first. active in phases 02, 05, 06+.
+
+#171
+A: create or update feature specifications from natural language descriptions. use when starting new features or refining requirements. generates spec.md with user stories, functional requirements, and acceptance criteria following spec-driven development methodology.
+B: generate technical implementation plans from feature specifications. use after creating a spec to define architecture, tech stack, and implementation phases. creates plan.md with detailed technical design.
+
+#172
+A: use this skill as the baseline for all android and kotlin multiplatform (kmp) work — whenever the user mentions android, kotlin (in an android context), kmp, cmp, commonmain, androidmain, iosmain, androidmanifest, gradle, build.gradle, hilt, dagger, room, retrofit, ktor, viewmodel, livedata, stateflow, sharedflow, compose, activity, fragment, intent, adb, logcat, mvvm, mvi, repository pattern, or any android sdk / jetpack / androidx api. always load this skill alongside more specific skills (and
+B: always use this skill when working on the d&d helper project — a kotlin multiplatform (kmp) app for dungeons & dragons players. this is the top-level project skill. it governs all code generation, architecture decisions, and task execution for this project. load this skill first, then delegate to specific sub-skills (android-skills:android-dev, android-skills:compose, android-skills:kotlin-coroutines, android-skills:kotlin-flows, android-skills:android-data-layer, android-skills:android-retrofit
+
+#173
+A: apply production-grade symfony architecture and execution workflows with controlled scope and clear checkpoints. use for effective context tasks.
+B: apply production-grade symfony architecture and execution workflows with controlled scope and clear checkpoints. use for twig components tasks.
+
+#174
+A: maintainer-agent reference for implementing, reviewing, or testing music-theory functionality in software: pitch spelling, intervals, scales, modes, keys, chords, roman numerals, rhythm, meter, form, voice leading, notation, and theory-aware midi generation. use when modifying apis, examples, docs, tests, serializers, parsers, or algorithms that encode musical-theory concepts.
+B: maintainer-agent reference for implementing, reviewing, or testing composition and arrangement functionality in music software: phrase planners, chord-progressions, melody and bass generators, accompaniment patterns, form templates, orchestration, texture, style presets, example midi generators, and algorithmic composition workflows. use when adding or changing code that creates, transforms, arranges, or validates musical material.
+
+#175
+A: hỗ trợ ba / pm / po khám phá và đánh giá một ý tưởng / tính năng trước khi viết prd. kích hoạt khi: người dùng yêu cầu viết tài liệu discovery, khám phá sản phẩm, đánh giá opportunity, lập bản đồ stakeholder, đánh giá feasibility, hoặc chuyển từ ý tưởng sang đầu vào cho prd. không dùng khi: đã có đầy đủ thông tin và chỉ cần viết prd (dùng cc-prd-writer), viết user story (dùng cc-user-story-acceptance-criteria-writer), viết use case chi tiết (dùng cc-use-case-writer), viết đặc tả kỹ thuật srs (dù
+B: viết tài liệu prd chuẩn cho ba/pm/po. hỗ trợ 3 chế độ: viết mới, tinh chỉnh (refine), và bổ sung phần (augment). kích hoạt khi người dùng yêu cầu viết, tạo, review, tối ưu, hoặc chuyển đổi tài liệu thành prd — kể cả khi họ dán brd, bản phác thảo, hoặc mô tả tính năng để yêu cầu sinh prd. không dùng để viết user story (dùng cc-user-story-acceptance-criteria-writer), srs (dùng cc-srs-writer), hay use case formal (dùng cc-use-case-writer).
+
+#176
+A: creates integration test cases for .net data access artifacts during oracle-to-postgresql database migrations. generates db-agnostic xunit tests with deterministic seed data that validate behavior consistency across both database systems. use when creating integration tests for a migrated project, generating test coverage for data access layers, or writing oracle-to-postgresql migration validation tests.
+B: creates an integration testing plan for .net data access artifacts during oracle-to-postgresql database migrations. analyzes a single project to identify repositories, daos, and service layers that interact with the database, then produces a structured testing plan. use when planning integration test coverage for a migrated project, identifying which data access methods need tests, or preparing for oracle-to-postgresql migration validation.
+
+#177
+A: save project specifications as markdown files under docs/specs with dated filenames. use when codex creates, drafts, updates, or preserves a project spec, requirements document, implementation plan, technical design, product brief, or work specification in the builder workflow hub.
+B: save implementation plans as markdown files under docs/implementation-plans with dated filenames. use when codex creates, drafts, updates, or preserves an implementation plan, execution plan, engineering task breakdown, rollout plan, migration plan, or step-by-step build plan in the builder workflow hub.
+
+#178
+A: postgresql-specific code review assistant focusing on postgresql best practices, anti-patterns, and unique quality standards. covers jsonb operations, array usage, custom types, schema design, function optimization, and postgresql-exclusive security features like row level security (rls).
+B: postgresql-specific development assistant focusing on unique postgresql features, advanced data types, and postgresql-exclusive capabilities. covers jsonb operations, array types, custom types, range/geometric types, full-text search, window functions, and postgresql extensions ecosystem.
+
+#179
+A: build harbor release, tag and publish to github releases, install to /applications, and relaunch. use when the user wants to ship a new version to end users so the auto-updater picks it up.
+B: build harbor release locally and install to /applications without publishing. use when the user wants to try the latest build on their own machine but not push it to users.
+
+#180
+A: aws cdk (python) でec2インスタンスをデプロイするスタックを生成するスキル。デフォルトvpc再利用・ssmセッション許可・amazon linux 2023構成。
+B: aws cdk (python) プロジェクトの共通セットアップスキル。app.py・requirements.txt・.env・cdk.json などプロジェクト基盤を生成する。
+
+#181
+A: 同じテスト、コマンド、レビュー指摘で2回以上失敗した状況を整理し、独立した仮説と次の最小検証を選ぶ。e2e やレビュー修正ループで行き詰まったときに使う。
+B: 変更パスに応じて基本4本、convex 反映、ローカル e2e を実行し、push 可否を判定する。plan 契約フェーズ3または push 前検証で使う。
+
+#182
+A: apply production-grade symfony architecture and execution workflows with controlled scope and clear checkpoints. use for quality checks tasks.
+B: apply production-grade symfony architecture and execution workflows with controlled scope and clear checkpoints. use for bootstrap check tasks.
+
+#183
+A: practical patterns for using fp-ts with react - hooks, state, forms, data fetching. works with react 18/19, next.js 14/15.
+B: practical patterns for using fp-ts with react - hooks, state, forms, data fetching. use when building react apps with functional programming patterns. works with react 18/19, next.js 14/15.
+
+#184
+A: expert backend architect specializing in scalable api design, microservices architecture, and distributed systems. masters rest/graphql/grpc apis, event-driven architectures, service mesh patterns, and modern backend frameworks. handles service boundary definition, inter-service communication, resilience patterns, and observability. use proactively when creating new backend services or apis. use when: a broad backend architecture plan is requested across multiple api styles or services. do not u
+B: expert backend development guidance covering node.js, python, java, go, api design (rest/graphql/grpc), database patterns, authentication, caching, message queues, microservices, and testing. produces production-ready, scalable, and secure backend code with industry best practices. use when building apis, implementing business logic, designing data models, integrating services, or when users mention backend development, server-side code, apis, databases, or microservices.
+
+#185
+A: technical documentation specialist and knowledge curator for game projects. use when the user asks to talk to paige or requests the technical writer.
+B: technical documentation specialist and knowledge curator. use when the user asks to talk to paige or requests the tech writer.
+
+#186
+A: use this skill whenever the task involves any part of the git development lifecycle. triggers: 'commit message', 'git commit', 'conventional commits', 'create branch', 'git checkout', 'git switch', 'git push', 'feature branch', 'hotfix', 'merge conflict', 'pull request', 'pr description', 'gh pr create', 'code review', 'merge strategy', 'squash merge', 'branching strategy', 'changelog', 'semantic versioning'. do not use for github actions workflow yaml files — use the github-workflows skill inst
+B: use this skill whenever the task involves creating, editing, or debugging github actions workflow yaml files. triggers: any mention of '.github/workflows', 'github actions', 'ci pipeline', 'workflow yml', 'actions/checkout', 'actions/setup-python', 'matrix strategy', 'secrets in ci', 'on: push', 'on: pull_request', or 'reusable workflows'. also use when the user wants to automate linting, testing, or deployment on github. do not use for writing commit messages, branching strategy, or pull reques
+
+#187
+A: pr review fix execution — skill 2 of 3. invoke when user says: fix pr comments, apply review fixes, execute approved fixes. reads matrix.json from skill 1, applies approved fixes in code, runs tests/lint verification, updates matrix state. requires explicit approval_status in matrix.json before any fix is applied. feeds into pr-review-reply (skill 3).
+B: pr review reply publisher — skill 3 of 3. invoke when user says: post pr replies, reply to reviewers, publish review replies, send fix replies. reads matrix.json from skill 2, generates professional structured replies for each terminal comment state (fixed/blocked/skipped), previews replies for human confirmation, then posts via gh cli. requires skill 2 to have run first.
+
+#188
+A: use when a/b tests show mixed results or features have conflicting metrics - evaluates net positive/negative through strategic alignment, explores mitigation strategies before binary rollback decisions
+B: use when metrics conflict or feature has mixed results - evaluates short-term vs long-term impact, segments by user lifecycle, aligns with strategic positioning, and explores mitigation strategies before binary rollback decisions
+
+#189
+A: expert knowledge for azure cost management development including troubleshooting, best practices, decision making, limits & quotas, security, configuration, integrations & coding patterns, and deployment. use when managing budgets, alerts, exports, reservations, savings plans, or cost management/usage details apis, and other azure cost management related development tasks. not for azure advisor (use azure-advisor), azure monitor (use azure-monitor), azure quotas (use azure-quotas), azure impact 
+B: expert knowledge for azure quotas development including limits & quotas. use when requesting per-region storage account quota increases, checking limits, or filing azure support requests, and other azure quotas related development tasks. not for azure cost management (use azure-cost-management), azure monitor (use azure-monitor), azure policy (use azure-policy), azure resource manager (use azure-resource-manager).
+
+#190
+A: always use this when the request matches performance testing review ai review: you are an expert ai-powered code review specialist combining automated static analysis, intelligent pattern recognition, and modern devops practices.
+B: always use this when the request matches code review ai ai review: you are an expert ai-powered code review specialist combining automated static analysis, intelligent pattern recognition, and modern devops practices.
+
+#191
+A: you are an expert error analysis specialist with deep expertise in debugging distributed systems, analyzing production incidents, and implementing comprehensive observability solutions.
+B: you are an error tracking and observability expert specializing in implementing comprehensive error monitoring solutions. set up error tracking systems, configure alerts, implement structured logging, and ensure teams can quickly identify and resolve production issues.
+
+#192
+A: 指导如何在 project graph 项目中创建新的快捷键。当用户需要添加新的快捷键、修改快捷键绑定或需要了解快捷键系统的实现方式时使用此技能。
+B: 指导如何在 project graph 项目中创建新的设置项。当用户需要添加新的设置项、配置选项或需要了解设置系统的实现方式时使用此技能。
+
+#193
+A: always use this when the request matches fp react: practical patterns for using fp-ts with react - hooks, state, forms, data fetching.
+B: always use this when the request matches fp ts react: practical patterns for using fp-ts with react - hooks, state, forms, data fetching.
+
+#194
+A: make sure to use this skill whenever the user mentions anything related to danish job searching, job listings, job vacancies, employment opportunities in denmark, or the danish government job portal — even if they don't mention jobnet.dk explicitly. also invoke this skill for questions about specific job titles, occupations, employers, or regions in a danish employment context. this skill covers the official danish public job portal operated by star (styrelsen for arbejdsmarked og rekruttering).
+B: make sure to use this skill whenever the user mentions anything related to danish job listings, job search in denmark, finding work in denmark, or job vacancies on jobdanmark — even if they don't explicitly mention jobdanmark.dk. also invoke this skill for questions about specific danish job categories, municipalities, job types, or salaries in a job-search context. trigger phrases include: danish jobs, jobs in denmark, find job denmark, job search denmark, danish job listings, jobdanmark, job o
+
+#195
+A: 分析营养数据、识别营养模式、评估营养状况，并提供个性化营养建议。支持与运动、睡眠、慢性病数据的关联分析。
+B: 分析康复训练数据、识别康复模式、评估康复进展，并提供个性化康复建议
+
+#196
+A: analyzes a single mlflow trace to answer a user query about it. use when the user provides a trace id and asks to debug, investigate, find issues, root-cause errors, understand behavior, or analyze quality. triggers on "analyze this trace", "what went wrong with this trace", "debug trace", "investigate trace", "why did this trace fail", "root cause this trace".
+B: retrieves mlflow traces using cli or python api. use when the user asks to get a trace by id, find traces, filter traces by status/tags/metadata/execution time, query traces, or debug failed traces. triggers on "get trace", "search traces", "find failed traces", "filter traces by", "traces slower than", "query mlflow traces".
+
+#197
+A: analyzes network traffic captures and flow data to identify adversary activity during security incidents, including command-and-control communications, lateral movement, data exfiltration, and exploitation attempts. uses wireshark, zeek, and netflow analysis techniques. activates for requests involving network traffic analysis, packet capture investigation, pcap analysis, network forensics, c2 traffic detection, or exfiltration detection.
+B: analyzes network traffic generated by malware during sandbox execution or live incident response to identify c2 protocols, data exfiltration channels, payload downloads, and lateral movement patterns using wireshark, zeek, and suricata. activates for requests involving malware network analysis, c2 traffic decoding, malware pcap analysis, or network-based malware detection.
+
+#198
+A: always use this when the request matches error diagnostics error trace: you are an error tracking and observability expert specializing in implementing comprehensive error monitoring solutions.
+B: always use this when the request matches error debugging error trace: you are an error tracking and observability expert specializing in implementing comprehensive error monitoring solutions.
+
+#199
+A: 현재 브랜치의 변경사항을 분석하고 관련 이슈를 기반으로 pr을 자동 생성합니다.
+B: 이슈 설명을 받아서 팀의 브랜치 네이밍 컨벤션에 맞춰 브랜치명을 자동으로 생성합니다.
+
+#200
+A: azure ai voice live sdk for javascript/typescript. build real-time voice ai applications with bidirectional websocket communication.
+B: build real-time voice ai applications using azure ai voice live sdk (azure-ai-voicelive). use this skill when creating python applications that need real-time bidirectional audio communication with...
+
+#201
+A: omnistudio data mapper (formerly dataraptor) creation and validation with 100-point scoring. use when building extract, transform, load, or turbo extract data mappers, mapping salesforce object fields, or reviewing existing data mapper configurations. trigger when: user creates data mappers, configures field mappings, works with omnidatatransform metadata, or asks about dataraptor/data mapper patterns. do not trigger when: building integration procedures (use omnistudio-integration-procedure-gen
+B: omnistudio integration procedure creation and validation with 110-point scoring. use this skill when building server-side process orchestrations that combine data mapper actions, apex remote actions, http callouts, and conditional logic. trigger when: user creates integration procedures, adds data mapper steps, configures remote actions, or reviews existing ip configurations. do not trigger when: building omniscripts (use omnistudio-omniscript-generate), creating data mappers directly (use omnis
+
+#202
+A: 仕様書（技術+業務）を作成する。「仕様書作成」「/step04-specs {feature名}」で発動。
+B: 設計書を作成する。「設計書作成」「/step03-design {feature名}」で発動。
+
+#203
+A: this skill must be loaded when any .py file involving fastapi is being read, reviewed, edited, or created. also use when the user asks to "create a fastapi app", "add an api endpoint", "create a rest api", "implement authentication", "add oauth2", "create pydantic models", "add request validation", "implement dependency injection", "create api routers", "add middleware", "handle errors in fastapi", "create background tasks", "add websocket endpoints", "implement crud operations", "review a fasta
+B: this skill should be used when the user asks to "create a fastapi app", "add an api endpoint", "create a rest api", "implement authentication", "add oauth2", "create pydantic models", "add request validation", "implement dependency injection", "create api routers", "add middleware", "handle errors in fastapi", "create background tasks", "add websocket endpoints", "implement crud operations", or mentions fastapi, pydantic, async python apis, or starlette.
+
+#204
+A: 采集 harmonyos 设备/模拟器上的 ui 截图与控件树，执行交互场景验证，输出差异报告和迭代建议
+B: 仓颉语言 harmonyos 开发的入口路由。遇到仓颉语法、harmonyos api、编译构建等问题时自动加载，引导使用正确的 skill
+
+#205
+A: code reuse, cleanup, and reusability improvements for kredbook.
+B: bug detection, code quality, and best practice enforcement for kredbook.
+
+#206
+A: automate sharepoint tasks via rube mcp (composio): document libraries, sites, lists, and content management. always search tools first for current schemas.
+B: automate curated tasks via rube mcp (composio). always search tools first for current schemas.
+
+#207
+A: this skill should be used when the user asks to "run s3 to nfs sync test", "test cross-protocol sync s3 to nfs", "s3 到 nfs 全量拷贝测试", "test s3 to nfs migration", or mentions running cross-protocol sync from s3 to nfsv3.
+B: this skill should be used when the user asks to "run nfs to s3 sync test", "test cross-protocol sync nfs to s3", "nfs 到 s3 全量拷贝测试", "test nfs to s3 migration", or mentions running cross-protocol sync from nfsv3 to s3.
+
+#208
+A: wire alchemy into application code (server, backend, dapp, script) using a standard api key. preferred app-integration path for normal server/backend usage. covers evm json-rpc, token api, nft api, transfers api, prices api, portfolio api, simulation, webhooks, solana rpc, solana das, solana yellowstone grpc, sui grpc, wallets/account kit, and operational topics. requires `$alchemy_api_key`. for live agent work in this session (querying, admin, local automation), use `alchemy-cli` (preferred) or
+B: wire alchemy into application code without an api key, using the x402 or mpp gateway with wallet-based auth (siwe/siws) and per-request payments (usdc via x402, or usdc/credit-card via mpp). specialized app-integration path. use when the user is building application code and no api key is available, or they're an autonomous agent that needs to pay for itself, or they explicitly want x402/mpp. for normal app code with an api key, use `alchemy-api`. for live agent work in this session (querying, a
+
+#209
+A: create or update standalone micronaut guides in micronaut-projects/micronaut-guides, including topic discovery, guide authoring, validation, pdf export, and pull request handoff. use for requests to create a micronaut guide, add a guide to micronaut-guides, author a tutorial for a micronaut module, or prepare a guide pr with pdf.
+B: write and maintain micronaut framework module guides for micronaut-projects repositories. use when users ask to add or update asciidoc guide sections, edit guide toc.yml, apply micronaut docs macros, or fix docs build/publishing tasks.
+
+#210
+A: automate amara tasks via rube mcp (composio). always search tools first for current schemas.
+B: automate kaleido tasks via rube mcp (composio). always search tools first for current schemas.
+
+#211
+A: expert knowledge for azure application gateway development including troubleshooting, best practices, decision making, limits & quotas, security, configuration, integrations & coding patterns, and deployment. use when configuring listeners/routing, waf/tls, agic with aks, autoscale/zone redundancy, or app gateway for containers, and other azure application gateway related development tasks. not for azure load balancer (use azure-load-balancer), azure front door (use azure-front-door), azure traf
+B: expert knowledge for azure front door development including troubleshooting, best practices, decision making, architecture & design patterns, limits & quotas, security, configuration, integrations & coding patterns, and deployment. use when configuring front door routing/caching, waf/tls, private link origins, rules engine, or classic-to-standard/premium migration, and other azure front door related development tasks. not for azure application gateway (use azure-application-gateway), azure traff
+
+#212
+A: guide for creating effective skills for ai coding agents working with azure sdks and microsoft foundry services. use when creating new skills or updating existing skills.
+B: build ai applications using the azure ai projects python sdk (azure-ai-projects). use when working with foundry project clients, creating versioned agents with promptagentdefinition, running evaluations, managing connections/deployments/datasets/indexes, or using openai-compatible clients. this is the high-level foundry sdk - for low-level agent operations, use azure-ai-agents-python skill.
+
+#213
+A: route tokens: [d]
+B: route tokens: [p]
+
+#214
+A: check that all class 6 governance prompt versions match the §14 governance table in operational_guide.md. use before any governance commit, whenever the user asks "are the prompt versions in sync?", "check governance drift", or "do the prompts match the guide". also use proactively after any session that modifies multiple governance files to catch missed updates before committing.
+B: verify all governance prompts conform to the modular structure introduced in the 2026-05-09 refactor — governance_stack reference in §3, changelog reference in change log section, no inline history tables. use after any session that adds or edits a governance prompt, when the user asks "are the prompts in sync?", "check prompt structure", or "verify prompt format". also use as a one-time check after adding a new governance prompt to confirm it follows the canonical structure.
+
+#215
+A: run, watch, debug, and summarize openclaw full release ci, release checks, live provider gates, install/update proofs, and release-secret preflights.
+B: prepare or verify openclaw stable/beta releases, changelogs, release notes, publish commands, and artifacts.
+
+#216
+A: azure cosmos db sdk for java. nosql database operations with global distribution, multi-model support, and reactive patterns.
+B: azure cosmos db sdk for python (nosql api). use for document crud, queries, containers, and globally distributed data.
+
+#217
+A: implements hashicorp vault dynamic secrets engines for database credentials, aws iam keys, and pki certificates with automatic generation, lease management, and credential rotation to eliminate static secrets in application configurations. activates for requests involving vault secrets engine configuration, dynamic database credentials, ephemeral cloud credentials, or automated secret rotation.
+B: this skill covers deploying hashicorp vault for centralized secrets management across cloud environments, including dynamic secret generation for databases and cloud providers, transit encryption, pki certificate management, and kubernetes integration. it addresses eliminating hardcoded credentials from application code and ci/cd pipelines by implementing short-lived, automatically rotated secrets.
+
+#218
+A: build container-based foundry agents with azure ai projects sdk (imagebasedhostedagentdefinition). use when creating hosted agents with custom container images in azure ai foundry.
+B: build hosted agents using azure ai projects sdk with imagebasedhostedagentdefinition. use when creating container-based agents in azure ai foundry.
+
+#219
+A: test-driven development workflow for bc telemetry buddy. enforces the 9-phase plan → frame → tests → prove red → scaffold → implement → verify → security scan → document cycle. use when: adding features, fixing bugs, refactoring code, implementing new mcp tools, extension commands, or shared-lib modules. mandatory before any code change.
+B: spec authoring workflow for bc telemetry buddy (sdd phase 0). takes a github issue number, drafts a behavior spec with acceptance criteria under docs/specs/, and gates the tdd cycle. use when: picking up a feature/bug/tech-modernization issue, before any plan or code. not for knowledge-base issues (use /kb-article-creation).
+
+#220
+A: this skill should be used when the user wants to "create an agent project", "start a new adk project", "build me a new agent", "add ci/cd to my project", "add deployment", "enhance my project", or "upgrade my project". part of the google adk (agent development kit) skills suite. covers `agents-cli scaffold create`, `scaffold enhance`, and `scaffold upgrade` commands, template options, deployment targets, and the prototype-first workflow. do not use for writing agent code (use google-agents-cli-a
+B: this skill should be used when the user wants to "deploy an agent", "deploy my adk agent", "set up ci/cd", "configure secrets", "troubleshoot a deployment", or needs guidance on agent runtime, cloud run, or gke deployment targets. covers deployment workflows, service accounts, rollback, and production infrastructure. part of the google adk (agent development kit) skills suite. do not use for api code patterns (use google-agents-cli-adk-code), evaluation (use google-agents-cli-eval), or project s
+
+#221
+A: measure falkordb code coverage with llvm source-based instrumentation across rust unit tests, python e2e/mvcc/concurrency tests, flow tests, and tck - producing an lcov report. use when asked to measure/report test coverage or reproduce the ci coverage job locally.
+B: run falkordb's test suites - rust unit tests, python e2e/function/mvcc/concurrency tests, opencypher tck compliance tests, and flow tests. use when asked to run, narrow down, or debug a failing test, or to decide which suite covers a change.
+
+#222
+A: advanced motion patterns for react / next.js — drag & drop, gestures, text animations, svg path drawing, custom hooks, imperative sequences (useanimate), loaders, and the full api decision tree. requires motion-foundations.
+B: production-ready animation patterns for react / next.js — button, modal, toast, stagger, page transitions, exit animations, scroll, and layout — built on motion-foundations tokens and springs.
+
+#223
+A: frontend development patterns for react, next.js, state management, performance optimization, and ui best practices.
+B: build react components, implement responsive layouts, and handle client-side state management. masters react 19, next.js 15, and modern frontend architecture. optimizes performance and ensures accessibility. use proactively when creating ui components or fixing frontend issues.
+
+#224
+A: load this skill when writing or reviewing gherkin .feature files, discussing cucumber syntax, or structuring behavior scenarios. covers the complete gherkin specification (feature, scenario, scenario outline, background, rule), step keywords (given/when/then/and/but), data tables, examples, tags, doc strings, comments, and anti-patterns. applies to any gherkin work, not just appget.
+B: load this skill when writing, reviewing, or editing gherkin .feature files for the appget platform. contains the complete dsl reference: tags (@domain, @target, @rule, @blocking, @view), operator phrases, simple and compound conditions, metadata requirements, outcomes, non-comparable types, field validation rules, and common mistakes. essential for any work on features/*.feature files.
+
+#225
+A: 约课操作流程 - agent处理约课请求的标准工作流程。当用户想要预约新课程时使用此流程。
+B: 取消课程流程 - agent处理取消课程请求的标准工作流程。当用户想要取消已预约的课程时使用此流程。
+
+#226
+A: 马斯克视角skill：基于6维度深度调研，提炼5个核心心智模型+8条决策启发式+完整表达dna。 触发词："马斯克"、"第一性原理"、"musk"、"工程思维"、"spacex"、"tesla思维"。 调研来源：51条，一手来源占比>60%。心智模型5个，通过三重验证。
+B: 芒格视角skill：基于深度调研，提炼5个核心心智模型+8条决策启发式+完整表达dna。 触发词："芒格"、"多元思维模型"、"逆向思考"、"价值投资思维"、"激励结构"。 调研来源：40+条，一手来源占比>60%。心智模型5个，通过三重验证。
+
+#227
+A: claude.md file generation and optimization for claude code projects. capabilities: initialize project instructions, analyze codebase context, optimize existing claude.md, apply anthropic best practices, reduce token usage, improve effectiveness. actions: init, create, optimize, enhance claude.md files. keywords: claude.md, project instructions, claude code setup, project context, codebase analysis, anthropic best practices, token optimization, project configuration, ai instructions, coding guide
+B: creates, updates, or optimizes claude.md files following anthropic best practices. use when user requests creating, updating, improving, or optimizing claude.md files for project context, coding standards, or persistent memory.
+
+#228
+A: azure ai voice live sdk for .net. build real-time voice ai applications with bidirectional websocket communication.
+B: azure ai voice live sdk for javascript/typescript. build real-time voice ai applications with bidirectional websocket communication.
+
+#229
+A: implement a quick tech spec for small changes or features. use when the user provides a quick tech spec and says "implement this quick spec" or "proceed with implementation of [quick tech spec]"
+B: create implementation-ready quick tech specs for small changes or features. use when the user says "quick spec"
+
+#230
+A: composed arcanum spell: discovery-to-inventory.
+B: composed arcanum spell: repository-harness.
+
+#231
+A: 导航 ncatbot 代码库：定位代码、理解模块、查阅文档。文档优先，非必要不读代码，通过问题分类 → 文档查阅 → 精准定位的流程找到目标。use when: 定位代码、找代码、问题定位、代码在哪、哪个模块、哪个文件、issue 分析、bug 在哪、报错定位、功能在哪实现、架构理解、模块交互。
+B: 定位 ncatbot 代码实现：锁定模块目录、找到关键类/函数、追踪调用链。当文档不够时才读代码，用搜索而非遍历。use when: 找代码实现、哪个文件、哪个类、追踪调用链、定位 bug 行号、代码在哪、模块目录、源码定位。
+
+#232
+A: sync linked issue status for after_tasks hook.
+B: sync linked issue status for before_tasks hook.
+
+#233
+A: use when you need to research, analyze, and plan technical solutions that are scalable, secure, and maintainable.
+B: use when you need to plan technical solutions that are scalable, secure, and maintainable.
+
+#234
+A: you are an error tracking and observability expert specializing in implementing comprehensive error monitoring solutions. set up error tracking systems, configure alerts, implement structured logging,
+B: you are a monitoring and observability expert specializing in implementing comprehensive monitoring solutions. set up metrics collection, distributed tracing, log aggregation, and create insightful da
+
+#235
+A: publish a new sentry javascript sdk release. use when preparing a release, updating the changelog, or creating a release branch.
+B: upgrade a dependency in the sentry javascript sdk. use when upgrading packages, bumping versions, or fixing security vulnerabilities via dependency updates.
+
+#236
+A: generate and verify api documentation for asp.net core services using swagger/openapi. use when endpoints, dtos, validation, or response contracts change and updated api docs are required for release or frontend integration.
+B: plan and execute ef core database migrations and generate api documentation (openapi/swagger) for asp.net core services. use when adding schema changes, releasing api updates, writing migration notes, or validating backend contract changes.
+
+#237
+A: optimal viewmodel and wizard creation patterns for avalonia using zafiro and reactiveui.
+B: mandatory skills, conventions, and behavioral rules for avalonia ui development using the zafiro toolkit.
+
+#238
+A: always use this when the request matches gitlab automation: automate gitlab project management, issues, merge requests, pipelines, branches, and user operations via rube mcp (composio).
+B: always use this when the request matches gitlab ci patterns: comprehensive gitlab ci/cd pipeline patterns for automated testing, building, and deployment.
+
+#239
+A: dependency management strategies for golang projects — go.mod management, installing/upgrading packages, minimal version selection, vulnerability scanning, outdated dependency tracking, binary size analysis, dependabot/renovate setup, conflict resolution, and go.work workspaces. use when adding, removing, or upgrading go dependencies, auditing vulnerabilities, resolving version conflicts, or setting up automated dependency updates.
+B: golang package and module documentation and exploration via `godig`, a pkg.go.dev api client (cli + mcp server) — package docs, api references, symbols, code examples, available versions, importers (who imports a package), licenses, and known vulnerabilities. read-only, no auth. use for looking up any go/golang library's documentation, api signatures, usage examples, which versions exist, whether a dependency has cves, or who imports a package — prefer this over context7 for any go package or mo
+
+#240
+A: use this agent when designing enterprise java architectures, migrating spring boot applications, or establishing microservices patterns for scalable cloud-native systems. triggers on: designing, enterprise, java, architectures, migrating, spring, boot, applications, establishing, microservices, patterns, scalable, cloud-native, systems.
+B: use this agent when building enterprise spring boot 3+ applications requiring microservices architecture, cloud-native deployment, or reactive programming patterns. triggers on: building, enterprise, spring, boot, applications, microservices, architecture, cloud-native, deployment, reactive, programming, patterns.
+
+#241
+A: azure key vault secrets java sdk for secret management. use when storing, retrieving, or managing passwords, api keys, connection strings, or other sensitive configuration data.
+B: azure key vault keys sdk for .net. client library for managing cryptographic keys in azure key vault and managed hsm. use for key creation, rotation, encryption, decryption, signing, and verification.
+
+#242
+A: designer's eye qa: finds visual inconsistency, spacing issues, hierarchy problems, ai slop patterns, and slow interactions — then fixes them. iteratively fixes issues in source code, committing each fix atomically and re-verifying with before/after screenshots. for plan-mode design review (before implementation), use /plan-design-review. use when asked to "audit the design", "visual qa", "check if it looks good", or "design polish". proactively suggest when the user mentions visual inconsistenci
+B: designer's eye plan review — interactive, like ceo and eng review. rates each design dimension 0-10, explains what would make it a 10, then fixes the plan to get there. works in plan mode. for live site visual audits, use /design-review. use when asked to "review the design plan" or "design critique". proactively suggest when the user has a plan with ui/ux components that should be reviewed before implementation. (gstack)
+
+#243
+A: 交互设计评审，评估用户流程、操作反馈、错误处理、可用性等方面。触发场景：'交互设计评审'、'ux评审'。
+B: 需求完整性评审，检查功能覆盖、边界条件、异常场景、数据需求等方面的完整性。触发场景：'需求完整性检查'、'需求评审'。
+
+#244
+A: lace up apple mail for the great falls tool bus keyholders mailing list ([e-mail removed]). use when a keyholder asks their agent to subscribe to, file, and reply to the keyholders list in apple mail.
+B: lace up outlook for the great falls tool bus keyholders mailing list ([e-mail removed]). use when a keyholder asks their agent to subscribe to, file, and reply to the keyholders list in outlook.
+
+#245
+A: practical patterns for using fp-ts with react - hooks, state, forms, data fetching. works with react 18/19, next.js 14/15.
+B: practical patterns for using fp-ts with react - hooks, state, forms, data fetching. use when building react apps with functional programming patterns. works with react 18/19, next.js 14/15.
+
+#246
+A: review rust code for correctness, safety, idiomatic patterns, and common ai-generated code smells. use when reviewing rust code quality or before merging.
+B: write rust code with awareness of known ai pitfalls — ownership, lifetimes, async, module integration, idiomatic patterns. use when writing new rust code or implementing features.
+
+#247
+A: implementa un feature completo en el backend. requiere spec con status approved en .github/specs/.
+B: implementa un feature completo en el frontend. requiere spec con status approved en .github/specs/.
+
+#248
+A: スキル検索: /skills:find (use when the user runs /skills-find.)
+B: スキル一覧: /skills:list (use when the user runs /skills-list.)
+
+#249
+A: code review workflow using rp-cli git tool and context_builder
+B: code review workflow using repoprompt mcp tools git tool and context_builder
+
+#250
+A: automate twitter/x tasks via rube mcp (composio): posts, search, users, bookmarks, lists, media. always search tools first for current schemas.
+B: automate instagram tasks via rube mcp (composio): create posts, carousels, manage media, get insights, and publishing limits. always search tools first for current schemas.
+
+#251
+A: azure queue storage sdk for python. use for reliable message queuing, task distribution, and asynchronous processing. triggers: "queue storage", "queueserviceclient", "queueclient", "message queue", "dequeue".
+B: azure queue storage javascript/typescript sdk (@azure/storage-queue) for message queue operations. use for sending, receiving, peeking, and deleting messages in queues. supports visibility timeout, message encoding, and batch operations. triggers: "queue storage", "@azure/storage-queue", "queueserviceclient", "queueclient", "send message", "receive message", "dequeue", "visibility timeout".
+
+#252
+A: runs parallel external agent reviews (codex + gemini) on story/tasks. process-as-arrive, critical verification with debate. returns filtered suggestions.
+B: runs parallel external agent reviews (codex + gemini) on code changes. process-as-arrive, critical verification with debate. returns filtered suggestions.
+
+#253
+A: guide for integrating modern web frameworks with capacitor. covers next.js static export, react, vue, angular, svelte, and others. use this skill when converting framework apps to mobile apps with capacitor.
+B: guide to using ionic framework components for beautiful native-looking capacitor apps. covers component usage, theming, platform-specific styling, and best practices for mobile ui. use this skill when users need help with ionic components or mobile ui design.
+
+#254
+A: comprehensive technology stack blueprint generator that analyzes codebases to create detailed architectural documentation. automatically detects technology stacks, programming languages, and implementation patterns across multiple platforms (.net, java, javascript, react, python). generates configurable blueprints with version information, licensing details, usage patterns, coding conventions, and visual diagrams. provides implementation-ready templates and maintains architectural consistency fo
+B: comprehensive project architecture blueprint generator that analyzes codebases to create detailed architectural documentation. automatically detects technology stacks and architectural patterns, generates visual diagrams, documents implementation patterns, and provides extensible blueprints for maintaining architectural consistency and guiding new development.
+
+#255
+A: use when creating or structuring a new wiki page — decisions, systems, people, concepts, competition, conversations, projects, problems, or index files.
+B: use when the user notices a system, concept, person, project, decision, competitor, or problem is missing from the wiki and wants to create a page for it.
+
+#256
+A: automate todoist task management, projects, sections, filtering, and bulk operations via rube mcp (composio). always search tools first for current schemas.
+B: automate salesforce tasks via rube mcp (composio): leads, contacts, accounts, opportunities, soql queries. always search tools first for current schemas.
+
+#257
+A: apply when reviewing or designing security-sensitive boundaries in vtex io apps. covers public versus private exposure, trust assumptions at route and integration boundaries, sensitive data handling, validating what crosses the app boundary, and avoiding leakage across accounts, workspaces, users, or integrations. use for route hardening, data exposure review, or evaluating whether a service boundary is too permissive.
+B: apply when deciding where and how a vtex io app should store and read data. covers when to use app settings, configuration apps, master data, vbase, vtex core apis, or external stores, and how to avoid duplicating sources of truth or abusing configuration stores for operational data. use for new data flows, caching decisions, refactors, or reviewing suspicious storage and access patterns in vtex io apps.
+
+#258
+A: iso 13485 quality management system implementation and maintenance for medical device organizations. provides qms design, documentation control, internal auditing, capa management, and certification support. use when working with medical device quality systems, preparing for iso 13485 audits, managing regulatory compliance documentation, setting up corrective actions, or building audit preparation programs. useful for quality management, audit preparation, regulatory compliance, medical device d
+B: iso 13485 internal audit expertise for medical device qms. covers audit planning, execution, nonconformity classification, and capa verification. use for internal audit planning, audit execution, finding classification, external audit preparation, or audit program management.
+
+#259
+A: packet-view リポジトリで依存関係をインストールしたいときに使う。web ディレクトリで npm ci または依存追加・更新時の npm install を実行し、必要に応じて結果や差分を確認したい場合にこのスキルを使う。
+B: packet-view リポジトリで本番ビルドを実行したいときに使う。web ディレクトリで npm run build を実行し、ビルド成功確認や失敗内容の要約を行いたい場合にこのスキルを使う。
+
+#260
+A: use when analysing feasibility, dependency impact, and sketching api for new features. load during the analysis phase of sdlc.
+B: use when eliciting, documenting, and registering feature requirements in roadmap.md. load during the planning phase of sdlc.
+
+#261
+A: [command entry-point - invokes shared `environment-setup` skill] direct command-bar dispatch only; do not select for general queries.
+B: [command entry-point - invokes shared `generate-checklist` skill] direct command-bar dispatch only; do not select for general queries.
+
+#262
+A: angular template conventions for zeffyr music — modern control flow (@if/@for/@switch), signal call syntax, skeleton loaders, empty states, ng-bootstrap auto-aria, ng0956 avoidance, and required aria attributes. use when creating or editing *.html templates.
+B: bootstrap 5.3 + ng-bootstrap 21 conventions for zeffyr music — prefer utilities over custom css, css variables for dark mode, ng-bootstrap auto-aria (no redundant tabindex/role/keydown), dropdown and modal-alert patterns, responsive breakpoints. use when editing html or scss that uses bootstrap or ng-bootstrap.
+
+#263
+A: apply production-grade symfony architecture and execution workflows with controlled scope and clear checkpoints. use for bootstrap check tasks.
+B: apply production-grade symfony architecture and execution workflows with controlled scope and clear checkpoints. use for daily workflow tasks.
+
+#264
+A: review java openinference instrumentation code for correctness and completeness. use this skill when reviewing a java instrumentor package — whether it's a new instrumentor, a pr that modifies one, or when the user asks to audit/review/check an existing instrumentor's code quality. trigger on phrases like "review the instrumentor", "check the java code", "audit the package", "is this instrumentor correct", or any request to validate an openinference java instrumentation package against project s
+B: review python openinference instrumentation code for correctness and completeness. use this skill when reviewing a python instrumentor package — whether it's a new instrumentor, a pr that modifies one, or when the user asks to audit/review/check an existing instrumentor's code quality. trigger on phrases like "review the instrumentor", "check the code", "audit the package", "is this instrumentor correct", or any request to validate an openinference python instrumentation package against project 
+
+#265
+A: when the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. also use when the user mentions "email sequence," "drip campaign," "nurture sequence," "onboarding emails," "welcome sequence," "re-engagement emails," "email automation," "lifecycle emails," "trigger-based emails," "email funnel," "email workflow," "what emails should i send," "welcome series," or "email cadence." use this for any multi-email automated flow. for cold out
+B: when the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes. also use when the user mentions 'revops,' 'revenue operations,' 'lead scoring,' 'lead routing,' 'mql,' 'sql,' 'pipeline stages,' 'deal desk,' 'crm automation,' 'marketing-to-sales handoff,' 'data hygiene,' 'leads aren't getting to sales,' 'pipeline management,' 'lead qualification,' or 'when should marketing hand off to sales.' use this for anything involving the systems and proc
+
+#266
+A: apply the owasp api security top 10 to rest and graphql endpoints. covers broken object-level authorization (bola), mass assignment, excessive data exposure, unrestricted resource consumption, ssrf, broken function-level authorization, and graphql depth and complexity limits. invoke when designing a new api, reviewing one before scaling, or after api abuse (scraping, account takeover).
+B: tests rest and graphql apis for broken object level authorization (bola/idor) vulnerabilities where an authenticated user can access or modify resources belonging to other users by manipulating object identifiers in api requests. the tester intercepts api calls, identifies object id parameters (numeric ids, uuids, slugs), and systematically replaces them with ids belonging to other users to determine if the server enforces per-object authorization. this is owasp api security top 10 2023 risk api
+
+#267
+A: use when testing or verifying divedra workflow bundles. applies to deterministic mock-scenario runs, workflow validate/inspect/run checks, expected_results.md updates, regression assertions, session output verification, and ci-style workflow fixture validation.
+B: use when creating, modifying, reviewing, or validating divedra workflow bundles. applies to step-addressed workflow.json authoring, node payload files, prompt files, built-in node add-ons, cross-workflow transitions, manager/worker routing, and portable workflows under a workflow root.
+
+#268
+A: berth harness workflow 5.2-issues 问题收敛. 读取并执行 .agents/workflow/5.2-issues.md, 任务=$arguments
+B: berth harness workflow 4.0-verify 验证. 读取并执行 .agents/workflow/4.0-verify.md, 任务=$arguments
+
+#269
+A: interactive root cause analysis enforcer. guides you through the 7-step rca protocol: reproduce, locate, hypothesis, failing test, fix, verify live, document. use when debugging a bug, investigating a failure, or when something unexpected happened. this skill gates each step — it won't let you skip to a fix without stating a hypothesis first. triggers on: 'something is broken', 'debug this', 'why is this failing', 'rca', 'root cause', or /hk-rca.
+B: interactive root cause analysis enforcer. guides you through the 7-step rca protocol: reproduce, locate, hypothesis, failing test, fix, verify live, document. use when debugging a bug, investigating a failure, or when something unexpected happened. this skill gates each step — it won't let you skip to a fix without stating a hypothesis first. triggers on: 'something is broken', 'debug this', 'why is this failing', 'rca', 'root cause', or /dk-rca.
+
+#270
+A: guide for creating effective skills. this skill should be used when users want to create a new skill (or update an existing skill) that extends claude's capabilities with specialized knowledge, workflows, or tool integrations.
+B: guides creation of effective claude skills with proper structure, naming, and progressive disclosure. use when creating new skills, improving existing skill.md files, reviewing skill quality, or when the user mentions writing skills, skill authoring, or skill.md.
+
+#271
+A: azure key vault keys java sdk for cryptographic key management. use when creating, managing, or using rsa/ec keys, performing encrypt/decrypt/sign/verify operations, or working with hsm-backed keys.
+B: manage cryptographic keys using azure key vault keys sdk for javascript (@azure/keyvault-keys). use when creating, encrypting/decrypting, signing, or rotating keys.
+
+#272
+A: azure ai voice live sdk for .net. build real-time voice ai applications with bidirectional websocket communication.
+B: azure ai voicelive sdk for java. real-time bidirectional voice conversations with ai assistants using websocket.
+
+#273
+A: execute the next vtrace wave pulse with docs, skills, validation, and commit-ready updates.
+B: start or review vtrace development waves and pulse plans.
+
+#274
+A: azure monitor ingestion sdk for java. send custom logs to azure monitor via data collection rules (dcr) and data collection endpoints (dce).
+B: azure monitor opentelemetry exporter for java. export opentelemetry traces, metrics, and logs to azure monitor/application insights.
+
+#275
+A: generate implementation tasks for a specification
+B: generate comprehensive requirements for a specification
+
+#276
+A: 乔布斯视角skill：产品极简主义、聚焦与取舍、技术与人文交叉的思维框架。 触发词："乔布斯"、"jobs"、"产品感"、"极简"、"聚焦"。
+B: 达利欧视角skill：原则系统化、极度透明、机器思维看组织。 触发词："dalio"、"达利欧"、"原则"、"极度透明"、"系统化决策"。
+
+#277
+A: azure ai text analytics sdk for sentiment analysis, entity recognition, key phrases, language detection, pii, and healthcare nlp. use for natural language processing on text.
+B: build document analysis applications using the azure ai document intelligence sdk for java.
+
+#278
+A: author 15-20 second narration scripts (podcast / social-post tone, talking to one hidden listener) for amazon affiliate products and apply them to product folders. accepts a single slug, a comma-list, or `--all-needing` to target every product missing a script. use when the user runs /write-script or asks to "write a script for x", "draft narration for these products", or similar.
+B: generate narration mp3s for amazon affiliate products via elevenlabs tts, using the channel voice pinned in `narration/.env`. reads `script-raw-text` from each product's manifest.json, generates `<product>/narration.mp3`, and keeps `narration-audio-path` in sync. idempotent — never regenerates an existing mp3, but does fix a manifest that's out of sync. accepts a single slug, a comma-list, or `--all-needing`. use when the user runs /generate-narration or asks to "generate narration for x", "narr
+
+#279
+A: expert knowledge for azure health bot development including best practices, decision making, architecture & design patterns, security, configuration, and integrations & coding patterns. use when configuring health bot channels, web chat/voice embeds, management apis, orchestrator flows, or cost estimation, and other azure health bot related development tasks. not for azure ai bot service (use azure-bot-service), azure communication services (use azure-communication-services), azure health data s
+B: expert knowledge for azure ai bot service development including troubleshooting, best practices, decision making, architecture & design patterns, limits & quotas, security, configuration, integrations & coding patterns, and deployment. use when building azure bots with web chat/direct line, teams, oauth/sso, qna/luis, or proactive messaging, and other azure ai bot service related development tasks. not for azure health bot (use azure-health-bot), azure web pubsub (use azure-web-pubsub), azure co
+
+#280
+A: end-to-end workflow for writing, running, and verifying playwright e2e tests through ci. use this skill whenever you are writing new e2e tests, adding tests to the buildkite ci pipeline, troubleshooting ci e2e failures, monitoring buildkite build results, or need to get playwright tests passing in ci. also use when you need faster ci feedback loops by temporarily disabling unrelated pipeline steps. this skill adapts to your environment — it works for both cli agents (with docker and `bk` cli) an
+B: workflow for debugging playwright e2e test failures. use when e2e tests are failing in ci, when you need to iterate on test selectors, or when you need to verify test changes work correctly before pushing. provides step-by-step instructions for local verification.
+
+#281
+A: always use this when the request matches documentation generation doc generate: you are a documentation expert specializing in creating comprehensive, maintainable documentation from code.
+B: always use this when the request matches wiki architect: you are a documentation architect that produces structured wiki catalogues and onboarding guides from codebases.
+
+#282
+A: cli tools for svelte 5 documentation lookup and code analysis. must be used whenever creating, editing or analyzing any svelte component (.svelte) or svelte module (.svelte.ts/.svelte.js). if possible, this skill should be executed within the svelte-file-editor agent for optimal results.
+B: guidance on writing fast, robust, modern svelte code. load this skill whenever in a svelte project and asked to write/edit or analyze a svelte component or module. covers reactivity, event handling, styling, integration with libraries and more.
+
+#283
+A: this skill should be used when the user asks to "track rankings", "check keyword positions", "ranking changes", "monitor serp positions", "how am i ranking", "where do i rank for this keyword", "did my rankings change", or "keyword position tracking". tracks and analyzes keyword ranking positions over time for both traditional search results and ai-generated responses. monitors ranking changes, identifies trends, and alerts on significant movements. for automated alerting, see alert-manager. for
+B: this skill should be used when the user asks to "set up seo alerts", "monitor rankings", "notify me when rankings drop", "traffic alerts", "watch competitor changes", "alert me if rankings drop", "notify me of traffic changes", or "watch my keywords for changes". sets up and manages alerts for critical seo and geo metrics including ranking drops, traffic changes, technical issues, and competitor movements. enables proactive monitoring and quick response to issues. for detailed rank analysis, see
+
+#284
+A: create 3d scenes, interactive experiences, and visual effects using three.js. use when user requests 3d graphics, webgl experiences, 3d visualizations, animations, or interactive 3d elements.
+B: three.js scene setup, cameras, renderer, object3d hierarchy, coordinate systems. use when setting up 3d scenes, creating cameras, configuring renderers, managing object hierarchies, or working with transforms.
+
+#285
+A: add a new rpgenius character-card / job-class skill end-to-end. use when adding or editing a main-card skill so the data and both combat handlers (solo + party) stay in sync. triggers - "스킬 추가", "궁극기 추가", "캐릭터 스킬 만들어", "add rpg skill".
+B: add a new rpgenius character card (name + slot effect + skills, optionally a 전직/job class) end-to-end, including the base-slot-effect code wiring and full skill implementation, then verify. triggers - "캐릭터 카드 추가", "카드 만들어", "신규 캐릭터", "add character card".
+
+#286
+A: load plan from sub-issue. materialization of the provider-specific local cache (.claude/plans/plan-{m}-{slug}.md or .cursor/plans/plan-{m}-{slug}.md) from the canonical plan sub-issue body, per the hierarchical model of lex-agent-planning
+B: flush plan to sub-issue. synchronization of the provider-specific local cache (.claude/plans/plan-{m}-{slug}.md or .cursor/plans/plan-{m}-{slug}.md) to the canonical plan sub-issue body, per the hierarchical model of lex-agent-planning
+
+#287
+A: 仓颉语言 tls 安全通信。当需要了解仓颉 stdx.net.tls 包的 tls 核心功能、客户端/服务端配置（tlsclientconfig/tlsserverconfig）、tlssocket 用法、证书验证模式、会话恢复、alpn 协商、双向认证等信息时，应使用此 skill。
+B: 仓颉 tls 项目编译构建指南。当项目依赖 stdx.net.tls 包时，需要了解配置构建方法和常见问题，应使用此 skill
+
+#288
+A: use for gentlesight github issue implementation, pr automation, squash merge flow, ui acceptance qa, and privacy-safe product delivery. trigger whenever the user asks to resolve gentlesight issues, automate prs, or continue issue batches. route openai, ai api key, /api/report, and privacy-safe ai readiness work to gentlesight-ai-api-readiness.
+B: gentlesight openai and ai api readiness orchestrator. trigger for openai, ai api keys, /api/report, report generation, privacy-safe ai boundaries, prd issue creation, "continue previous ai api plan", or any request to make the ai integration ready without adding secrets.
+
+#289
+A: use this agent when building server-side apis, microservices, and backend systems that require robust architecture, scalability planning, and production-ready implementation.
+B: use this agent when building enterprise spring boot 3+ applications requiring microservices architecture, cloud-native deployment, or reactive programming patterns.
+
+#290
+A: capture and analyze network traffic using wireshark and tshark to reconstruct network events, extract artifacts, and identify malicious communications.
+B: captures and analyzes network packet data using wireshark and tshark to identify malicious traffic patterns, diagnose protocol issues, extract artifacts, and support incident response investigations on authorized network segments.
+
+#291
+A: always use this when the request matches c4 context: expert c4 context-level documentation specialist.
+B: always use this when the request matches c4 container: expert c4 container-level documentation specialist.
+
+#292
+A: generates cost optimization guidance for google cloud workloads based on the google cloud well-architected framework (waf). use this skill to evaluate a workload, identify cost requirements and constraints, and provide actionable recommendations for build, deploy, and manage the workload cost-efficiently in google cloud.
+B: generates performance-focused guidance for google cloud workloads based on the design principles and recommendations in the performance optimization pillar of the google cloud well-architected framework (waf). use this skill to evaluate a workload, identify performance requirements, and provide actionable recommendations for resource allocation, modular design, and elasticity.
+
+#293
+A: guides the agent through upgrading a capacitor plugin to a newer major version. supports upgrades from capacitor 4 through 8, including multi-version jumps. covers automated upgrade via official migration tools, android sdk targets, gradle configuration, java/kotlin versions, ios deployment targets, and manual step-by-step fallback for each version. do not use for app project upgrade or non-capacitor plugin frameworks.
+B: guides the agent through upgrading a capacitor app project to a newer major version. supports upgrades from capacitor 4 through 8, including multi-version jumps. covers automated upgrade via the capacitor cli and manual step-by-step fallback for each version. do not use for plugin library upgrade or non-capacitor mobile frameworks.
+
+#294
+A: execute the implementation plan by processing tasks defined in tasks.yaml.
+B: generate yaml task breakdown from implementation plan.
+
+#295
+A: generate comprehensive technical documentation for developers taking over an aem edge delivery services project. analyzes codebase structure, custom implementations, design tokens, and produces a complete developer guide.
+B: generate comprehensive documentation for content authors taking over an aem edge delivery services project. analyzes the project structure and produces a complete authoring guide with blocks, templates, configurations, and publishing workflows.
+
+#296
+A: use when asked to analyze what changes are needed to implement a new feature in the black duck security scan ado extension. reads the codebase, maps every file that must change, identifies breakage risks, and writes a structured changes.md file with a prioritized change plan and risk table. trigger on "analyze this feature", "what needs to change for x", "plan this implementation", "impact analysis for x".
+B: use when asked to explain how any part of the black duck security scan ado extension works — entry flow, product scan setup, bridge cli integration, input handling, pr comments, fix prs, sarif upload, airgap mode, proxy/ssl, or version compatibility. produces a precise, file-linked explanation grounded in the actual source.
+
+#297
+A: roblox virtual game studio — level designer. read studio/context.md first. active in phases 07, 09.
+B: roblox virtual game studio — technical director. read studio/context.md first. active in phases 02, 05, 06+.
+
+#298
+A: configure better auth server and client, set up database adapters, manage sessions, add plugins, and handle environment variables. use when users mention better auth, betterauth, auth.ts, or need to set up typescript authentication with email/password, oauth, or plugin configuration.
+B: scaffold and implement authentication in typescript/javascript apps using better auth. detect frameworks, configure database adapters, set up route handlers, add oauth providers, and create auth ui pages. use when users want to add login, sign-up, or authentication to a new or existing project with better auth.
+
+#299
+A: create an sdd change proposal with intent, scope, and approach. trigger: orchestrator launches proposal work for a change.
+B: implement sdd tasks from specs and design. trigger: orchestrator launches apply for one or more change tasks.
+
+#300
+A: skill for the settings area of plan-things-2. 132 symbols across 28 files.
+B: skill for the settingspage area of plan-things-2. 73 symbols across 27 files.
+

@@ -1,0 +1,54 @@
+# Data that must never be committed (large, re-downloadable, or derived)
+data/raw/
+data/interim/
+data/private/
+*.duckdb
+*.duckdb.wal
+emb.npy
+*.npy
+dl-*.parquet
+pilot/collide/slim/
+pilot/collide/fm/
+pilot/collide/repos.parquet
+pilot/rot/flagged/
+pilot/rot/hist/
+pilot/rot/cflags/
+
+# Blind labelling (added 2026-10-09): earlier labels, keys and coders' files stay off the
+# public repository until both coders finish calibration; then remove this block and commit
+# them together (see labelling/README.md)
+pilot/collide/out/labels*.csv
+pilot/collide/out/human_pairs_180_key.csv
+pilot/collide/out/label_key*.parquet
+labelling/**/coder-*.csv
+
+# Secrets
+.env
+.env.*
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+.ipynb_checkpoints/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# macOS and editors
+.DS_Store
+.vscode/settings.json
