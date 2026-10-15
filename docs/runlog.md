@@ -303,3 +303,17 @@ Repository preparation (2026-10-09)
 - Files copied into the team repository. One skill description in the Run 4 reading set contained an e-mail address;
   it was replaced with "[e-mail removed]" in pilot/collide/out/pairs_to_label.txt and label_key.parquet. No label
   or number changes. pilot/collide/embed.py now fetches the model from Hugging Face instead of a sandbox path.
+
+Language handling for RQ2 labelling (2026-10-15; written before any human label was recorded)
+- Detector: lingua (all languages, confidence >= 0.60) on name + description, with hand correction of 10 rows the
+  detector left undecided (short or code-like English; two Spanish rows; one Japanese side). Calibration set:
+  29 of 180 pairs (16%) have a non-English side; all 29 have both sides non-English, in the same language.
+  Languages (sides): zh 24, ja 16, es 6, ko 6, pt 2, vi 2, nn 2.
+- Rule: non-English pairs stay in the sample (the agent reads them; only the human instrument is limited). One
+  person machine-translates them once with one service (DeepL API, EN-US), records service and date in a sidecar,
+  and both coders label from original + translation. Coders never translate during labelling. Unclear after both
+  -> U with "language" in notes.
+- Report kappa for all pairs and separately for translated vs English pairs. Prevalence estimates include
+  translated pairs; a sensitivity estimate on English-only pairs is reported alongside.
+- Main study: same procedure; language detection is logged per catalogue, and the language mix of the sample is
+  reported so readers can judge how far English-only tools (and coders) would have gone wrong.
