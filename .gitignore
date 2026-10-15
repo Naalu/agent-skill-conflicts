@@ -20,7 +20,7 @@ pilot/rot/cflags/
 pilot/collide/out/labels*.csv
 pilot/collide/out/human_pairs_180_key.csv
 pilot/collide/out/label_key*.parquet
-labelling/**/coder-*.csv
+labelling/**/coder-*
 
 # Secrets
 .env
@@ -52,3 +52,7 @@ __pycache__/
 # macOS and editors
 .DS_Store
 .vscode/settings.json
+
+# Spreadsheet lock files (Excel, LibreOffice)
+~$*
+.~lock.*#
