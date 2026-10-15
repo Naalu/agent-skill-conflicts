@@ -2,6 +2,9 @@
 
 One subfolder per labelling round. Each round has a blank `pairs.csv` and a codebook in `docs/codebooks/`.
 
+New to Git or GitHub? Start with [`getting-started.md`](getting-started.md): setup, your own copy, spreadsheets,
+labelling, checking your file with `check_labels.py`, and handing in.
+
 ## Round 1: calibration (`calibration-180/`)
 
 180 pairs of skills from the same skill directory. Instructions: `docs/codebooks/competing-pairs.md`.
