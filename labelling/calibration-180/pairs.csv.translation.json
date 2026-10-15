@@ -1,0 +1,8 @@
+{
+  "service": "DeepL API",
+  "target_lang": "EN-US",
+  "model_type": "prefer_quality_optimized",
+  "date": "2026-10-15",
+  "cells_translated_this_run": 116,
+  "note": "Translations are an aid for human coders; the agent is given the original text."
+}
