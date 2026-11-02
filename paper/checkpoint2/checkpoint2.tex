@@ -1,0 +1,216 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}
+\linespread{1.04}
+\usepackage[letterpaper,textwidth=6.7in,textheight=9.5in]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf,skip=3pt}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{2pt}
+\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection}{0.6em}{}[.\quad]
+\setlength{\parskip}{0pt}
+\sloppy
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\repo}[1]{\href{https://github.com/Naalu/agent-skill-conflicts/#1}{\texttt{#1}}}
+
+\title{\large\bfseries Checkpoint 2: Research Progress Report\\[3pt]
+\normalsize\mdseries Conflicting and competing agent skills in the GitSkills dataset}
+\author{\normalsize Chris Reger \and \normalsize Smirthya Somaskantha Iyer}
+\date{\normalsize CS 599, Northern Arizona University \\ November 3, 2026}
+
+\begin{document}
+\maketitle
+\vspace{-14pt}
+\noindent Repository: \url{https://github.com/Naalu/agent-skill-conflicts}. Rules, thresholds and seeds are written to
+\repo{blob/main/docs/runlog.md} before the code that applies them runs, and corrections are logged there. The paper draft
+(introduction through method, result skeleton) is on Overleaf:
+\url{https://www.overleaf.com/project/6ae0d951dab4678631de9569}.
+
+\section{Initial research and research questions}
+
+\subsection{Literature}
+Every major product shows the model a list of skill names and descriptions and lets it choose; none checks whether
+two entries mean the same thing \cite{agentskillsspec2026,claudecodeskills2026,codexskills2026}, and Claude Code's
+documentation warns that overlapping descriptions can make it load the wrong skill or miss one. In controlled settings
+overlap hurts: one near-synonym competitor per skill cut selection accuracy by 7 to 30\% \cite{li2026singleagent},
+routing accuracy falls with the log of library size with errors concentrated among similar skills
+\cite{chen2026scaling}, and pass rates fell by up to 21\% at 202 skills because of selection, not context length
+\cite{song2026shadowing}. Field prevalence is barely measured: Yan et al.\ \cite{oneskilltoomany2026} found a similar
+co-installed skill beside about one in four installed skills across 20,947 repositories with an LLM judge, but exclude
+other agents' directories and do not look at drift between copies. Clone research says copies drift and inconsistent
+edits cause faults \cite{kim2005genealogies,juergens2009clones}; 53\% of reused skills are never modified after adoption
+\cite{gao2026reuse}. Prior overlap detectors use similarity cut-offs from 0.45 to 0.95, mostly unvalidated. An annotated
+list of the forty papers we may cite is in \repo{blob/main/docs/references.md}.
+
+\subsection{Dataset}
+GitSkills \cite{destefanis2026gitskills} was mined July 9 to 20, 2026. Its 3,797,117 \texttt{SKILL.md} occurrences
+collapse to 1,877,981 distinct contents (50.5\% of rows are exact copies of content found elsewhere); one representative
+copy per content carries the text and commit history. Front matter parses for 89.2\% of occurrences; commit history
+exists for 24.4\% of contents. The dataset holds project-level skills only, so everything we report is a lower bound.
+
+\subsection{Questions}
+\textbf{RQ1 (conflicting copies).} How often does a repository give its coding agents different copies of the same
+skill, meaning the same name in two agent directories with different content?
+\textbf{RQ2 (competing skills).} How often do differently named skills in one catalog compete, meaning a realistic
+request could reasonably be answered by either?
+\textbf{RQ3 (author practices, secondary).} How often do authors guard against overlap with cross-references, ``do not
+use for'' wording, or invocation flags?
+The wording is unchanged since Checkpoint 1; the emphasis has moved. The behavioral check once planned under RQ3 is now
+an extension if time allows, since Yan et al.\ ran 6,368 Claude Code sessions on it. RQ1 is to our knowledge unmeasured
+and needs only names, paths and hashes, so it is an exact count over all eligible repositories. RQ2 replicates the
+prevalence question on thirteen times as many repositories, with human labels and a sampling design behind a
+reliability gate (Cohen's $\kappa \geq 0.60$ \cite{cohen1960kappa,landis1977kappa}).
+
+\section{Work completed and technical details}
+
+\subsection{Data}
+GitSkills July 2026 snapshot, Hugging Face Parquet export (mirror of Zenodo DOI 10.5281/zenodo.21875637), downloaded
+October 6 to 8; each \texttt{artifacts} part is read with DuckDB, reduced and deleted (6\,GB to 300\,MB). The unit of
+analysis is the repository. A \emph{catalog} is the set of valid skills under one root agent directory
+(\texttt{.<agent>/skills/<folder>/SKILL.md}); valid means named exactly \texttt{SKILL.md} with a non-empty front-matter
+name and description. This gives 843,271 valid occurrences in 141,458 catalogs across 120,929 repositories, 82,914
+catalogs with two or more skills, and 12,875 repositories with skills in two or more directories (the RQ1 population).
+Names are keyed on the front-matter field, trimmed and lower-cased, which differs from the folder name in 24.3\% of cases.
+Skills with \texttt{disable-model-invocation: true} (2.45\%) are out of RQ2; descriptions are cut at the 1,536-character
+product cap before a coder sees them. One e-mail address found in a description was removed from working files, and
+row-level files naming repositories stay out of the public repository.
+
+\subsection{Scripts}
+In \repo{tree/main/pilot/collide}: \texttt{slim\_local.py}, \texttt{build\_tables.py} (DuckDB tables), \texttt{probes.py}
+(RQ1 mirrors by product), \texttt{sample\_libs.py}, \texttt{embed.py}, \texttt{analyze.py} (RQ2 sample, all-MiniLM-L6-v2
+embeddings, strata), \texttt{fm\_scan.py}, \texttt{probe\_p3.py}, \texttt{probe\_p4.py} (RQ3 counts), \texttt{verify.py}
+(independent recomputation); in \repo{tree/main/labelling}: \texttt{translate\_pairs.py}, \texttt{check\_labels.py},
+\texttt{agreement.py}. Python 3.12, pinned in \texttt{uv.lock}. Evidence: commit \texttt{ddbd729} (pilot code and plan),
+PRs \#16 to \#20 (language handling, translations, environment, coder guide, Checkpoint 1), and the
+\texttt{calibration-result} branch merged October 30 (labels, agreement script, decision).
+
+\subsection{Measurement and validation}
+RQ1 compares every name present in two directories of one repository by \texttt{file\_sha}, then by whether the
+description differs and whether the body length differs by more than 5\% and 50 characters, repeated for the directory
+set each product reads. RQ2: two coders label pairs from name and description as C, N or U plus a relation type (D, S,
+O) under \repo{blob/main/docs/codebooks/competing-pairs.md}; similarity only stratifies the sample. RQ3: pre-specified
+regular expressions and front-matter flags. Checks so far: row counts against the data card; \texttt{verify.py}
+reproduced similarity rates on all 20,000 sampled catalogs to within $8\times10^{-7}$; duplicate rates recomputed in SQL
+on all 82,914 catalogs; a rebuild after a workspace reset reproduced the pilot result exactly.
+
+\section{Pilot findings}
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Directories compared & Repos, $\geq 2$ dirs & Same name in two & Diverged & \% diverged (95\% CI) \\
+\midrule
+Any two & 12,875 & 9,875 & 3,591 & 36.4 (35.4--37.3) \\
+\quad description differs & & & 1,479 & 15.0 (14.3--15.7) \\
+\quad body length differs & & & 1,895 & 19.2 (18.4--20.0) \\
+Copilot / VS Code set & 7,428 & 5,777 & 1,906 & 33.0 (31.8--34.2) \\
+Cursor set & 8,479 & 6,704 & 2,351 & 35.1 (33.9--36.2) \\
+OpenCode set & 6,794 & 5,379 & 1,807 & 33.6 (32.3--34.9) \\
+Gemini CLI set & 287 & 205 & 69 & 34.0 (27.5--40.4) \\
+\bottomrule
+\end{tabular}
+\caption{RQ1 at hash level over all 120,929 eligible repositories (\texttt{probes.py}, run log Run 5). Percentages are of
+repositories with a same-name skill in two directories; Wilson intervals \cite{wilson1927}. Directory sets per the July
+2026 documentation: Copilot \{.github, .claude, .agents\}, Cursor \{.cursor, .agents, .claude, .codex\}, OpenCode
+\{.opencode, .claude, .agents\}, Gemini \{.gemini, .agents\}. Claude Code and Codex read one directory each, so they
+never see the mirror, only their own copy.}
+\label{tab:rq1}
+\end{table}
+
+\subsection{RQ1}
+Table~\ref{tab:rq1} is the first full-population count. Of the 120,929 repositories, 10.6\% keep skills in two or
+more agent directories, 9,875 of those repeat a name across directories (61,159 mirrored names), and in 36.4\% of them at
+least one mirrored skill has different content in the two places (15,489 names, 25.3\% of mirrored names). In 15.0\%
+the description itself differs, which is the part the agent selects on, and the rate barely changes with the product's
+directory set. What this does not say is whether the differences matter: \texttt{Wirasm/PRPs-agentic-eng} differs by one
+character of invocation syntax (\texttt{/prp-debug} against \texttt{\$prp-debug}), while
+\texttt{wilsonfreitas/awesome-quant} has one copy rewritten in the ``use when the user asks\ldots'' style and one not.
+Content has not been diffed yet; a coded sample of diffs is the next step.
+
+\subsection{RQ2 calibration}
+Both of us labeled the 180-pair calibration set independently (20 pairs per similarity band; 29 non-English pairs
+translated once with DeepL and shared). An LLM reader (C) labeled the same pairs from the codebook alone, for comparison
+only (Table~\ref{tab:kappa}).
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{llrrrrl}
+\toprule
+Comparison & Subset & Pairs & \% C, first & \% C, second & $\kappa$ (95\% CI) & Gate \\
+\midrule
+A vs B & all & 180 & 42 & 56 & 0.61 (0.49--0.72) & met at the point estimate \\
+A vs B & English & 151 & & & 0.58 (0.45--0.71) & \\
+A vs B & translated & 29 & & & 0.68 (0.40--0.97) & \\
+A vs C (LLM) & all & 180 & 42 & 39 & 0.68 (0.57--0.79) & comparison only \\
+B vs C (LLM) & all & 180 & 56 & 39 & 0.37 (0.24--0.50) & comparison only \\
+\bottomrule
+\end{tabular}
+\caption{Calibration agreement on competing (C) versus not, from \texttt{labelling/agreement.py}; labels and the
+three-way disagreement list are in \repo{tree/main/labelling/calibration-180}. A: lead author; B: co-author.}
+\label{tab:kappa}
+\end{table}
+
+The gate is met, narrowly: 0.61 against 0.60 with an interval reaching down to 0.49, which we will say wherever the
+number appears. The disagreement runs one way: B calls competing 27 pairs that A calls not (C sides with A on 24), the
+reverse six times. Nearly all 27 are stages of one workflow (\texttt{rust-reviewer} / \texttt{rust-coder},
+\texttt{commit} / \texttt{write-pr}) or one tool on two targets (\texttt{deslop-prose} / \texttt{deslop-code}). A and C read
+these as not competing because a realistic request names the stage or target; B read ``same family'' as competing. The
+codebook did not pin this down, so version 4 adds a rule for each family, with a worked request, before the main sample
+is drawn. The relation types fare worse: on the 70 pairs both called competing, D/S/O agreement is 0.40 ($\kappa$ 0.11),
+so types will be reported as exploratory unless a second calibration on types alone reaches 0.60.
+
+\subsection{RQ3}
+On the 20,000-catalog pilot sample (192,422 skills): negative-trigger wording in 3.31\% of skills and 10.17\% of
+catalogs (6.8\% of catalogs with 2 to 5 skills, 29.0\% with more than 20); a cross-reference to another skill in the same
+catalog in 4.76\% of skills and 13.79\% of catalogs (hyphenated names; the pre-specified 6-character rule was inflated by
+ordinary-word names); \texttt{disable-model-invocation: true} in 2.45\% of skills, full population. Authors guard against
+overlap rarely, mostly in large catalogs. The full-population rerun is pending.
+
+\section{How things are moving}
+What went wrong and what we did about it. We wrote the first pilot against a July 31 snapshot date; \texttt{mining\_runs}
+showed the last run ended July 20, which moved one figure of the retired-model pilot from 36.0\% to 32.8\%, and July 20
+is now used everywhere. We misread Gao et al.'s 58.8\% as the never-modified share; it is the complement. The planned
+similarity cut-off for RQ2 failed its pre-registered test (no band reached 80\% competing), so similarity became a
+stratifier only; a week lost, but the right design. One repository (\texttt{ssrjkk/claude-skills}) contributed 4,775
+generated skills and inflated a dataset-wide percentage by several points before we noticed, which is why we report per
+repository. ``One Skill Too Many'' appeared October 8 and took most of the ground planned for the behavioral check; RQ1
+became the primary contribution and RQ2 a human-labeled replication, kept mainly because labeling was already under way.
+The first pilot readers were shown descriptions without names, which carry much of the signal; hence a third codebook
+version. A workspace reset destroyed the pilot database; the rebuild reproduced the result exactly, at the cost of a day.
+
+Risks that remain: the $\kappa$ interval includes values below the gate, so a low result on the main sample sends us to
+the two-bounds fallback (both-C, either-C, advisor adjudication); translation flattens quoted trigger phrases, and
+agreement with the LLM reader was near zero on translated pairs; commit dates cover 24\% of contents and the
+representative copy is not always the oldest, so ``which copy is newer'' may be answerable only on a subset; and the week
+between labels done and analysis frozen is tight for two people carrying other courses.
+
+\section{Remaining work and responsibilities}
+\textbf{Done.} Chris: data pipeline, catalog definition, RQ1 count on all repositories, RQ2 sampling and embedding
+code, RQ3 pilot counts, coder A, calibration statistics, repository and run log. Smirthya: related work and reference
+list, codebook, coder B, the paper draft (introduction through method, result skeleton, discussion, threats), and
+Sections 1 and 2 of this report.
+
+\textbf{Remaining.} Codebook v4 with the two rules, logged before sampling (both, Nov 5). Draw and translate the main
+sample of about 750 pairs (Chris, Nov 6); label it (both, Nov 15); resolve disagreements and compute agreement (Nov 16).
+RQ1: code a random sample of 100 diffs as substantive or syntactic (both, Nov 12) and compute which copy is newer where
+dates allow (Chris). RQ3 full-population rerun (Chris, Nov 10). Freeze estimates, intervals and figures (Chris, Nov 22).
+Results and discussion into the draft as numbers land (Smirthya); full draft Dec 1; presentation Dec 3 (Smirthya leads,
+both present); course paper Dec 9; MSR abstract Dec 18, anonymized paper Dec 23. The Oct 30 ``data ready'' milestone
+slipped a week; these dates absorb that and keep a week of slack before December.
+
+\section{Peer review}
+The report and pilot analysis were posted to the course channel for review on November 2. [Feedback received, the
+changes made in response, and anything we chose not to change, with reasons, go here once the exchange is complete.]
+
+\small
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
