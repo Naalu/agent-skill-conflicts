@@ -317,3 +317,38 @@ Language handling for RQ2 labelling (2026-10-15; written before any human label 
   translated pairs; a sensitivity estimate on English-only pairs is reported alongside.
 - Main study: same procedure; language detection is logged per catalogue, and the language mix of the sample is
   reported so readers can judge how far English-only tools (and coders) would have gone wrong.
+
+Calibration result, 180 pairs, three coders (2026-10-29)
+- Files: labelling/calibration-180/coder-a.csv (human, lead author), coder-b.csv (human, co-author), coder-c.csv
+  (LLM reader given the v3 codebook and pairs.csv only, labelled blind 2026-10-21 from the originals, not the
+  translations). Script: labelling/agreement.py. Gate (pre-registered 2026-10-09): Cohen's kappa, C versus not C,
+  A versus B, at least 0.60. Both human coders labelled separately and did not see each other's file or the
+  C file before finishing.
+- Repair before computing: coder-b.csv had lost its id column on export. Its 180 rows were in the original order
+  (all four text fields equal coder-c.csv row for row), so ids were restored by position. No label, type or note
+  was changed.
+- Label counts: A 76 C / 94 N / 10 U; B 100 C / 76 N / 4 U; C 70 C / 109 N / 1 U.
+- A-B: kappa 0.61 [0.49, 0.72], raw agreement 0.80, kappa on C/N/U 0.58. English subset (151) 0.58 [0.45, 0.71];
+  translated subset (29) 0.68 [0.40, 0.97]. GATE MET at the point estimate (0.61 against 0.60); the interval
+  includes values below the gate, and this is stated wherever the result is reported.
+- A-C 0.68 [0.57, 0.79], agreement 0.84 (English 0.73, translated 0.17: C read originals, not translations).
+  B-C 0.37 [0.24, 0.50], agreement 0.68.
+- Crosstab A (rows) x B (columns): C/C 70, C/N 6, N/C 27, N/N 66, U row 3/4/3, N/U 1. The disagreement is
+  one-directional: B calls C on 27 pairs A calls N (C agrees with A on 24 of them); A calls C on 6 pairs B calls
+  N (C agrees with A on all 6). The 27 fall into two families: stages of one workflow (rust-reviewer /
+  rust-coder, commit / write-pr, step03-review / step04-review, spec-authoring / tdd-workflow, code / test) and
+  one tool on two targets (deslop-prose / deslop-code, phaser4-gamedev / phaser-gamedev, microsoft-foundry /
+  microsoft-foundry-classic). B's types on them: O 12, D 9, S 6. A and C treated these as N because a realistic
+  request names the stage or the target; B treated "same family" as competing. The codebook's "realistic
+  request" test did not pin this down.
+- Type agreement on the 70 pairs A and B both call C: agreement 0.40, kappa 0.11 (A: O 40, D 18, S 12; B: D 33,
+  S 21, O 16; A's O is split across all three of B's types). A-C on the 53 all-C pairs: 0.72, kappa 0.57.
+  The D/S/O types are not reliable between the two human coders as written.
+- Decision: proceed to the main RQ2 sample under the C/N measurement. Before drawing it, add two clarifying rules
+  to the codebook (v4) for the two disagreement families above, with one worked request each, without changing
+  the definition of competing; the clarification is logged here before any main-study pair is read. Types D/S/O
+  stay in the label file but are reported as exploratory only, unless a second calibration on types alone reaches
+  0.60. The two-bounds fallback (both-C and either-C) is not needed for C/N and is kept for the type breakdown.
+  No threshold is changed by this entry.
+- Three-way disagreement list: labelling/calibration-180/disagreements.csv (64 pairs where any two coders
+  differ), for the codebook discussion.
