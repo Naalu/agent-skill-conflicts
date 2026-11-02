@@ -14,13 +14,12 @@ pilot/rot/flagged/
 pilot/rot/hist/
 pilot/rot/cflags/
 
-# Blind labelling (added 2026-10-09): earlier labels, keys and coders' files stay off the
-# public repository until both coders finish calibration; then remove this block and commit
-# them together (see labelling/README.md)
+# Pilot label keys (added 2026-10-09): row-level files that name repositories stay off the public
+# repository; they belong in data/private/. Coders' calibration files were unblocked on 2026-10-30
+# once both coders had finished (see labelling/README.md).
 pilot/collide/out/labels*.csv
 pilot/collide/out/human_pairs_180_key.csv
 pilot/collide/out/label_key*.parquet
-labelling/**/coder-*
 
 # Secrets
 .env

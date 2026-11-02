@@ -5,6 +5,7 @@ add a new one that supersedes it.
 
 | Date | Decision | Who | Evidence |
 |---|---|---|---|
+| 2026-10-29 | Calibration gate met: A versus B kappa 0.61 [0.49, 0.72] on the complete 180-pair files; proceed to the main RQ2 sample on the C/N label. D/S/O types reported as exploratory only (A-B kappa 0.11). Codebook v4 adds two clarifying rules (workflow stages; one tool on two targets) before the main sample is drawn | Both coders | Calibration result of 2026-10-29 in `docs/runlog.md`; `labelling/calibration-180/` |
 | 2026-10-09 | Make the repository public; never cite it in the double-anonymous submission (use an anonymised mirror) | Lead author | `docs/challenge.md` |
 | 2026-10-09 | Adopt the three-question design: RQ1 mirror drift (exact count, the objective anchor), RQ2 competing skills (stratified sample, two coders), RQ3 behavioural check on about 60 pairs plus author mitigations | Lead author | `docs/proposal.md`, `docs/research-brief.md` |
 | 2026-10-08 | Coders label from name plus description in original case, cut at 1,536 characters (what the model is shown) | Proposed in pilot | Run 5 in `docs/runlog.md` |
@@ -17,7 +18,6 @@ add a new one that supersedes it.
 
 | Question | Owner | Needed by |
 |---|---|---|
-| Is kappa ≥ 0.60 on the 180-pair calibration set the right gate? | Both coders, advisor | Before calibration labelling ends (2026-10-23) |
 | Approve or replace the draft thresholds in the pilot rules (10%, 2×, 80%) | Advisor | Before the main study's rules are written |
 | Which agent, model version and budget the behavioural check uses | Lead author, advisor | 2026-10-30 |
 | Licence for code and data (needed for Zenodo) | Lead author, advisor | Before the Zenodo upload |
