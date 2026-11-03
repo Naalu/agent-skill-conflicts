@@ -410,3 +410,8 @@ Validation (rule written before any repository is coded):
   is matched against the dataset's rows for that repository. Missing paths are counted and classified (edited
   after July 20, byte-identical sibling, other). If more than 5% of mirrored pairs are missing their identical
   twin, RQ1 is re-expressed over the 12,875 repositories with two or more directories and the correction is stated.
+- Amendment 2026-11-03, before the first run: the Tukey fence and rule (c) use the number of distinct skill
+  names in the repository (lower-cased), not the occurrence count, so mirrored copies are counted once. Found on
+  synthetic test data (a project mirroring six skills into three directories cleared the fence); no real-data
+  number had been computed. Scripts: src/body_scan.py (per-hash body flags), src/build_working_set.py (ladder,
+  flags, cascade). The fence value, the boilerplate N and the cluster count are appended here when first computed.
