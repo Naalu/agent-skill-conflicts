@@ -21,6 +21,9 @@ pilot/collide/out/labels*.csv
 pilot/collide/out/human_pairs_180_key.csv
 pilot/collide/out/label_key*.parquet
 
+# Validation material quotes READMEs and names repositories
+labelling/validation-200/material/
+
 # Secrets
 .env
 .env.*

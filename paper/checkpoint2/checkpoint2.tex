@@ -16,6 +16,8 @@
 \titlespacing*{\subsection}{0pt}{6pt}{2pt}
 \titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection}{0.6em}{}[.\quad]
 \setlength{\parskip}{0pt}
+\setlength{\textfloatsep}{8pt}
+\setlength{\intextsep}{6pt}
 \sloppy
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \newcommand{\repo}[1]{\href{https://github.com/Naalu/agent-skill-conflicts/#1}{\texttt{#1}}}
@@ -83,13 +85,10 @@ product cap before a coder sees them. One e-mail address found in a description 
 row-level files naming repositories stay out of the public repository.
 
 \subsection{Scripts}
-In \repo{tree/main/pilot/collide}: \texttt{slim\_local.py}, \texttt{build\_tables.py} (DuckDB tables), \texttt{probes.py}
-(RQ1 mirrors by product), \texttt{sample\_libs.py}, \texttt{embed.py}, \texttt{analyze.py} (RQ2 sample, all-MiniLM-L6-v2
-embeddings, strata), \texttt{fm\_scan.py}, \texttt{probe\_p3.py}, \texttt{probe\_p4.py} (RQ3 counts), \texttt{verify.py}
-(independent recomputation); in \repo{tree/main/labelling}: \texttt{translate\_pairs.py}, \texttt{check\_labels.py},
-\texttt{agreement.py}. Python 3.12, pinned in \texttt{uv.lock}. Evidence: commit \texttt{ddbd729} (pilot code and plan),
-PRs \#16 to \#20 (language handling, translations, environment, coder guide, Checkpoint 1), and the
-\texttt{calibration-result} branch merged October 30 (labels, agreement script, decision).
+Pilot scripts in \repo{tree/main/pilot/collide} (download and reduce, DuckDB tables, RQ1 probes, RQ2 sampling and
+all-MiniLM-L6-v2 embeddings, RQ3 counts, an independent recomputation); labelling tools in \repo{tree/main/labelling};
+the working-dataset build, validation sampling and GitHub tree checks in \repo{tree/main/src}. Python 3.12, pinned in
+\texttt{uv.lock}. Evidence: commit \texttt{ddbd729}, PRs \#16 to \#22, and the \texttt{working-set} branch.
 
 \subsection{Measurement and validation}
 RQ1 compares every name present in two directories of one repository by \texttt{file\_sha}, then by whether the
@@ -171,44 +170,69 @@ so types will be reported as exploratory unless a second calibration on types al
 On the 20,000-catalog pilot sample (192,422 skills): negative-trigger wording in 3.31\% of skills and 10.17\% of
 catalogs (6.8\% of catalogs with 2 to 5 skills, 29.0\% with more than 20); a cross-reference to another skill in the same
 catalog in 4.76\% of skills and 13.79\% of catalogs (hyphenated names; the pre-specified 6-character rule was inflated by
-ordinary-word names); \texttt{disable-model-invocation: true} in 2.45\% of skills, full population. Authors guard against
-overlap rarely, mostly in large catalogs. The full-population rerun is pending.
+ordinary-word names); \texttt{disable-model-invocation: true} in 2.45\% of skills, full population. Authors guard against overlap
+rarely, mostly in large catalogs; the full-population rerun is pending.
 
 \section{How things are moving}
 What went wrong and what we did about it. We wrote the first pilot against a July 31 snapshot date; \texttt{mining\_runs}
 showed the last run ended July 20, which moved one figure of the retired-model pilot from 36.0\% to 32.8\%, and July 20
-is now used everywhere. We misread Gao et al.'s 58.8\% as the never-modified share; it is the complement. The planned
+is now used everywhere. We misread Gao et al.'s 58.8\% as the never-modified share. The planned
 similarity cut-off for RQ2 failed its pre-registered test (no band reached 80\% competing), so similarity became a
 stratifier only; a week lost, but the right design. One repository (\texttt{ssrjkk/claude-skills}) contributed 4,775
 generated skills and inflated a dataset-wide percentage by several points before we noticed, which is why we report per
 repository. ``One Skill Too Many'' appeared October 8 and took most of the ground planned for the behavioral check; RQ1
 became the primary contribution and RQ2 a human-labeled replication, kept mainly because labeling was already under way.
 The first pilot readers were shown descriptions without names, which carry much of the signal; hence a third codebook
-version. A workspace reset destroyed the pilot database; the rebuild reproduced the result exactly, at the cost of a day.
+version. A workspace reset destroyed the pilot database; the rebuild reproduced the result exactly.
 
-Risks that remain: the $\kappa$ interval includes values below the gate, so a low result on the main sample sends us to
-the two-bounds fallback (both-C, either-C, advisor adjudication); translation flattens quoted trigger phrases, and
-agreement with the LLM reader was near zero on translated pairs; commit dates cover 24\% of contents and the
-representative copy is not always the oldest, so ``which copy is newer'' may be answerable only on a subset; and the week
-between labels done and analysis frozen is tight for two people carrying other courses.
+The newest problem is the largest. On November 2 we built the working dataset (a pre-registered population ladder:
+all repositories, non-forks, project repositories with skill collections set aside, template clusters collapsed) and
+drew 200 repositories to validate the project-versus-collection rule. Pulling their file trees from the GitHub API also let
+us test whether the dataset holds every byte-identical copy within a repository. It does not. 266 \texttt{SKILL.md} files present on GitHub were missing from the dataset while an identical
+copy (same git blob SHA) of each was present elsewhere in the same repository, and the commit history shows 259 of them
+existed before the snapshot. GitHub code search often returned one copy of identical content and dropped the rest. Since RQ1 counts identical against diverged mirrors, the dataset's 36.4\% is biased upward and is now
+a bound, not the estimate. The fix is to compute RQ1 from each repository's tree at the snapshot commit, which the API gives exactly, on a
+stratified sample of about 2,000 project repositories, with the design written before the fetch runs. It is also a
+finding about the dataset that we will report.
+
+Other risks: the $\kappa$ interval includes values below the gate (fallback: both-C and either-C bounds with advisor
+adjudication); agreement with the LLM reader was near zero on translated pairs; commit dates cover 24\% of contents;
+and the week between labels done and analysis frozen is tight.
 
 \section{Remaining work and responsibilities}
-\textbf{Done.} Chris: data pipeline, catalog definition, RQ1 count on all repositories, RQ2 sampling and embedding
-code, RQ3 pilot counts, coder A, calibration statistics, repository and run log. Smirthya: related work and reference
-list, codebook, coder B, the paper draft (introduction through method, result skeleton, discussion, threats), and
-Sections 1 and 2 of this report.
+\textbf{Done.} Chris: data pipeline, catalog definition, RQ1 count, working dataset and validation sample, RQ2
+sampling and embedding code, RQ3 pilot counts, coder A, calibration statistics, repository and run log. Smirthya:
+related work and reference list, codebook, coder B, the paper draft (introduction through threats), and Sections 1 and
+2 of this report.
 
 \textbf{Remaining.} Codebook v4 with the two rules, logged before sampling (both, Nov 5). Draw and translate the main
 sample of about 750 pairs (Chris, Nov 6); label it (both, Nov 15); resolve disagreements and compute agreement (Nov 16).
-RQ1: code a random sample of 100 diffs as substantive or syntactic (both, Nov 12) and compute which copy is newer where
-dates allow (Chris). RQ3 full-population rerun (Chris, Nov 10). Freeze estimates, intervals and figures (Chris, Nov 22).
-Results and discussion into the draft as numbers land (Smirthya); full draft Dec 1; presentation Dec 3 (Smirthya leads,
-both present); course paper Dec 9; MSR abstract Dec 18, anonymized paper Dec 23. The Oct 30 ``data ready'' milestone
-slipped a week; these dates absorb that and keep a week of slack before December.
+RQ1: tree-based sample at the snapshot commit, design logged first (Chris, Nov 7); code a random sample of 100 diffs
+as substantive or syntactic (both, Nov 12). RQ3 full-population rerun (Chris, Nov 10). Freeze estimates, intervals and figures (Chris, Nov 22).
+Results into the draft as numbers land (Smirthya); full draft Dec 1; presentation Dec 3 (Smirthya leads); course paper Dec 9; MSR Dec 18 and 23.
 
-\section{Peer review}
-The report and pilot analysis were posted to the course channel for review on November 2. [Feedback received, the
-changes made in response, and anything we chose not to change, with reasons, go here once the exchange is complete.]
+\section{Peer review and response}
+We posted the report and pilot analysis to the course channel on November 2 and reviewed two other groups. One review
+came back, from Ashley Kalscheur, with four points.
+
+\textbf{The questions are clear, and RQ1 is a specific, measurable contribution.} No change; we agree that RQ1 is the
+anchor, and the November 2 finding above is what makes it harder and more interesting than we thought.
+
+\textbf{$\kappa = 0.61$ only narrowly clears 0.60; refine the guidelines and repeat the validation.} We refined: codebook
+version 4 adds two rules, each with a worked request, for the two families that account for 27 of the 33
+disagreements (stages of one workflow; one tool on two targets), and the rules are frozen before the main sample is
+drawn. We did not repeat the 180-pair calibration. A second round would cost both of us a day that the schedule does not
+have, and the main sample is itself a larger test of the same thing: agreement on it is reported with its interval, and
+if it falls below 0.60 the two-bounds fallback applies. We would rather spend the day on the 750 pairs than on 180 more.
+
+\textbf{Different file contents are not necessarily a real conflict; prioritize the manual diff review.} Agreed, and this
+is why the report already leads with ``description changed'' (15.0\%) rather than ``any difference'' (36.4\%), since the
+description is the part the agent selects on. The 100-diff coding sample stays on the plan (November 12) and now runs on
+the tree-based sample rather than the dataset, for the reason given in Section 4.
+
+\textbf{Three questions is a lot; make RQ3 optional.} Done in substance before the review and now stated plainly: RQ3 is
+a set of exact counts that already exist on the pilot sample and need one rerun on the full population; the behavioral
+check under it was dropped in October. Nothing else will be added to RQ3.
 
 \small
 \bibliographystyle{plain}
