@@ -447,3 +447,30 @@ Amendment to the validation design (2026-11-02, before any repository is drawn o
   GITHUB_TOKEN, default-branch tree and README per repository, written to data/private/validation/). Coding sheet
   labelling/validation-200/sheet.csv with columns label (project / collection / other), notes; coders fill a
   copy each (coder-a.csv, coder-b.csv) and do not open each other's.
+
+Byte-exact copy check: result (2026-11-02, src/fetch_trees.py then src/check_twins.py on the 200-repository validation sample)
+- 181 of 200 repositories fetched (19 gone, 2 trees truncated). GitHub holds 7,078 root-directory SKILL.md files in
+  them today against 3,821 in the dataset; 126 repositories have more skills now than in July, 11 fewer.
+- file_sha in GitSkills is the git blob SHA (checked on wilsonfreitas/awesome-quant: e7ef43ac... and 1ea12159...
+  match the tree). So a path on GitHub missing from the dataset whose blob SHA equals a dataset file_sha of the same
+  repository is a byte-identical copy the dataset lacks.
+- 266 such paths in 19 repositories. Commit history (commits?path=...&until=2026-07-20T22:26Z): 259 existed at that
+  path before the snapshot ended; 7 were added after. The drops are concentrated in multi-directory repositories
+  (249 of 259, in 14 of the 28 multi-directory repositories fetched, against 1,311 dataset skills in those 28) but
+  also occur within one directory (three single-directory repositories kept 1 of 8 to 12 identical files).
+- Reading: GitHub code search returned one copy of byte-identical content and dropped others, not always (one
+  27-directory mirror kept 448 of 517) but often enough that identical mirrors are under-represented relative to
+  diverged ones. The pre-registered 5% rule is exceeded by a wide margin.
+- Consequence for RQ1: the dataset's 36.4% diverged share is biased upward and is reported as a bound (upper bound on
+  divergence, lower bound on mirroring), not as the estimate. The pre-registered fallback (re-express over the 12,875
+  repositories with two or more directories) does not repair this, because a repository whose only mirror was
+  identical and dropped shows one directory in the dataset. Consequence for RQ2: identical copies within one catalog
+  are under-represented too, so the 0.97% within-catalog exact-duplicate rate is low and D-type pairs are
+  under-sampled; reported as a limitation.
+- Decision (to be confirmed with the co-author and advisor before the design is logged): RQ1's headline estimate
+  moves to a tree-based sample. For each sampled repository, the last commit before the snapshot end and the
+  recursive tree at that commit come from the API, and mirrors are compared by blob SHA exactly as of 2026-07-20.
+  Sample of about 2,000 repositories from P2, stratified by the dataset's directory count (1 versus 2 or more),
+  seed 20261008, design-based estimate with repository-level intervals. The dataset count stays beside it.
+  Design, strata sizes and per-repository rules to be written in a separate entry before the fetch runs.
+- Files: data/private/validation/copy_check.csv, twin_verdicts.csv (not committed; regenerate with the scripts).

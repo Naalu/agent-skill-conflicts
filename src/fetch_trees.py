@@ -10,9 +10,10 @@ free. Then two outputs:
                                        which is NOT committed because it quotes READMEs and names repositories)
   data/private/validation/copy_check.csv
                                        per repository: SKILL.md paths under root agent directories on GitHub now,
-                                       paths in the dataset, paths missing from the dataset, and for each missing
-                                       path whether a byte-identical sibling is in the dataset (the byte-exact
-                                       question of the run-log amendment).
+                                       paths in the dataset, paths missing from the dataset split into dropped
+                                       twins (blob SHA equals a dataset file_sha of the same repository) and new
+                                       content, and paths edited since July (the byte-exact question of the
+                                       run-log amendment). file_sha is the git blob SHA.
 
 Repositories that no longer exist (404) or whose tree is truncated are recorded as such and still coded from
 whatever came back. Usage: GITHUB_TOKEN=... uv run python src/fetch_trees.py
@@ -61,7 +62,9 @@ def fetch(repo: str, token: str) -> dict:
     path = f"{RAW}/{repo.replace('/', '__')}.json"
     if os.path.exists(path):
         with open(path) as fh:
-            return json.load(fh)
+            cached = json.load(fh)
+        if "blobs" in cached or cached["status"] != 200:  # older cache files lack blob SHAs; fetch again
+            return cached
     meta, st = get(f"{API}/repos/{repo}", token)
     out = {"repo": repo, "status": st, "meta": meta, "tree": None, "truncated": None, "readme": None}
     if meta:
@@ -69,6 +72,7 @@ def fetch(repo: str, token: str) -> dict:
         tree, _ = get(f"{API}/repos/{repo}/git/trees/{branch}?recursive=1", token)
         if tree:
             out["tree"] = [t["path"] for t in tree.get("tree", []) if t.get("type") == "blob"]
+            out["blobs"] = {t["path"]: t["sha"] for t in tree.get("tree", []) if t.get("type") == "blob"}
             out["truncated"] = tree.get("truncated", False)
         readme, _ = get(f"{API}/repos/{repo}/readme", token)
         if readme and readme.get("content"):
@@ -96,17 +100,25 @@ def main():
         gh_skills = sorted(p for p in tree if ROOT_SKILL.match(p))
         ds = skills[skills.repo == r.repo]
         ds_paths = set(ds.path)
+        ds_shas = set(ds.file_sha)
+        blobs = d.get("blobs") or {}
         missing = [p for p in gh_skills if p not in ds_paths]
         extra = sorted(ds_paths - set(gh_skills))
-        # byte-exact question: a path on GitHub that the dataset lacks, where the dataset holds an identical sibling
-        # (same file_sha) elsewhere in the repository, is a dropped twin; we cannot hash GitHub content here, so
-        # we record the candidate and the coder confirms by eye from the two paths' folder names
-        twin_candidates = [p for p in missing if any(p.split("/")[2] == q.split("/")[2] for q in ds_paths)]
+        # byte-exact question. file_sha in GitSkills is the git blob SHA (checked on wilsonfreitas/awesome-quant),
+        # so a GitHub path the dataset lacks splits three ways by its blob SHA:
+        #   dropped_twin   the same SHA is in the dataset at another path of this repository: an identical copy
+        #                  that existed in July and was not returned by the search (or was added since as a copy)
+        #   new_content    SHA not in the dataset at all: written or edited after July 20 (or dropped and unique)
+        # and a path present in both with a different SHA was edited since July.
+        dropped_twin = [p for p in missing if blobs.get(p) in ds_shas]
+        new_content = [p for p in missing if blobs.get(p) not in ds_shas]
+        edited = [p for p in gh_skills if p in ds_paths and blobs.get(p) not in ds_shas]
         checks.append({"sid": r.sid, "repo": r.repo, "status": d["status"], "truncated": d["truncated"],
                        "gh_root_skills": len(gh_skills), "dataset_root_skills": len(ds_paths),
-                       "missing_from_dataset": len(missing), "missing_paths": "|".join(missing),
-                       "same_folder_twin_candidates": len(twin_candidates),
-                       "in_dataset_not_on_github": len(extra), "extra_paths": "|".join(extra)})
+                       "missing_from_dataset": len(missing), "dropped_twin": len(dropped_twin),
+                       "new_content": len(new_content), "edited_since": len(edited),
+                       "in_dataset_not_on_github": len(extra),
+                       "dropped_twin_paths": "|".join(dropped_twin), "extra_paths": "|".join(extra)})
         meta = d["meta"] or {}
         with open(f"{MAT}/{r.sid:03d}.md", "w") as fh:
             fh.write(f"# Repository {r.sid:03d}\n\n")
@@ -126,8 +138,10 @@ def main():
     print(f"\n{len(ok)} repositories fetched; {int((c.status != 200).sum())} unavailable; "
           f"{int(ok.truncated.fillna(False).astype(bool).sum())} truncated trees")
     print(f"paths on GitHub missing from the dataset: {int(ok.missing_from_dataset.sum())} across "
-          f"{int((ok.missing_from_dataset > 0).sum())} repositories; same-folder twin candidates: "
-          f"{int(ok.same_folder_twin_candidates.sum())}")
+          f"{int((ok.missing_from_dataset > 0).sum())} repositories, of which byte-identical to a dataset copy "
+          f"in the same repository (dropped twins): {int(ok.dropped_twin.sum())} in "
+          f"{int((ok.dropped_twin > 0).sum())} repositories; new content: {int(ok.new_content.sum())}; "
+          f"edited in place since July: {int(ok.edited_since.sum())}")
     print("coding sheet: labelling/validation-200/sheet.csv; material: labelling/validation-200/material/")
 
 
