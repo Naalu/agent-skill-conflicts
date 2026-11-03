@@ -352,3 +352,61 @@ Calibration result, 180 pairs, three coders (2026-10-29)
   No threshold is changed by this entry.
 - Three-way disagreement list: labelling/calibration-180/disagreements.csv (64 pairs where any two coders
   differ), for the codebook discussion.
+Codebook v4 (2026-11-03, written before the main sample is drawn)
+- docs/codebooks/competing-pairs.md moves to version 4. Rules 9 (stages of one workflow are N) and 10 (one job on
+  two targets is N when a realistic request names the target, C when the target is a version or product generation
+  that a request omits, per rule 4) are added with worked requests taken from the calibration disagreements. The
+  definition of C, N and U is unchanged. Types D/S/O are kept but reported as exploratory (A-B kappa 0.11).
+- Rules 9 and 10 are frozen for the main sample. Disagreements they do not settle are noted for a later version,
+  not resolved by editing the rules mid-sample.
+- Note for the record: on the calibration set rule 10 sides with coder A on target pairs and with coder B on
+  version pairs (phaser4-gamedev / phaser-gamedev, microsoft-foundry / microsoft-foundry-classic); the calibration
+  labels are not re-coded.
+
+Working dataset v1: population ladder and skill-level exclusions (2026-11-03, written before build_working_set.py runs)
+Rules. Every main-study number is reported over each rung; P2 is the headline population. Script:
+src/build_working_set.py; outputs data/interim/working_set.parquet (one row per repository: rung membership, flags)
+and data/interim/cascade.csv (counts dropped at each step). Seed 20261008 wherever sampling occurs.
+- P0: repositories with at least one valid skill under a repository-root agent directory
+  (path ~ '^\.[A-Za-z0-9_-]+/skills/[^/]+/SKILL\.md$'; valid = filename exactly SKILL.md, front matter parses,
+  non-empty name and description). Expected 120,929.
+- P1: P0 minus repos.fork = true.
+- P2: P1 minus collection/distribution repositories, defined as ANY of
+  (a) lower-cased repository name or description matches one of: awesome, collection, tutorial, course, registry
+      (Gao et al. 2607.00911) or, our extension, marketplace, plugins, catalog, catalogue, library, hub, or the name
+      has "skills" as a hyphen-delimited affix (e.g. claude-skills, skills-pack); the Gao subset is flagged
+      separately so results with the published list alone can be reported;
+  (b) skill count (valid occurrences across the repository's root agent directories) above the Tukey upper fence
+      (Q3 + 1.5 IQR) of the per-repository distribution over P1; the fence value is logged when computed and not
+      moved afterwards;
+  (c) repos.language is null AND the repository has no skill with location_class = canonical AND it has two or
+      more skills. (Our rule; no published validation; reported with a sensitivity run that drops it.)
+- P3: P2 with near-fork and template clusters collapsed. Fingerprint = sorted set of file_sha over the repository's
+  valid root-directory skills. Repositories are clustered when fingerprints are identical, or when Jaccard >= 0.8
+  and at least five shared hashes. One representative per cluster: earliest first_commit_at among dated copies,
+  else most stars, else lexicographically first full name. Results are reported with and without collapsing.
+- Skill-level exclusions at every rung: invalid or missing front matter; empty name or description; fewer than ten
+  instruction lines in the body (Yan et al. 2610.11647); fewer than five meaningful tokens after stopword removal
+  (Zhu et al. 2603.22447); body consisting mainly of TODO/FIXME or template variables ({{...}}, <your-...>).
+  disable-model-invocation: true excludes a skill from RQ2 only.
+- Bulk/generated flag (sensitivity, never exclusion): skill count above the fence AND, where history exists, at
+  least 90% of the repository's skills share a first-commit date; OR at least half of its skills share one body
+  skeleton (identical sequence of markdown headings). Every estimate is reported with and without flagged repos.
+  Concentration statistics (share of occurrences and of distinct contents in the largest 1, 10, 100 repositories)
+  are reported alongside.
+- Boilerplate content: a distinct hash that appears in at least N repositories with different owners is flagged.
+  N is set at the 99.9th percentile of the hash-spread distribution over P1 (value logged when computed), with
+  sensitivity at the 99th and 99.99th percentiles. Flagged content stays in RQ1 (a mirrored boilerplate skill is
+  still a mirror) and is excluded from RQ2 pair sampling.
+Validation (rule written before any repository is coded):
+- 200 repositories drawn with seed 20261008, stratified by predicted class (project, collection, undetermined)
+  and skill-count band (1, 2-5, 6-20, 21+), 25 per cell where available. For each, the GitHub API supplies the
+  README and the recursive tree. Two coders classify independently from README and file list using a one-page
+  guide (project = software or content the skills serve; collection = the skills are the product). Report Cohen's
+  kappa and per-class precision and recall of the P2 rule against the agreed labels. If precision for the
+  collection class is below 0.80, the headline P2 falls back to rules (a)-Gao and (b) only, and (a)-extension
+  and (c) are reported as an attempted refinement.
+- The same 200 trees answer the byte-exact question: every SKILL.md path under a root agent directory on GitHub
+  is matched against the dataset's rows for that repository. Missing paths are counted and classified (edited
+  after July 20, byte-identical sibling, other). If more than 5% of mirrored pairs are missing their identical
+  twin, RQ1 is re-expressed over the 12,875 repositories with two or more directories and the correction is stated.
