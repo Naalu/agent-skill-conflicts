@@ -1,0 +1,13 @@
+step,repositories,skills,rule
+P0 valid root-directory skill,120929,843271,ROOT_SKILL_PATH; valid front matter
+skill-level exclusions,118674,803981,short/tokens/placeholder
+P1 non-fork,120926,803979,fork = true removed
+  - keyword (Gao list),1416,8453,name/description token
+  - keyword (extension),2620,14640,marketplace|plugins|catalog(ue)|library|hub
+  - skills affix,1407,12643,name has skills as affix
+  - over Tukey fence,10250,450734,distinct names > 11.0
+  - language null rule,51,212,"language null, no canonical, >=2 skills"
+P2 project repositories,105182,317297,P1 minus collection rules
+P2 with Gao rules only,108845,328544,sensitivity
+P3 clusters collapsed,93017,289904,identical fingerprint or Jaccard>=0.8 with >=5 shared
+bulk flag (within P2),0,0,"sensitivity, not excluded"

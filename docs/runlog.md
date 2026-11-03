@@ -415,3 +415,35 @@ Validation (rule written before any repository is coded):
   synthetic test data (a project mirroring six skills into three directories cleared the fence); no real-data
   number had been computed. Scripts: src/body_scan.py (per-hash body flags), src/build_working_set.py (ladder,
   flags, cascade). The fence value, the boilerplate N and the cluster count are appended here when first computed.
+
+Working dataset v1: values as computed (2026-11-02, src/body_scan.py 0 31 then src/build_working_set.py; seed 20261008)
+- P0 120,929 repositories / 843,271 valid root-directory skills (matches the pilot count exactly). Skill-level
+  exclusions remove 39,290 skills (4.7%); 2,255 repositories lose their last skill. P1 (non-fork) 120,926.
+- Collection rules on P1: Gao keywords 1,416 repositories; extension keywords 2,620; skills affix 1,407; over the
+  Tukey fence 10,250 (fence = 11 distinct names; Q1 1, Q3 5); language-null rule 51. P2 = 105,182 repositories
+  with 317,297 skills (87% of repositories, 39% of skills). P2 with the Gao rules alone: 108,845 / 328,544.
+- Over-fence repositories in P1: 10,787; median 19 distinct names, 90th percentile 53, 99th 350. Bulk/generated flag
+  (over fence AND same-day first commits >= 90% OR shared body skeleton >= 50%): 3,649 of the 10,787 (34%).
+  Within P2 the flag is empty by construction (it requires the fence); it is reported within P1 from now on.
+- P3: 93,016 clusters over 105,182 P2 repositories (8,722 LSH candidates, 2,703 confirmed near-fork pairs plus
+  identical fingerprints); 93,017 representatives with 289,904 skills. 11.6% of P2 repositories are catalog copies.
+- Boilerplate N = 28 owners (99.9th percentile of hash spread; sensitivity 13 and 57); 478 hashes flagged.
+- Concentration: largest repository 1.04% of skills, top 10 4.2%, top 100 13.7%.
+- Files: docs/working-set-v1/cascade.csv and thresholds.json (committed); data/interim/working_set.parquet and
+  skills.parquet (not committed; regenerate with the two scripts).
+- Reading before validation: the fence carries the population decision (53% of skills sit above it). Rule (c)
+  (language null) is close to inert at 51 repositories because GitHub assigns a language to 99.8% of P1.
+
+Amendment to the validation design (2026-11-02, before any repository is drawn or coded)
+- Skill-count bands become 1, 2-5, 6-11, 12-30, 31+ (the fence at 11 splits the old 6-20 band), so the rule is
+  tested on both sides of the fence. Predicted classes: collection = Gao keyword, skills affix or over the fence;
+  undetermined = extension keyword or language-null rule only; project = none. Available cells in P1:
+  collection 1,088 / 1,009 / 389 / 8,283 / 2,504 by band; project 46,828 / 41,421 / 14,779 / 0 / 0;
+  undetermined 1,077 / 960 / 334 / 0 / 0.
+- Allocation of the 200 (fixed now): collection 15 / 15 / 15 / 40 / 25; project 15 / 25 / 30; undetermined
+  7 / 7 / 6. The over-fence cells are over-weighted because that is where the rule decides most of the population.
+  Precision and recall are reported per class with the sampling weights applied, and unweighted per cell.
+- Draw: src/draw_validation_sample.py, seed 20261008; fetch: src/fetch_trees.py (GitHub REST API, token from
+  GITHUB_TOKEN, default-branch tree and README per repository, written to data/private/validation/). Coding sheet
+  labelling/validation-200/sheet.csv with columns label (project / collection / other), notes; coders fill a
+  copy each (coder-a.csv, coder-b.csv) and do not open each other's.

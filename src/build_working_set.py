@@ -2,9 +2,9 @@
 
 Implements the run-log entry "Working dataset v1" (2026-11-03). Read that entry first; nothing here changes a rule.
 
-Inputs (defaults assume the pilot layout; override with flags)
-  --slim   folder of slimmed artifacts parts (pilot/collide/slim/*.parquet, from pilot/collide/slim_local.py)
-  --repos  repos.parquet (pilot/collide/repos.parquet)
+Inputs (defaults assume src/body_scan.py has run; override with flags)
+  --slim   folder of slimmed artifacts parts (data/interim/slim, written by src/body_scan.py)
+  --repos  repos.parquet (data/interim/repos.parquet, written by src/body_scan.py)
   --body   optional: data/interim/body_flags.parquet from src/body_scan.py (one row per file_sha). Without it the
            body-based skill exclusions (instruction lines, token floor, placeholder text) and the skeleton-based bulk
            flag are NOT applied, and the cascade says so.
@@ -41,8 +41,10 @@ MINHASH_PERMS = 64
 BANDS = 16  # 16 bands x 4 rows: catches Jaccard 0.8 pairs with probability ~0.995
 
 
-def tokens(s: str) -> set[str]:
-    return set(re.split(r"[^a-z0-9]+", (s or "").lower())) - {""}
+def tokens(s) -> set[str]:
+    if not isinstance(s, str):  # None or NaN from a missing description
+        return set()
+    return set(re.split(r"[^a-z0-9]+", s.lower())) - {""}
 
 
 def keyword_flags(name: str, desc: str) -> tuple[bool, bool, bool]:
@@ -125,8 +127,8 @@ def minhash_clusters(sets: dict[str, list[str]]) -> dict[str, int]:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--slim", default="pilot/collide/slim")
-    ap.add_argument("--repos", default="pilot/collide/repos.parquet")
+    ap.add_argument("--slim", default="data/interim/slim")
+    ap.add_argument("--repos", default="data/interim/repos.parquet")
     ap.add_argument("--body", default="data/interim/body_flags.parquet")
     ap.add_argument("--out", default="data/interim")
     args = ap.parse_args()
@@ -205,9 +207,10 @@ def main():
     rep = con.execute("SELECT * FROM rep").fetchdf()
     print(f"P0: {len(rep):,} repositories, {int(rep.n_skills_all.sum()):,} valid skills, {int(rep.n_skills.sum()):,} after skill exclusions")
 
-    kw = rep.apply(lambda x: keyword_flags(x.repo, x.description or ""), axis=1, result_type="expand")
+    kw = rep.apply(lambda x: keyword_flags(x.repo, x.description), axis=1, result_type="expand")
     rep["kw_gao"], rep["kw_ext"], rep["kw_affix"] = kw[0], kw[1], kw[2]
-    rep["fork"] = rep["fork"].fillna(False).astype(bool)
+    rep["fork"] = pd.to_numeric(rep["fork"], errors="coerce").fillna(0).astype(int).astype(bool)  # 0/1 or bool
+    rep["stars"] = pd.to_numeric(rep["stars"], errors="coerce")
     rep["p1"] = ~rep.fork
     # the fence and the language rule use distinct skill names, so a project that mirrors its skills into several
     # directories is not counted as if it had several times as many skills
@@ -264,7 +267,7 @@ def main():
         ("P2 project repositories", int(rep.p2.sum()), n_sk(rep.p2), "P1 minus collection rules"),
         ("P2 with Gao rules only", int(rep.p2_gao_only.sum()), n_sk(rep.p2_gao_only), "sensitivity"),
         ("P3 clusters collapsed", int(rep.p3.sum()), n_sk(rep.p3), f"identical fingerprint or Jaccard>={JACCARD} with >={MIN_SHARED} shared"),
-        ("bulk flag (within P2)", int((rep.p2 & rep.bulk).sum()), n_sk(rep.p2 & rep.bulk), "sensitivity, not excluded"),
+        ("bulk flag (within P1; all are over the fence)", int((rep.p1 & rep.bulk).sum()), n_sk(rep.p1 & rep.bulk), "sensitivity, not excluded"),
     ]
     pd.DataFrame(cascade, columns=["step", "repositories", "skills", "rule"]).to_csv(f"{args.out}/cascade.csv", index=False)
     print(pd.DataFrame(cascade, columns=["step", "repositories", "skills", "rule"]).to_string(index=False))
