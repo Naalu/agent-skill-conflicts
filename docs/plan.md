@@ -1,30 +1,32 @@
-# Plan to submission (version of 2026-11-02)
+# Plan to submission (version of 2026-11-17)
 
-Supersedes the milestones in `docs/proposal.md`. Dates are course-first; the MSR deadlines (abstract Dec 18, paper
-Dec 23) come after the course paper (Dec 9), so the course paper is the full draft and the MSR version is a tightened
-copy of it.
+Supersedes the version of 2026-11-02 and the milestones in `docs/proposal.md`. Fixed dates: presentation Dec 3,
+course paper Dec 9, MSR abstract Dec 18, MSR paper Dec 23. The course paper is the full draft and the MSR version is
+a tightened copy of it.
 
 ## What we are trying to win with
 
-The paper's case is four things, in this order of importance:
+Framing agreed with the advisor on 2026-11-17. The paper's case, in order of importance:
 
-1. RQ1 is new and exact. Nobody has measured drift between mirrored copies across agent directories, and it needs no
-   model and no sample. The population ladder below makes it defensible against "your 36% is template noise".
-2. Every number is pre-registered and reported over declared populations with an exclusion cascade. The run log is
-   the evidence. Reviewers at MSR reward this; most challenge papers do not do it.
-3. RQ2 is a human-labelled replication of Yan et al. on thirteen times the repositories, with a codebook, a
-   reliability gate, and a design-based estimate. We do not claim to beat them; we claim to measure the same thing
-   a different way and report where the two agree and disagree.
-4. A small artefact to show at the presentation and poster: a checker that reads a repository and lists its
-   conflicting copies and its most-similar pairs. It demonstrates the problem in thirty seconds.
+1. The coverage gap. In the repositories it contains, the dataset holds about 61% of the skill files that were there
+   during mining. We measure it with intervals, show the cause (single-byte size buckets over the 1,000-result
+   search cap), and demonstrate a repair that costs two API calls per repository. This affects every study built on
+   the dataset, and the tone is "characterise and repair".
+2. RQ1 measured both ways. For the same sampled repositories, drift between mirrored copies across agent
+   directories is computed once from the dataset's rows and once from the repositories' trees at the snapshot. The
+   difference shows that the gap changes answers, not only counts.
+3. Every number is pre-registered and reported over declared populations with an exclusion cascade. The run log is
+   the evidence.
+4. RQ2, optional: a human-labelled estimate of competing skill pairs on about 300 pairs, next to Yan et al. Run only
+   if the week of Nov 28 allows; dropped first if it does not.
 
-What we are not doing: the behavioural experiment (Yan et al. ran 6,368 sessions; we cannot match it), topic
-clustering of competing pairs, trends by month (history covers 24% of contents and is a biased subset), and the
-D/S/O relation types as a headline result (kappa 0.11; exploratory only).
+What we are not doing: the behavioural experiment, topic clustering of competing pairs, trends by month, the D/S/O
+relation types as a headline result (kappa 0.11; exploratory only), and the checker tool (dropped to make room).
+The dataset authors are contacted after submission, not before.
 
 ## Population ladder (to be written into the run log before any main-study number is computed)
 
-Report every RQ over each rung. P0 is the dataset; P2 is the headline population.
+Report every RQ over each rung. P0 is the dataset; P2 is the headline population for RQ1.
 
 | Rung | Definition | Rule source |
 |---|---|---|
@@ -48,71 +50,63 @@ present as separate rows): count SKILL.md paths on GitHub against rows in the da
 
 ## Schedule
 
-### Nov 2 to 8: unblock
-- Nov 3. Submit Checkpoint 2. Post for peer review; send our two reviews. (Chris)
-- Nov 3. Codebook v4: two rules (workflow stages; one tool on two targets) with a worked request each. Drafted Nov 3,
-  edited by both, logged, merged. (Chris drafts, Smirthya edits)
-- Nov 4. Run-log entry "working dataset v1" with the ladder, the skill-level rules, thresholds and seed, written
-  before the script runs. (Chris, Smirthya reviews)
-- Nov 4 to 5. `src/build_working_set.py`: emits the cascade table, the rung membership per repository, the catalog
-  fingerprint, the bulk flag, the placeholder flag. (Chris)
-- Nov 5. Draw the 200-repository validation sample; pull trees and READMEs via the API; coding sheet. (Chris)
-- Nov 5 to 7. Both code the 200 repositories independently (about two hours each). (both)
-- Nov 6. Draw the RQ2 main sample from P2: about 750 pairs, stratified by similarity band and catalog size, all pairs
-  read in catalogs of two or three skills, seed logged; translate; distribute `pairs.csv`. (Chris)
-- Nov 7. RQ1 counts over P0 to P3 at hash level; draw the 100-diff sample from the diverged names in P2; coding
-  sheet with three codes (substantive, agent-specific syntax, formatting only). (Chris)
-- Nov 8. Fill in Checkpoint 2 Section 6 from the peer feedback; revise the report; merge the PR. (both)
+### Done by Nov 17
+- Checkpoints 1 and 2; calibration (kappa 0.61); codebook v4; working set v1 and the population ladder.
+- Coverage measured on the 200-repository validation sample, with the window check; cause verified live.
+- Private repository for the dataset authors: reproduction, per-repository counts, repair script. Held until after
+  submission.
+- Validation instrument version 2: material rebuilt as of the snapshot with translations; new coder guide; both
+  coders agreed.
+- RQ1 tree-based sample designed and logged.
 
-### Nov 9 to 15: measure
-- Both label the 750 pairs. At the calibration pace this is 12 to 15 hours each over the week; two sessions of
-  two hours a day keeps it honest. Label files stay on each machine until both finish. (both)
-- Both code the 100 diffs (about three hours each). (both)
-- RQ3 full-population rerun of the pattern counts over P2; which-copy-is-newer on the subset with dates for both
-  copies. (Chris)
-- Estimator and interval code (`src/estimate.py`): design-based prevalence, repository-clustered bootstrap, by
-  catalog size and rung; tested on the calibration set. (Chris)
-- Related work and background sections of the paper finished against the final reference list; method section
-  rewritten to describe the ladder. (Smirthya)
+### Nov 18: last working day before the break
+- Draw the RQ1 sample and start the fetch (`src/rq1_tree_sample.py`; about 6,000 API calls, runs unattended).
+- Commit and merge the design, the script and this plan.
 
-### Nov 16 to 22: analyse and freeze
-- Nov 16. Agreement on the main sample; disagreements resolved together; if kappa is below 0.60, switch to the
-  two-bounds report (both-C, either-C) and ask the advisor to adjudicate the disagreements. (both)
-- Nov 17 to 18. All estimates, intervals, cascade table, concentration statistics, RQ1 by product and rung,
-  RQ3 counts, comparison with Yan et al. (Chris)
-- Nov 18. Figures: RQ1 stacked bars by rung; RQ2 dot-and-whisker by catalog size; cascade table. (Chris)
-- Nov 19 to 22. Chris is travelling; nothing computational is scheduled. Smirthya drafts results and discussion
-  from the frozen numbers; Chris reviews by e-mail. Analysis frozen Nov 22: no number changes after this without a
-  run-log entry.
+### Nov 19 to 23: nothing required
+- One coder is travelling and the other has examinations on Nov 24.
 
-### Nov 23 to Dec 9: write and present
-- Nov 23 to 30. Full paper draft in the MSR format on Overleaf; the checker script (`src/check_repo.py`) finished
-  and run on three example repositories for the talk. (Smirthya writes, Chris reviews and builds the tool)
-- Dec 1. Full draft to the advisor.
-- Dec 2. Slides; one rehearsal. Presentation structure: the awesome-quant example, the ladder, the RQ1 number,
-  the RQ2 estimate next to Yan et al., what authors do about it, the checker demo.
-- Dec 3. Presentation.
-- Dec 4 to 8. Advisor and instructor comments in; replication package assembled (code, aggregates, labels,
-  codebook, cascade; no skill text); licence chosen.
+### Nov 23 to 25: validation labels
+- Both coders label all 200 repositories with the version 2 guide, about three hours each, files kept local.
+- Nov 25. Exchange files; kappa (all, translated versus English, and sids 51 to 200 alone); precision and recall
+  of the P2 rule; apply the logged fallback if collection precision is below 0.80.
+- Nov 25. `src/rq1_estimate.py` written and run: RQ1 from trees and from dataset rows, coverage on 2,300.
+- Nov 25. Decide whether RQ2 goes ahead. If yes, draw about 300 pairs with catalogs rebuilt from snapshot trees.
+
+### Nov 26 to 27: Thanksgiving
+
+### Nov 28 to Dec 3: analyse, freeze, present
+- Nov 28 to Dec 1. Figures: coverage by stratum; RQ1 dataset versus tree; cascade table. RQ2 pairs labelled if
+  going ahead (about four hours each).
+- Dec 1. Coverage, RQ1 and validation results frozen: no number changes after this without a run-log entry.
+- Dec 2. Slides and one rehearsal. Structure: what skills are, the catalogue-with-missing-books picture, the
+  61% figure and its cause, RQ1 both ways, the repair, what dataset users should do.
+- Dec 3. Presentation. RQ2 shown as preliminary or as future work.
+
+### Dec 4 to 9: course paper
+- Dec 4 to 5. RQ2 agreement and estimates if it ran; frozen Dec 5.
+- Dec 4 to 8. Full draft in the MSR format; advisor comments in; replication package assembled (code, aggregates,
+  labels, guides, cascade; no skill text, no repository names).
 - Dec 9. Course paper submitted.
 
 ### Dec 10 to 23: MSR
 - Dec 10 to 17. Tighten to the page limit; anonymise (no names, no repository URL, anonymised code mirror);
   Zenodo package uploaded with a DOI reserved.
 - Dec 18. Abstract registered.
-- Dec 23. Paper submitted.
+- Dec 23. Paper submitted. The dataset authors are sent the private repository afterwards.
 
-## Decisions to take now
-- Headline population is P2 (project repositories). P0 and P3 are reported beside it.
-- The main sample is drawn from P2 only; the calibration set stays as it is (drawn from P0) and is reported as such.
-- Relation types stay in the label file and are reported as exploratory.
-- The checker is a stretch goal; if the week of Nov 23 runs short it is dropped before anything else.
+## Decisions in force
+- Coverage leads; RQ1 is reported from dataset rows and from trees for the same repositories.
+- Headline population for RQ1 is P2. P1 is the frame for coverage. P3 and the bulk flag are sensitivity runs.
+- RQ2 is optional, on about 300 pairs, drawn only from catalogs rebuilt at the snapshot.
+- The pilot labels for the first 50 validation repositories are a record and are not scored.
 
 ## What can go wrong and what we do
-- Kappa on the main sample below 0.60: two-bounds report with adjudication, already pre-registered.
-- The P2 classifier validates badly (precision under 0.8 for collections): fall back to the Gao et al. rules alone
-  (keywords and fence), which are citable as published, and report ours as an attempted refinement.
-- The byte-exact check finds dropped copies: re-express RQ1 over the 12,875 repositories with two or more
-  directories instead of the 9,875 with a repeated name, and state the correction.
-- Labeling runs over: cut the sample to the pairs already labeled, report the achieved n and the resulting interval
-  width; do not extend the deadline into the freeze week.
+- The P2 rule validates badly (collection precision under 0.80): fall back to the Gao et al. rules alone (keywords
+  and fence), which are citable as published, and report ours as an attempted refinement.
+- Validation kappa is low under the version 2 guide: report it, resolve disagreements together, and present the
+  P2 results with and without the disputed repositories.
+- The fetch does not finish before the break: it is cached and resumable; rerun on Nov 23.
+- The 2,300-repository coverage figure differs from the 200-repository one: report both, with the designs, and
+  lead with the larger sample.
+- Time runs short after Nov 28: RQ2 is dropped first, then the product-directory breakdown of RQ1.
