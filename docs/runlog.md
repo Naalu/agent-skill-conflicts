@@ -474,3 +474,44 @@ Byte-exact copy check: result (2026-11-02, src/fetch_trees.py then src/check_twi
   seed 20261008, design-based estimate with repository-level intervals. The dataset count stays beside it.
   Design, strata sizes and per-repository rules to be written in a separate entry before the fetch runs.
 - Files: data/private/validation/copy_check.csv, twin_verdicts.csv (not committed; regenerate with the scripts).
+
+Coverage of the dataset within its own repositories: correction and measurement (2026-11-04 to 2026-11-17)
+- Correction to the "Reading" line of the byte-exact entry above. Code search does not collapse identical content:
+  on 2026-11-04 a repository with four SKILL.md files, three of them byte-identical, returned all four. The loss
+  comes from the discovery partition. GitSkills splits the search by file size to stay under the 1,000-result cap,
+  and single-byte buckets overflow (`filename:SKILL.md size:3140..3140` reports 1,866 results; page 11 returns 422
+  "Cannot access beyond the first 1000 results"). A file at a crowded size is lost whether it is unique or a copy.
+  The paper keeps every row it received; nothing is deduplicated after the search.
+- Snapshot coverage (src/snapshot_coverage.py): for each of the 200 sampled repositories, the tree at the last
+  default-branch commit before 2026-07-20T22:26Z against every dataset row for the repository. 181 have a tree
+  (19 gone). Root agent directories: 6,822 SKILL.md files at the snapshot, 4,373 in the dataset (64.1% unweighted);
+  of the 2,449 missing, 331 are identical copies of a file the dataset holds and 2,118 are content it does not
+  hold. Weighted file coverage 0.595 (95% CI 0.524 to 0.670); share of repositories complete 0.349.
+- Window check (src/window_check.py): to rule out files added after a repository was mined, only files present at
+  both ends of the mining window (2026-07-09T17:26Z and 2026-07-20T22:26Z) count. 180 repositories have trees at
+  both ends, 174 of them with at least one file present throughout; 51 changed during the window. 5,223 files present throughout, 3,496 in the dataset (66.9%
+  unweighted); missing 331 identical copies and 1,396 unique files. Weighted file coverage 0.606 (95% CI 0.529 to
+  0.688, stratified bootstrap); repositories complete 0.362 (weighted). This is the figure we report.
+- Consequences. RQ1: the dataset count is not an estimate; the tree-based sample proposed above becomes the headline
+  (design entry still to be written before the fetch). RQ2: catalogs built from dataset rows are about 40%
+  incomplete, so within-catalog pairs are undercounted; handling to be decided and logged before the main sample
+  is drawn. The finding goes to the dataset authors through the advisor, with a reproducible example and a repair
+  script (separate private repository).
+- Files: data/private/validation/snapshot_coverage.csv, window_coverage.csv (not committed).
+
+Validation-200, amendment 2: instrument version 2 (2026-11-17; written before any version-2 label)
+- Pilot: coder B labelled sids 1 to 50 with the version 1 material and guide. Problems found: non-English material
+  was not translated, contrary to the language rule of 2026-10-15 (8 of the first 50 have a non-English description
+  or README); the material showed repositories as they are now, not as mined (3 of the 50 show no skills today, 3
+  are gone); only SKILL.md files under root agent directories were listed, hiding a top-level skills/ folder; README
+  excerpts were often badges and HTML; the label definitions left many repositories in between.
+- Changes. Material from src/build_validation_material.py: tree and README at the snapshot commit, every SKILL.md
+  path in two groups, README cleaned before the 4,000-character cut, lingua language detection (confidence >= 0.60)
+  and one DeepL EN-US translation of non-English descriptions and READMEs, recorded in
+  data/private/validation/material_translation.json. Guide (labelling/validation-200/README.md): one question (who
+  is meant to use these skills, and where), ordered steps, a tie-breaker, a table of in-between kinds. Labels are
+  unchanged; `other` is narrowed to material that cannot answer the question.
+- Pilot labels stay on branch validation-200-coder-b as a record and are not used for agreement or for the rule's
+  precision. Both coders label all 200 with version 2; coder B relabels 1 to 50. Because coder B has seen those 50,
+  kappa is also reported on sids 51 to 200 alone. Label files stay local until both coders finish.
+- Everything else in the amendment of 2026-11-02 stands: sample, seed, strata, weights, fallback rule.
