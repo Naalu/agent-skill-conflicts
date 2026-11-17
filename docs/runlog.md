@@ -515,3 +515,42 @@ Validation-200, amendment 2: instrument version 2 (2026-11-17; written before an
   precision. Both coders label all 200 with version 2; coder B relabels 1 to 50. Because coder B has seen those 50,
   kappa is also reported on sids 51 to 200 alone. Label files stay local until both coders finish.
 - Everything else in the amendment of 2026-11-02 stands: sample, seed, strata, weights, fallback rule.
+
+Decisions after the advisor meeting (2026-11-17)
+- Framing: the coverage gap is the paper's lead result. RQ1 is reported twice for the same sampled repositories,
+  once from the dataset's rows and once from the repositories' trees at the snapshot, and the difference is the
+  evidence that the gap changes answers. RQ2 is optional and is run on about 300 pairs only if time allows.
+- The dataset authors are contacted after the paper is submitted, not before.
+
+RQ1 tree-based sample: design (2026-11-17; written before the sample is drawn or any tree is fetched)
+- Replaces the proposal in the byte-exact entry of 2026-11-02. Script: src/rq1_tree_sample.py (draw and fetch);
+  estimates in src/rq1_estimate.py, to be written before any result is looked at.
+- Frame: P1 of working set v1 (120,926 repositories). Strata from the dataset's own view of each repository
+  (valid skills): P2 with one agent directory and one skill name (46,715); P2 with one directory and two or more
+  names (48,746); P2 with two or more directories (9,721); not in P2 (15,744). Draw 400 / 800 / 800 / 300 = 2,300,
+  simple random without replacement within stratum, seed 20261008, repositories sorted by name before drawing.
+  Weight = stratum size / number drawn. The P2 strata serve RQ1; all four serve the coverage estimate, which is
+  then for the dataset's repositories as a whole and no longer rests on 200.
+- Per repository: the last default-branch commit before 2026-07-20T22:26Z and the recursive tree at that commit;
+  every file named SKILL.md (any case) with its blob SHA is kept. If that commit is dated on or after
+  2026-07-09T17:26Z, the same for the last commit before that time.
+- Units, the same for both versions of a repository. Agent directory: the first path component of
+  .<agent>/skills/<folder>/SKILL.md at the repository root. Skill name: <folder>, lower-cased (front matter is not
+  available from a tree, so the folder name is used on both sides). Mirrored name: a name present in two or more
+  agent directories. Diverged: a mirrored name whose copies have two or more distinct blob SHAs. The dataset
+  version uses every dataset row for the repository that matches the path pattern, valid or not, because validity
+  cannot be judged from a tree.
+- RQ1 estimates over P2, each from the tree and from the dataset rows, with the paired difference: share of
+  repositories with two or more agent directories; share with at least one mirrored name; among those, share with
+  at least one diverged name; share of mirrored names that are diverged. Also over P3 and without bulk-flagged
+  repositories, as sensitivity. Product-directory breakdown as in Run 5, tree version only, secondary.
+- Coverage estimates over P1 and over P2: files under root agent directories present in the tree at both ends of
+  the mining window (at the snapshot end only, when the repository did not change in the window) that the dataset
+  holds, as a weighted ratio; share of repositories complete; missing files split by whether the blob SHA is a
+  file_sha the dataset holds for the repository. The 200-repository figure of this date is kept beside it.
+- Estimation: stratum-weighted ratio estimators; 95% intervals by bootstrap within strata, 2,000 replicates,
+  seed 20261008. Repositories with no commit before the snapshot or not reachable now are dropped and counted per
+  stratum; the remaining ones in the stratum carry its weight (assumes unavailability is unrelated to the measures
+  within a stratum; stated as a limitation). Truncated trees are kept and flagged; every estimate is repeated
+  without them.
+- Nothing here changes once the first tree is fetched. A change after that is a dated amendment.
