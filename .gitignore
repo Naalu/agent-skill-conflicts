@@ -23,6 +23,8 @@ pilot/collide/out/label_key*.parquet
 
 # Validation material quotes READMEs and names repositories
 labelling/validation-200/material/
+# Package for the dataset authors (names repositories); lives in its own private repository
+mre/
 
 # Secrets
 .env
