@@ -1,0 +1,28 @@
+\section{Data and Method}
+\label{sec:data_method}
+
+\subsection{GitSkills and catalogs}
+
+GitSkills~\cite{gitskills} was mined from public GitHub repositories between July 9 and July 20, 2026. Its artifacts table has 3,797,117 SKILL.md occurrences (repository plus path), which collapse to 1,877,981 distinct contents. One copy per content carries the text, front matter and commit history, so we join the table to itself on \code{file\_sha}. We use the Hugging Face Parquet export, processed one part at a time with DuckDB, and July 20, 2026 as the reference date.
+
+A skill is \emph{valid} if the file is named exactly SKILL.md and its front matter parses with a non-empty name and description (89.2\% of occurrences). A \emph{catalog} is the set of valid skills in one repository under one agent directory at the repository root (\code{.<agent>/skills/<folder>/SKILL.md}). This gives 141,458 catalogs in 120,929 repositories. For RQ2 we key skills on the front-matter name, trimmed and lower-cased, because that is what products display; it differs from the folder name in 24.3\% of valid occurrences. RQ1 uses the folder name instead (Section~\ref{sec:rq1method}), because a git tree lists paths but not file contents.
+
+\begin{table}[t]
+\centering
+\caption{Agent directories and the products that read them (July 2026 documentation).}
+\label{tab:dirs}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccc}
+\toprule
+Directory & Claude & Codex & Copilot & Cursor & OpenCode \\
+\midrule
+\code{.claude}  & \checkmark &            & \checkmark & \checkmark & \checkmark \\
+\code{.agents}  &            & \checkmark & \checkmark & \checkmark & \checkmark \\
+\code{.github}  &            &            & \checkmark &            &            \\
+\code{.cursor}  &            &            &            & \checkmark &            \\
+\code{.codex}   &            &            &            & \checkmark &            \\
+\bottomrule
+\end{tabular}
+\end{table}
+

@@ -1,0 +1,8 @@
+\subsection{RQ2: Competing skills}
+
+Two skills compete when a realistic request exists for which an agent reading only their names and descriptions could reasonably pick either. Our codebook also assigns a relation type: D (duplicate or variant), S (one scope contains the other) or O (partial overlap). The population is the 82,914 catalogs with two or more skills, excluding skills closed to model invocation (2.45\% of skills). Coders see the name and description in original case, cut at the 1,536-character product cap.
+
+We stratify candidate pairs by the cosine similarity of description embeddings (all-MiniLM-L6-v2~\cite{reimers2019sbert}) and draw 20 pairs per similarity band, 180 in all. Similarity only decides which pairs are read; it does not identify competition, since in an earlier pilot no similarity band reached 80\% competing pairs.
+
+\textbf{Reliability.} Both coders labeled the 180 pairs independently. We set a threshold of Cohen's $\kappa$~\cite{cohen1960kappa} of 0.60 on competing versus not competing, the top of the ``moderate'' band~\cite{landis1977kappa}, before labeling. An LLM given only the codebook labeled the same pairs as a third reader, for comparison only. Because 29 of the 180 pairs (16\%) are not in English, both coders used one shared DeepL translation, and we report $\kappa$ separately for English and translated pairs.
+

@@ -1,0 +1,4 @@
+\subsection{RQ1: Conflicting copies}
+
+The RQ1 population is the 12,875 repositories with valid skills in two or more root agent directories; 9,875 of them repeat at least one name across directories. A copy is \emph{diverged} when the same name appears in two directories of one repository with different \code{file\_sha} values. For each diverged name we record whether the description differs and whether the body length differs by more than 5\% and 50 characters. A different hash is an upper bound on meaningful change, since line endings, whitespace and agent-specific syntax (for example \code{/prp-debug} against \code{\$prp-debug}) also change it. We report counts by the directories each product reads, since one repository can present a conflict to Copilot or Cursor but not to Claude Code, and give Wilson 95\% intervals for every rate~\cite{wilson1927}.
+

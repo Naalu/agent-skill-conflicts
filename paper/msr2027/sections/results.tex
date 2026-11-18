@@ -1,0 +1,76 @@
+% Results, subsections A and B. Drafted 2026-11-18. Every number is in data/private/rq1/estimates.csv or the
+% run-log entries of 2026-11-04 to 2026-11-18; see the claim-evidence map in paper-brief.md.
+
+\subsection{The dataset holds about half the skill files of project repositories}
+\label{sec:coverage}
+
+In project repositories, GitSkills holds 54.2\% of the root skill files that were present throughout the mining
+window (95\% CI 51.2 to 57.5; Table~\ref{tab:estimates}), and half of these repositories (49.9\%) are complete.
+Across all repositories the estimate is 62.6\% (54.0 to 67.7). That interval is wide and asymmetric because five very
+large repositories outside P2 carry 44\% of the weighted files; the project-repository figure does not depend on
+them. The loss is not confined to large repositories: in the sample, repositories that the dataset shows with a
+single skill hold 905 root skill files present throughout, of which the dataset has 424.
+
+The missing files are mostly content the dataset does not hold. Identical copies of a file the dataset already has
+for the same repository make up 7.0\% of missing files in project repositories (5.2 to 9.3) and 10.1\% overall
+(4.0 to 20.2). A rule that dropped repeated files would remove only identical copies, so it cannot account for most of
+the gap.
+
+\subsection{Why files are missing}
+\label{sec:cause}
+
+Code search returns at most 1,000 results per query~\cite{github-search}, so GitSkills partitioned its search by file
+size and split any size range that returned more than 1,000 results~\cite{gitskills}. A range one byte wide cannot be
+split further. On 2026-11-17 the query \texttt{filename:SKILL.md size:3140..3140} reported 1,910 results; page~10
+returned 100 items and page~11 was refused with HTTP~422 (``Cannot access beyond the first 1000 results''). Every file
+past the first 1,000 in such a bucket is unreachable, whether it is unique or a copy. In our test the search did not
+merge copies first: a query restricted to one repository returned all four of its \texttt{SKILL.md} files, three of
+them byte-identical. The dataset's authors also report that the search's \texttt{total\_count} was unreliable, which
+can hide a full bucket~\cite{gitskills}. We cannot replay the July search, and the index has grown since (code search
+reported 8.0 million \texttt{SKILL.md} files on 2026-11-17, against 3.8 million retrieved in July), so the
+demonstration shows the mechanism, not the July bucket sizes.
+
+The missing rows can be rebuilt from the same trees we used to measure the gap. For each repository, the tree at the
+snapshot commit lists every \texttt{SKILL.md} with its blob SHA. A row whose SHA the dataset already stores needs no
+download, and a new SHA is fetched once from the snapshot commit. We ran it on one repository, where it
+recovered the two rows the dataset lacked. For all 282,200 repositories it would take about 565,000 REST calls, or
+under five days with one token at 5,000 calls an hour. It cannot recover repositories the search never returned. For
+future collection, a second partition key once a size range is full, such as the agent directory in the path, would
+remove the cause.
+
+\begin{table}[t]
+\centering
+\caption{Estimates from 2,083 repositories measured at the snapshot (percent, 95\% bootstrap interval)}
+\label{tab:estimates}
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrr@{}}
+\toprule
+\textit{Coverage, files present throughout} & \multicolumn{2}{r}{P2 (projects)} & P1 (all) \\
+\midrule
+Files held by the dataset & \multicolumn{2}{r}{54.2 (51.2--57.5)} & 62.6 (54.0--67.7) \\
+Repositories complete & \multicolumn{2}{r}{49.9 (47.3--52.7)} & 46.3 (43.8--48.8) \\
+Missing files that are identical copies & \multicolumn{2}{r}{7.0 (5.2--9.3)} & 10.1 (4.0--20.2) \\
+\midrule
+\textit{RQ1, project repositories (P2)} & Tree & Dataset & Difference \\
+\midrule
+Two or more agent directories & 14.7 & 9.4 & $+$5.3 (3.9--6.7) \\
+A mirrored name & 11.0 & 7.0 & $+$4.0 (2.9--5.2) \\
+\quad of those, a diverged name & 38.1 & 32.3 & $+$5.8 (0.4--11.8) \\
+Mirrored names that diverged & 23.5 & 24.7 & $-$1.2 ($-$5.9--3.3) \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{RQ1: The dataset undercounts mirroring but not its drift rate}
+\label{sec:rq1}
+
+Measured from the trees, 11.0\% of project repositories keep the same skill name in two or more agent directories;
+38.1\% of those hold at least one diverged copy, and 23.5\% of mirrored names have diverged (Table~\ref{tab:estimates}).
+Measured from the dataset, the same repositories look less mirrored: 9.4\% instead of 14.7\% have two or more agent
+directories, and 7.0\% instead of 11.0\% have a mirrored name, so the dataset misses about a third of mirroring
+repositories. The share of mirrored names that diverge is about the same from both (23.5\% against 24.7\%, difference $-1.2$
+points, $-5.9$ to 3.3). Per repository, the share with a diverged copy is somewhat higher from the trees ($+5.8$
+points, 0.4 to 11.8), which is consistent with the trees showing more mirrored names per repository, and so more
+chances for one of them to diverge. Restricting to P3, where near-forks and templates are collapsed, moves every
+difference in the same direction, and dropping the two truncated trees changes no estimate by more than 0.1 points.
