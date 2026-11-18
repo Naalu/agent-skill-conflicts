@@ -18,7 +18,7 @@
 
 \begin{document}
 
-\title{\todo{Title: proposal P1 in the brief}}
+\title{What GitSkills Misses: A Search Cap Hides Nearly Half the Skills in Project Repositories}
 \author{\IEEEauthorblockN{Anonymous Author(s)}}
 \maketitle
 
@@ -31,23 +31,23 @@ Zenodo 10.5281/zenodo.21875637).}
 \todo{Keywords}
 \end{IEEEkeywords}
 
-% Co-author text, unchanged. Proposals P2 (reframe) and P8 in the brief are not applied.
+% Co-author text, revised for proposals P2, P8 and P11 (accepted 2026-11-18). Original kept in review/.
 \input{sections/coauthor/01_introduction}
 
-% Co-author text, unchanged. Proposal P4 (trim to about 0.45 page) is not applied.
+% Co-author text, trimmed for proposal P4 (accepted 2026-11-18). Original kept in review/.
 \input{sections/coauthor/02_background}
 
-% Co-author section heading, subsection A, Table I and Fig. 1, unchanged (proposal P6 not applied).
+% Co-author subsection A, revised for proposals P6 (Fig. 1 removed, Table I counts removed) and P7.
 \input{sections/coauthor/03a_data}
-% Proposal P3, applied provisionally: the drafted subsections replace the co-author's RQ1 subsection.
-% To restore hers, swap the two lines below.
+% Proposal P3 (accepted): the drafted subsections replace the co-author's RQ1 subsection.
 % \input{sections/coauthor/03b_rq1}
 \input{sections/method-sample}
 \input{sections/coauthor/03c_rq2}
-% Proposal P5, applied provisionally: RQ3 is left out for space. To restore, uncomment.
+% Proposal P5 (accepted): RQ3 is left out of this paper.
 % \input{sections/coauthor/03d_rq3}
 
 \section{Results}
+\label{sec:results}
 \input{sections/results}
 \subsection{RQ2: Competing skills}
 \todo{RESULT NEEDED: RQ2 on about 300 pairs, if run.}
@@ -59,16 +59,25 @@ repositories the search never returned are not measured, folder names stand in f
 sampled repositories unavailable.}
 
 \section{Ethics}
-% Policy section: the authors write it. Facts available: public repositories only; no personal data stored or
-% reported; repository names stay out of the paper and the package; results are aggregates; the dataset's authors
-% will receive the reproduction and repair after review.
-\todo{AUTHOR: ethics section (required by the call, before the conclusion).}
+% Proposal P9 (accepted): drafted from the facts the authors listed. AUTHOR: check each statement is true and is a
+% commitment you are willing to make.
+We used only public repositories, the public GitSkills release and the documented GitHub REST API, within its rate
+limits. The repository names we needed to read trees are kept out of this paper and out of our replication package,
+which holds code and aggregate results but no skill text, and we report only aggregates, so no skill author can be
+identified from either. Both coders are authors of this paper, and no other people took part. After the review period
+we will send the dataset's authors the reproduction and the repair script described here, so that the gap can be
+closed for every user of the dataset.
 
 \section{Conclusion}
 \todo{Conclusion.}
 
 \section*{Acknowledgment}
-\todo{AUTHOR: IEEE disclosure of AI-generated content, from the AI-use log in the brief.}
+% Proposal P10 (accepted): IEEE requires AI-generated text, figures and code to be disclosed here, naming the system
+% and the sections. AUTHOR: finalise when the sections are settled; update the section list.
+The authors used Claude (Anthropic) to draft the data-collection and analysis scripts and the text of
+Sections~\ref{sec:sample}, \ref{sec:rq1method} and~\ref{sec:results}, and to revise Sections~\ref{sec:introduction}
+and~\ref{sec:background}. The authors reviewed and ran all code, checked every number against its output, and
+edited all text.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}

@@ -5,55 +5,24 @@
 
 GitSkills~\cite{gitskills} was mined from public GitHub repositories between July 9 and July 20, 2026. Its artifacts table has 3,797,117 SKILL.md occurrences (repository plus path), which collapse to 1,877,981 distinct contents. One copy per content carries the text, front matter and commit history, so we join the table to itself on \code{file\_sha}. We use the Hugging Face Parquet export, processed one part at a time with DuckDB, and July 20, 2026 as the reference date.
 
-A skill is \emph{valid} if the file is named exactly SKILL.md and its front matter parses with a non-empty name and description (89.2\% of occurrences). A \emph{catalog} is the set of valid skills in one repository under one agent directory at the repository root (\code{.<agent>/skills/<folder>/SKILL.md}). This gives 141,458 catalogs in 120,929 repositories (Fig.~\ref{fig:design}). We key skills on the front-matter name, trimmed and lower-cased, because that is what products display; it differs from the folder name in 24.3\% of valid occurrences.
+A skill is \emph{valid} if the file is named exactly SKILL.md and its front matter parses with a non-empty name and description (89.2\% of occurrences). A \emph{catalog} is the set of valid skills in one repository under one agent directory at the repository root (\code{.<agent>/skills/<folder>/SKILL.md}). This gives 141,458 catalogs in 120,929 repositories. For RQ2 we key skills on the front-matter name, trimmed and lower-cased, because that is what products display; it differs from the folder name in 24.3\% of valid occurrences. RQ1 uses the folder name instead (Section~\ref{sec:rq1method}), because a git tree lists paths but not file contents.
 
 \begin{table}[t]
 \centering
-\caption{Catalogs by agent directory and the products that read them (July 2026 documentation).}
+\caption{Agent directories and the products that read them (July 2026 documentation).}
 \label{tab:dirs}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
-\begin{tabular}{lrccccc}
+\begin{tabular}{lccccc}
 \toprule
-Directory & Catalogs & Claude & Codex & Copilot & Cursor & OpenCode \\
+Directory & Claude & Codex & Copilot & Cursor & OpenCode \\
 \midrule
-\code{.claude}  & 57,523 & \checkmark &            & \checkmark & \checkmark & \checkmark \\
-\code{.agents}  & 36,838 &            & \checkmark & \checkmark & \checkmark & \checkmark \\
-\code{.github}  & 12,918 &            &            & \checkmark &            &            \\
-\code{.cursor}  &  7,125 &            &            &            & \checkmark &            \\
-\code{.codex}   &  5,195 &            &            &            & \checkmark &            \\
-Other           & 21,859 &            &            &            &            &            \\
-\midrule
-Total           & 141,458 & & & & & \\
+\code{.claude}  & \checkmark &            & \checkmark & \checkmark & \checkmark \\
+\code{.agents}  &            & \checkmark & \checkmark & \checkmark & \checkmark \\
+\code{.github}  &            &            & \checkmark &            &            \\
+\code{.cursor}  &            &            &            & \checkmark &            \\
+\code{.codex}   &            &            &            & \checkmark &            \\
 \bottomrule
 \end{tabular}
 \end{table}
-
-\begin{figure}[t]
-\centering
-\begin{tikzpicture}[
-  font=\scriptsize,
-  box/.style={draw, rounded corners=1.5pt, align=center, inner sep=2.5pt, fill=white},
-  arr/.style={-{Stealth[length=3.5pt]}, thin},
-  node distance=3.2mm]
-\node[box, text width=7.6cm] (all) {\textbf{GitSkills}: 3,797,117 SKILL.md occurrences in 282,200 repositories};
-\node[box, text width=7.6cm, below=of all] (valid) {Valid skills in root agent directories: 843,271 occurrences, 141,458 catalogs, 120,929 repositories};
-\node[box, text width=2.3cm, below=5mm of valid.south west, anchor=north west] (r1a) {\textbf{RQ1}\\12,875 repos with 2+ agent directories};
-\node[box, text width=2.3cm, below=5mm of valid.south, anchor=north] (r2a) {\textbf{RQ2}\\82,914 catalogs with 2+ skills};
-\node[box, text width=2.3cm, below=5mm of valid.south east, anchor=north east] (r3a) {\textbf{RQ3}\\20,000 sampled catalogs};
-\node[box, text width=2.3cm, below=of r1a] (r1b) {9,875 repeat a name across directories};
-\node[box, text width=2.3cm, below=of r2a] (r2b) {180 pairs, 20 per similarity band, two coders};
-\node[box, text width=2.3cm, below=of r3a] (r3b) {Cross-references, negative triggers, flags};
-\node[box, text width=2.3cm, below=of r1b] (r1c) {Exact counts by product; Wilson intervals};
-\node[box, text width=2.3cm, below=of r2b] (r2c) {Cohen's $\kappa$, by language};
-\node[box, text width=2.3cm, below=of r3b] (r3c) {Exact counts};
-\draw[arr] (all) -- (valid);
-\draw[arr] (valid.south -| r1a) -- (r1a);
-\draw[arr] (valid) -- (r2a);
-\draw[arr] (valid.south -| r3a) -- (r3a);
-\foreach \a/\b in {r1a/r1b, r1b/r1c, r2a/r2b, r2b/r2c, r3a/r3b, r3b/r3c} \draw[arr] (\a) -- (\b);
-\end{tikzpicture}
-\caption{Study design. RQ1 is an exact count over all eligible repositories; RQ2 is a human-labeled sample; RQ3 is counted on a sample of 20,000 catalogs.}
-\label{fig:design}
-\end{figure}
 
