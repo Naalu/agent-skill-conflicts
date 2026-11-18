@@ -572,3 +572,30 @@ RQ1 estimate script (2026-11-18; written and tested on synthetic data before it 
     repositories, point estimates only.
 - Outputs: data/private/rq1/per_repo.csv (names repositories, not committed) and data/private/rq1/estimates.csv
   (aggregate).
+
+RQ1 and coverage on the 2,300-repository sample: result (2026-11-18, src/rq1_estimate.py, first and only run)
+- Available 2,083 of 2,300 (unavailable 31 / 40 / 81 / 65 in not-P2 / P2 one name / P2 one directory with two or
+  more names / P2 two or more directories, 9 to 11% in every stratum). 672 changed during the mining window;
+  2 truncated trees (no estimate moves by more than 0.001 without them).
+- Coverage, files present throughout the window. P2: file coverage 0.542 (95% CI 0.512 to 0.575), repositories
+  complete 0.499 (0.473 to 0.527), identical copies 0.070 of missing files (0.052 to 0.093). P1: 0.626 (0.540 to
+  0.677), complete 0.463 (0.438 to 0.488), identical copies 0.101 (0.040 to 0.202). The P1 file figure is
+  dominated by a few very large repositories outside P2: the five largest carry 44% of the weighted files (one has
+  9,174 files present throughout), hence its wide, asymmetric interval. By stratum, unweighted: not-P2 0.667,
+  P2 one name 0.469, P2 one directory 0.589, P2 two or more directories 0.486. The 200-repository figure
+  (0.606, 0.529 to 0.688, over P1-weighted cells) agrees with the P1 figure.
+- RQ1 over P2, tree / dataset / tree minus dataset (95% CI of the difference):
+  two or more agent directories 0.147 / 0.094 / +0.053 (+0.039 to +0.067);
+  a mirrored name 0.110 / 0.070 / +0.040 (+0.029 to +0.052);
+  of those, a diverged name 0.381 / 0.323 / +0.058 (+0.004 to +0.118);
+  mirrored names that are diverged 0.235 / 0.247 / -0.012 (-0.059 to +0.033).
+  P3 in the same direction (+0.040, +0.030, +0.078, -0.001).
+- Reading: the dataset understates how common mirroring is by about a third, slightly understates the share of
+  mirroring repositories with a diverged copy (more mirrored names are visible per repository in the tree, so more
+  chances to diverge), and estimates the per-name divergence rate without detectable bias. This corrects the
+  expectation in the byte-exact entry of 2026-11-02 that the dataset's divergence share is biased upward; that
+  expectation rested on the dedup explanation withdrawn on 2026-11-04.
+- "P2 without bulk" equals P2 by construction: the bulk flag requires a skill count above the fence, and the fence
+  is a P2 exclusion, so no P2 repository is flagged (50 flagged repositories in the sample, all outside P2). The
+  sensitivity is reported within P1 instead, if at all.
+- Files: data/private/rq1/per_repo.csv (not committed), data/private/rq1/estimates.csv.
