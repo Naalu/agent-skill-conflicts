@@ -554,3 +554,21 @@ RQ1 tree-based sample: design (2026-11-17; written before the sample is drawn or
   within a stratum; stated as a limitation). Truncated trees are kept and flagged; every estimate is repeated
   without them.
 - Nothing here changes once the first tree is fetched. A change after that is a dated amendment.
+
+RQ1 estimate script (2026-11-18; written and tested on synthetic data before it was run on the sample)
+- src/rq1_estimate.py implements the design entry of 2026-11-17. The fetch finished the same day: 2,300 of 2,300
+  repositories cached, 217 unavailable, 672 changed during the mining window. No estimate had been computed when
+  this entry was written.
+- Clarifications the design left open, fixed here before the first run:
+  - Root skill file: the path pattern .<agent>/skills/<folder>/SKILL.md with SKILL.md in that exact case, the
+    same pattern as snapshot_coverage.py and window_check.py, so the 200- and 2,300-repository figures compare.
+  - "Present throughout the window" means the same path exists in the tree at both ends (content may differ), as in
+    window_check.py. A repository with no commit before the window opened has nothing present throughout.
+  - A missing file is an identical copy when its blob SHA equals any file_sha the dataset holds for the
+    repository, root-directory or not, as in window_check.py.
+  - Coverage measures use repositories with at least one file present throughout; RQ1 measures use every
+    available repository in the domain, including ones whose dataset version has no root skill file.
+  - Products: the directory sets of pilot/collide/probes.py (Run 5), reported as estimated numbers of P2
+    repositories, point estimates only.
+- Outputs: data/private/rq1/per_repo.csv (names repositories, not committed) and data/private/rq1/estimates.csv
+  (aggregate).
