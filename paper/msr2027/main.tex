@@ -23,12 +23,20 @@
 \maketitle
 
 \begin{abstract}
-\todo{Abstract, written last. Must state the dataset version: GitSkills, July 2026 snapshot (arXiv 2608.10906 v3;
-Zenodo 10.5281/zenodo.21875637).}
+Agent skills are instruction files that coding agents choose from by name and description, and authors copy them
+between repositories and between the directories that different agents read. We set out to measure, on GitSkills
+(July 2026 snapshot, Zenodo 10.5281/zenodo.21875637), how often a repository gives its agents different copies of one
+skill. Before counting, we read a stratified sample of 2,300 repositories from GitHub as they stood when the dataset
+was mined. In project repositories the dataset holds 54.2\% of the skill files present throughout its mining window
+(95\% CI 51.2 to 57.5), and half of these repositories are incomplete. The files are lost during discovery, because
+one-byte size buckets exceed the 1,000-result cap of code search. Measured on the same repositories, the dataset
+undercounts how often a skill is mirrored across agent directories by about a third (7.0\% against 11.0\% of project
+repositories), but gives about the same share of mirrored names whose copies have diverged (24.7\% against 23.5\%).
+We describe a repair that costs two API calls per repository and say which uses of the dataset need it.
 \end{abstract}
 
 \begin{IEEEkeywords}
-\todo{Keywords}
+agent skills, coding agents, mining software repositories, dataset quality, code search, code clones
 \end{IEEEkeywords}
 
 % Co-author text, revised for proposals P2, P8 and P11 (accepted 2026-11-18). Original kept in review/.
@@ -53,12 +61,28 @@ Zenodo 10.5281/zenodo.21875637).}
 \todo{RESULT NEEDED: RQ2 on about 300 pairs, if run.}
 
 \section{Discussion}
-\todo{Answer to the opening question; implications for users of the dataset (use per-name rates, re-measure
-prevalence from trees, or apply the repair); limitations: root agent directories and the default branch only,
-repositories the search never returned are not measured, folder names stand in for front-matter names, 8 to 10\% of
-sampled repositories unavailable.}
+\label{sec:discussion}
+On GitHub, about one project repository in nine mirrors a skill across agent directories, and more than a
+third of those give two agents different copies of it. In the dataset, mirroring looks about a third rarer,
+while the share of mirrored names that diverge is about the same. The gap therefore matters most for questions about
+how common something is within repositories (how many directories, how many skills in one list, whether a repository
+mirrors at all) and least for rates among the files the dataset does hold. \todo{RQ2: one sentence on what competition adds, or that it is future work.}
+
+\textbf{For users of GitSkills.} A study that counts within repositories, such as catalog sizes, mirroring or
+competing skills in one list, should measure its sample from git trees at the snapshot, as we did, or apply the
+repair first; either costs two REST calls per repository. A study of individual files, such as their content or
+quality, is affected through which files were lost; we have not tested whether lost files differ from held ones.
+
+\textbf{Limitations.} We measured SKILL.md files under root agent directories on the default branch only, so files
+elsewhere in a repository and on other branches are not counted. We cannot measure repositories that the search
+never returned; the dataset may be missing whole repositories as well as files within them. RQ1 names a skill by its
+folder because trees carry no file contents, and folder and front-matter names differ in 24.3\% of valid occurrences.
+Of the sampled repositories, 8 to 10\% per stratum were unavailable, and we assume they resemble the rest of their
+stratum. A different blob SHA is an upper bound on meaningful divergence. Finally, we demonstrated the cap on
+today's search index, which holds more than twice as many SKILL.md files as were retrieved in July.
 
 \section{Ethics}
+\label{sec:ethics}
 % Proposal P9 (accepted): drafted from the facts the authors listed. AUTHOR: check each statement is true and is a
 % commitment you are willing to make.
 We used only public repositories, the public GitSkills release and the documented GitHub REST API, within its rate
@@ -69,14 +93,18 @@ we will send the dataset's authors the reproduction and the repair script descri
 closed for every user of the dataset.
 
 \section{Conclusion}
-\todo{Conclusion.}
+\label{sec:conclusion}
+GitSkills holds about half of the skill files in the project repositories it contains, because one-byte size buckets
+overflow the code-search cap. Measured both ways, the gap changes how common mirrored skills look but not how often
+mirrored copies diverge. Studies that count within repositories should measure from git trees or repair the dataset
+first. \todo{AUTHOR: replication package link (anonymised mirror for review, Zenodo DOI after acceptance).}
 
 \section*{Acknowledgment}
 % Proposal P10 (accepted): IEEE requires AI-generated text, figures and code to be disclosed here, naming the system
 % and the sections. AUTHOR: finalise when the sections are settled; update the section list.
-The authors used Claude (Anthropic) to draft the data-collection and analysis scripts and the text of
-Sections~\ref{sec:sample}, \ref{sec:rq1method} and~\ref{sec:results}, and to revise Sections~\ref{sec:introduction}
-and~\ref{sec:background}. The authors reviewed and ran all code, checked every number against its output, and
+The authors used Claude (Anthropic) to draft the data-collection and analysis scripts, the abstract, and the text of
+Sections~\ref{sec:sample}, \ref{sec:rq1method}, \ref{sec:results}, \ref{sec:discussion}, \ref{sec:ethics}
+and~\ref{sec:conclusion}, and to revise Sections~\ref{sec:introduction} and~\ref{sec:background}. The authors reviewed and ran all code, checked every number against its output, and
 edited all text.
 
 \bibliographystyle{IEEEtran}

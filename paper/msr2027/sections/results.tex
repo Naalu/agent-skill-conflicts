@@ -6,7 +6,7 @@
 
 In project repositories, GitSkills holds 54.2\% of the root skill files that were present throughout the mining
 window (95\% CI 51.2 to 57.5; Table~\ref{tab:estimates}), and half of these repositories (49.9\%) are complete.
-Across all repositories the estimate is 62.6\% (54.0 to 67.7). That interval is wide and lopsided because five very
+Across all repositories the estimate is 62.6\% (54.0 to 67.7). That interval is wide and asymmetric because five very
 large repositories outside P2 carry 44\% of the weighted files; the project-repository figure does not depend on
 them. The loss is not confined to large repositories: in the sample, repositories that the dataset shows with a
 single skill hold 905 root skill files present throughout, of which the dataset has 424.
@@ -23,12 +23,20 @@ Code search returns at most 1,000 results per query~\cite{github-search}, so Git
 size and split any size range that returned more than 1,000 results~\cite{gitskills}. A range one byte wide cannot be
 split further. On 2026-11-17 the query \texttt{filename:SKILL.md size:3140..3140} reported 1,910 results; page~10
 returned 100 items and page~11 was refused with HTTP~422 (``Cannot access beyond the first 1000 results''). Every file
-past the first 1,000 in such a bucket is unreachable, whether it is unique or a copy: a query restricted to one
-repository returned all four of its \texttt{SKILL.md} files, three of them byte-identical. In that test the search did
-not merge copies. The dataset's authors also report that the search's \texttt{total\_count} was unreliable, which
+past the first 1,000 in such a bucket is unreachable, whether it is unique or a copy. In our test the search did not
+merge copies first: a query restricted to one repository returned all four of its \texttt{SKILL.md} files, three of
+them byte-identical. The dataset's authors also report that the search's \texttt{total\_count} was unreliable, which
 can hide a full bucket~\cite{gitskills}. We cannot replay the July search, and the index has grown since (code search
 reported 8.0 million \texttt{SKILL.md} files on 2026-11-17, against 3.8 million retrieved in July), so the
 demonstration shows the mechanism, not the July bucket sizes.
+
+The missing rows can be rebuilt from the same trees we used to measure the gap. For each repository, the tree at the
+snapshot commit lists every \texttt{SKILL.md} with its blob SHA. A row whose SHA the dataset already stores needs no
+download, and a new SHA is fetched once from the snapshot commit. We ran it on one repository, where it
+recovered the two rows the dataset lacked. For all 282,200 repositories it would take about 565,000 REST calls, or
+under five days with one token at 5,000 calls an hour. It cannot recover repositories the search never returned. For
+future collection, a second partition key once a size range is full, such as the agent directory in the path, would
+remove the cause.
 
 \begin{table}[t]
 \centering
