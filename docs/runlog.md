@@ -599,3 +599,7 @@ RQ1 and coverage on the 2,300-repository sample: result (2026-11-18, src/rq1_est
   is a P2 exclusion, so no P2 repository is flagged (50 flagged repositories in the sample, all outside P2). The
   sensitivity is reported within P1 instead, if at all.
 - Files: data/private/rq1/per_repo.csv (not committed), data/private/rq1/estimates.csv.
+
+Correction (2026-11-18) to the result entry of the same date: the unavailable share per stratum is 8 to 10%
+(31 of 300, 40 of 400, 81 of 800, 65 of 800 = 10.3, 10.0, 10.1, 8.1%), not "9 to 11% in every stratum". No estimate
+is affected.

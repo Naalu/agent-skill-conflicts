@@ -1,0 +1,75 @@
+\documentclass[10pt,conference]{IEEEtran}
+% Required by the MSR 2027 Mining Challenge call: IEEEtran conference, no compsoc options, no changes to spacing or
+% font size; 4 pages plus 1 page of references; double-anonymous.
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\code}[1]{\texttt{\small #1}}  % used in the co-author sections
+
+% Placeholders. Every \cn{} and \todo{} must be gone before submission (grep for them).
+\newcommand{\cn}[1]{\textcolor{red}{[CITE: #1]}}
+\newcommand{\todo}[1]{\textcolor{blue}{[#1]}}
+
+\begin{document}
+
+\title{\todo{Title: proposal P1 in the brief}}
+\author{\IEEEauthorblockN{Anonymous Author(s)}}
+\maketitle
+
+\begin{abstract}
+\todo{Abstract, written last. Must state the dataset version: GitSkills, July 2026 snapshot (arXiv 2608.10906 v3;
+Zenodo 10.5281/zenodo.21875637).}
+\end{abstract}
+
+\begin{IEEEkeywords}
+\todo{Keywords}
+\end{IEEEkeywords}
+
+% Co-author text, unchanged. Proposals P2 (reframe) and P8 in the brief are not applied.
+\input{sections/coauthor/01_introduction}
+
+% Co-author text, unchanged. Proposal P4 (trim to about 0.45 page) is not applied.
+\input{sections/coauthor/02_background}
+
+% Co-author section heading, subsection A, Table I and Fig. 1, unchanged (proposal P6 not applied).
+\input{sections/coauthor/03a_data}
+% Proposal P3, applied provisionally: the drafted subsections replace the co-author's RQ1 subsection.
+% To restore hers, swap the two lines below.
+% \input{sections/coauthor/03b_rq1}
+\input{sections/method-sample}
+\input{sections/coauthor/03c_rq2}
+% Proposal P5, applied provisionally: RQ3 is left out for space. To restore, uncomment.
+% \input{sections/coauthor/03d_rq3}
+
+\section{Results}
+\input{sections/results}
+\subsection{RQ2: Competing skills}
+\todo{RESULT NEEDED: RQ2 on about 300 pairs, if run.}
+
+\section{Discussion}
+\todo{Answer to the opening question; implications for users of the dataset (use per-name rates, re-measure
+prevalence from trees, or apply the repair); limitations: root agent directories and the default branch only,
+repositories the search never returned are not measured, folder names stand in for front-matter names, 8 to 10\% of
+sampled repositories unavailable.}
+
+\section{Ethics}
+% Policy section: the authors write it. Facts available: public repositories only; no personal data stored or
+% reported; repository names stay out of the paper and the package; results are aggregates; the dataset's authors
+% will receive the reproduction and repair after review.
+\todo{AUTHOR: ethics section (required by the call, before the conclusion).}
+
+\section{Conclusion}
+\todo{Conclusion.}
+
+\section*{Acknowledgment}
+\todo{AUTHOR: IEEE disclosure of AI-generated content, from the AI-use log in the brief.}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

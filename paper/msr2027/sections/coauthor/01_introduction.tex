@@ -1,0 +1,16 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Skills are small instruction files that extend coding agents~\cite{anthropicskillsblog}. Each skill carries a name and a short description. When the user asks for something, the agent reads the list of names and descriptions and decides which skill, if any, to load. The main products all select skills this way, and none of them checks whether two entries in the list say the same thing~\cite{claudecodeskills,codexskills,agentskillsspec}. Claude Code's documentation acknowledges the risk: when descriptions are vague or overlap, the agent may load the wrong skill or miss a useful one~\cite{claudecodeskills}.
+
+Skills are also copied heavily. In GitSkills~\cite{gitskills}, half of all occurrences are byte-for-byte copies of a file in another repository, and a tenth of repositories keep parallel copies for several agents. Software engineering research has long documented what happens to copied code: copies drift, and a fix lands in one copy but not the others~\cite{kim2005genealogies,juergens2009clones}. We expect the same with skills, with one difference. The reader of a stale copy is a language model, not a developer who might notice that something looks out of date.
+
+We study two ways a skill list can go wrong. A \emph{conflicting copy} is the same skill name in two agent directories of one repository with different content, so that, for example, Claude Code and Codex read different instructions under one name. \emph{Competing skills} are two differently named skills in one catalog whose descriptions overlap so much that a realistic request could reasonably go to either. Recent experimental work shows that competition lowers selection accuracy~\cite{li2026singleagent,chen2026scaling,song2026shadowing,yan2026oneskill}, but no study has measured drift between mirrored copies, and the prevalence of competition has not been measured on GitSkills or with human labels and a sampling design. We ask:
+
+\begin{itemize}
+\item \textbf{RQ1 (conflicting copies).} How often does a repository give its coding agents different copies of the same skill?
+\item \textbf{RQ2 (competing skills).} How often do differently named skills in one catalog compete?
+\item \textbf{RQ3 (author practices).} What do skill authors do to prevent either problem?
+\end{itemize}
+
+Our contributions are (1) exact counts of conflicting copies across all eligible repositories, broken down by which product reads which directory; (2) a codebook for competing skills and a reliability study on 180 human-labeled pairs that shows where coders disagree; and (3) counts of cross-references, negative triggers and invocation flags that show how authors guard against overlap.

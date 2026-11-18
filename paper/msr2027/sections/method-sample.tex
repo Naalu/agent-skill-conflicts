@@ -1,0 +1,46 @@
+% Data and method, subsections B and C. Drafted 2026-11-18 from docs/runlog.md (entries of 2026-11-17 and 2026-11-18).
+% Replaces subsection B ("RQ1: Conflicting copies") of the co-author draft; see the brief, proposal P3.
+
+\subsection{Measuring each repository at the snapshot}
+\label{sec:sample}
+
+To see what the dataset misses, we compared it with the repositories it was mined from, as they stood when it was
+mined. The frame was every non-fork repository with a valid skill under a root agent directory
+(P1, 120,926 repositories). We split P1 into four strata by what the dataset shows for each repository: project
+repositories (P2, defined below) with one agent directory and one skill name (46,715), with one agent directory and
+two or more names (48,746), with two or more agent directories (9,721), and repositories outside P2 (15,744). We
+drew 400, 800, 800 and 300 repositories from these strata by simple random sampling (2,300 in all; seed 20261008).
+P2 excludes skill collections: repositories whose name or description matches a list of collection keywords, whose
+number of distinct skill names lies above the Tukey upper fence of the per-repository distribution, or that have no
+detected language, no skill in \texttt{.claude/skills} and two or more skills. The keyword list and the fence follow Gao et al.~\cite{gao2026registry}; the language rule is ours.
+
+For each sampled repository we took the last commit on the default branch before the end of the dataset's mining
+window (2026-07-20 22:26 UTC) and read the recursive tree at that commit through the GitHub REST API. The tree gives
+every \texttt{SKILL.md} path with its git blob SHA, which is the hash GitSkills stores as \texttt{file\_sha}. A
+repository can change while the search is still running, so for the 672 repositories whose snapshot commit fell
+inside the window (after 2026-07-09 17:26 UTC) we also read the tree at the start of the window. A file counts as
+present throughout when its path is in the tree at both ends. We compared these files with every dataset row for the
+repository, valid or not, matching on path. A file the dataset lacks is an \emph{identical copy} when its blob SHA
+equals a \texttt{file\_sha} the dataset holds for the same repository, and \emph{missing content} otherwise.
+Coverage is the share of present files that the dataset holds, and a repository is \emph{complete} when the
+dataset holds all of them.
+
+Of the 2,300 repositories, 217 were deleted, private or had no commit before the snapshot (8 to 10\% in every
+stratum) and were dropped. The remaining repositories in each stratum carry its weight (stratum size over
+repositories available).
+Two trees were truncated by the API and are kept. We report weighted ratio estimates with 95\% percentile intervals
+from 2,000 bootstrap replicates drawn within strata. The design was fixed in our run log before the sample was drawn,
+and the estimation script was written and tested on synthetic data before its first run.
+
+\subsection{RQ1: Mirrored and diverged skills, measured twice}
+\label{sec:rq1method}
+
+Each sampled repository in P2 was measured twice with the same rules: once from its tree at the snapshot and once
+from its dataset rows. A root skill file is a path of the form \texttt{.<agent>/skills/<folder>/SKILL.md}; its agent
+directory is \texttt{.<agent>}. Because a tree lists paths but not file contents, we name a skill by its folder,
+lower-cased, on both sides. A \emph{mirrored} name appears in two or more agent directories of one repository; it is
+\emph{diverged} when its copies have two or more distinct blob SHAs. A different hash is an upper bound on meaningful
+change, since line endings, whitespace and agent-specific syntax also change it. We estimate the share of
+repositories with two or more agent directories, the share with a mirrored name, the share of those with a diverged
+name, and the share of mirrored names that are diverged, each from both versions, with the paired difference
+(tree minus dataset) computed within every bootstrap replicate.
